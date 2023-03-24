@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-transparent fixed-top py-1">
+<nav class="navbar navbar-expand-lg bg-transparent fixed-top py-1" id="the-one-navbar">
     <div class="container">
 
       <a class="navbar-brand" href="{{route('home')}}">
@@ -17,10 +17,10 @@
         </div>
 
         <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
 
             <li class="nav-item">
-              <a class="nav-link me-5 active" href="{{route('home')}}">{{__('Inicio')}}</a>
+              <a class="nav-link mx-5 active" href="{{route('home')}}">{{__('Inicio')}}</a>
             </li>
 
             <li class="nav-item">
@@ -36,6 +36,22 @@
             </li>
 
           </ul>
+
+          <div>
+            <a href="https://www.facebook.com/TheOneResidencesBucerias" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            
+            <a href="https://www.instagram.com/theoneresidencesbucerias/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a href="#" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Whatsapp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            
+          </div>
+
         </div>
 
       </div>
