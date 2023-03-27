@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-transparent fixed-top py-1" id="the-one-navbar">
+<nav class="navbar navbar-expand-lg bg-transparent fixed-top py-1" id="the-one-navbar" data-bs-theme="dark">
     <div class="container">
 
       <a class="navbar-brand" href="{{route('home')}}">
         <img width="150px" src="{{asset('img/the-one-logo-white.webp')}}" alt="The One Residences Logo">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <button class="navbar-toggler me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
 

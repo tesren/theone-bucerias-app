@@ -1,5 +1,6 @@
 import './bootstrap';
 import './bootstrap.bundle.min.js';
+import './splide.min.js';
 
 window.addEventListener('scroll', function() {
     var navbar = document.getElementById('the-one-navbar');
@@ -14,4 +15,27 @@ window.addEventListener('scroll', function() {
       navbar.classList.add('bg-transparent');
     }
 });
+
+
+  var splide = document.getElementById('gallery-home');
+
+  if(splide){
+    splide = new Splide( '#gallery-home', {
+      type   : 'loop',
+      perPage: 5,
+      perMove: 1,
+      pagination: false,
+
+      breakpoints: {
+        640: {
+          perPage: 2,
+        },
+        480: {
+          perPage: 1,
+        },
+      },
+
+    } );
   
+    splide.mount();
+  }
