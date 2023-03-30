@@ -24,7 +24,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link me-5" href="#">{{__('Condominios')}}</a>
+              <a class="nav-link me-5" href="{{route('inventory')}}">{{__('Condominios')}}</a>
             </li>
             
             <li class="nav-item">

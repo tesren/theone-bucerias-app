@@ -5,7 +5,7 @@ import './splide.min.js';
 window.addEventListener('scroll', function() {
     var navbar = document.getElementById('the-one-navbar');
     var scrollPosition = window.scrollY;
-    var scrollThreshold = 500; // Cambia este valor para ajustar la cantidad de scroll necesaria
+    var scrollThreshold = 400; // Cambia este valor para ajustar la cantidad de scroll necesaria
   
     if (scrollPosition >= scrollThreshold) {
       navbar.classList.remove('bg-transparent');

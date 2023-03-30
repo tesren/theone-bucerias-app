@@ -2,7 +2,7 @@
 
 @section('titles')
     <title>The One Residences - Condominios en Bucerías Nayarit con vista al mar</title>
-    <meta name="description" content="">
+    <meta name="description" content="The One Residences es un desarrollo inmobiliario en Bucerías Nayarit con condominios en preventa ubicados a solo 2 minutos caminando de la playa. Descubre tu hogar en el paraíso con nuestras residencias de lujo diseñadas con la más alta calidad y comodidad. Conoce nuestras opciones de departamentos en venta y aprovecha la oportunidad de vivir en uno de los lugares más exclusivos de la Riviera Nayarit">
 @endsection
 
 @section('content')
@@ -60,7 +60,9 @@
       </div>
 
       <h2 class="mb-5 fs-1">Descubre el paraíso en la costa de Nayarit</h2>
-      <p class="fs-5 mb-5 fw-light">Dinámico y conectado, con un toque de tranquilidad. El paisaje es maravilloso y relajante, con paseos cuidados y jardines tropicales. La belleza y la serenidad están a su lado al llegar a casa.</p>
+      <p class="fs-6 mb-5 fw-light">
+        La ubicación de The One en Bucerías, conjuga las riquezas más grandes de este exclusivo destino, su playa y el interior del pueblo. Por ello, ofrece la mejor ubicación en la Zona Dorada, donde se puede escuchar el sonido de las olas del mar y oler la esencia del agua salada, donde se podrá disfrutar de las espectaculares puestas del sol, practicar deportes de mar y disfrutar de la vida trendy que ofrece esta zona. Ubicado en el corazón de Bucerías en la Calle Lázaro #43 Cárdenas entre la calles Morelos y Galeana, a sólo 1 cuadra de la playa. The One reúne una visión de amenidades de estilo de vida de lujo dentro de un entorno boutique sin igual en el área.
+      </p>
       
       <a href="#" class="btn btn-orange fs-5 text-uppercase">
         Ver Inventario <i class="fa-solid fa-right-long"></i>
@@ -152,12 +154,12 @@
 
     <div class="col-12 col-lg-9">
 
-      <div class="d-flex justify-content-between mb-5">
-        <h3 class="fs-1">Tipos de Condominios</h3>
-        <a href="#" class="btn btn-orange align-self-center">Descubre más <i class="fa-solid fa-right-long"></i></a>
+      <div class="d-flex justify-content-center justify-content-lg-start mb-5">
+        <h3 class="fs-1 text-center text-lg-start">Tipos de <span class="text-orange">Condominios</span></h3>
+        <a href="#" class="btn btn-orange align-self-center d-none d-lg-block">Descubre más <i class="fa-solid fa-right-long"></i></a>
       </div>
 
-      <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+      <ul class="nav nav-pills mb-5 justify-content-center" id="pills-tab" role="tablist">
 
         <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
           <button class="nav-link active w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
@@ -193,7 +195,7 @@
           <div class="row px-0">
 
             @foreach ($studios as $unit)
-              <div class="col-12 col-lg-4">
+              <div class="col-12 col-lg-4 mb-4">
                 <div class="card w-100 border-0 position-relative">
 
                   @php
@@ -223,7 +225,7 @@
           <div class="row px-0">
 
             @foreach ($one_bedrooms as $unit)
-              <div class="col-12 col-lg-4">
+              <div class="col-12 col-lg-4 mb-4">
                 <div class="card w-100 border-0 position-relative">
 
                   @php
@@ -252,7 +254,7 @@
           <div class="row px-0">
 
             @foreach ($two_bedrooms as $unit)
-              <div class="col-12 col-lg-4">
+              <div class="col-12 col-lg-4 mb-4">
                 <div class="card w-100 border-0 position-relative">
 
                   @php
@@ -281,7 +283,7 @@
           <div class="row px-0">
 
             @foreach ($three_bedrooms as $unit)
-              <div class="col-12 col-lg-4">
+              <div class="col-12 col-lg-4 mb-4">
                 <div class="card w-100 border-0 position-relative">
 
                   @php
@@ -397,6 +399,79 @@
 
   </div>
   
+  {{-- Ubicación --}}
+  <div class="row justify-content-center mb-6">
+    <div class="col-11 col-lg-9 bg-light p-3 p-lg-5">
+
+      <div class="row justify-content-between mb-4 mb-lg-5">
+        <h5 class="fs-1 col-12 col-lg-9 text-center text-lg-start">Todo al <span class="text-orange">alcance</span></h5>
+        <a href="#" class="btn btn-orange fs-5 align-self-center col-12 col-lg-3 d-none d-lg-block">Ver Inventario <i class="fa-solid fa-right-long"></i></a>
+      </div>
+      
+
+      <div class="row">
+
+        <div class="col-12 col-lg-8 mb-3 mb-lg-0">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.923456434327!2d-105.33918008478108!3d20.753896302479934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84214171485563f7%3A0x312112c4aabbcff4!2sThe%20One%20Residences!5e0!3m2!1ses-419!2smx!4v1680112283882!5m2!1ses-419!2smx" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <ul class="list-group list-group-flush mb-4 mb-lg-0">
+
+            <li class="list-group-item bg-transparent">
+              <a class="link-dark text-decoration-none fw-bold ff-oswald fs-5 d-flex" data-bs-toggle="collapse" href="#collapsePlaya" role="button" aria-expanded="false" aria-controls="collapsePlaya">
+                <i class="fa-solid fa-umbrella-beach me-1 align-self-center"></i> Playa Bucerías <i class="ms-auto fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="collapse" id="collapsePlaya">
+                <p class="p-2">
+                  Es una playa amplia y tranquila con aguas cristalinas y arena suave, ideal para relajarse y disfrutar del sol. Además, ofrece una amplia variedad de actividades acuáticas, como nadar, bucear y hacer surf.
+                </p>
+              </div>
+            </li>
+
+            <li class="list-group-item bg-transparent">
+              <a class="link-dark text-decoration-none fw-bold ff-oswald fs-5 d-flex" data-bs-toggle="collapse" href="#collapseCentro" role="button" aria-expanded="false" aria-controls="collapseCentro">
+                <i class="fa-solid fa-map-location-dot me-1 align-self-center"></i> Bucerías Centro <i class="ms-auto fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="collapse" id="collapseCentro">
+                <p class="p-2">
+                  La zona del centro se encuentra a pocos minutos de la playa y está repleta de tiendas, restaurantes, bares y galerías de arte locales. Es un lugar ideal para caminar y explorar la cultura y la vida cotidiana de la zona.
+                </p>
+              </div>
+            </li>
+
+            <li class="list-group-item bg-transparent">
+              <a class="link-dark text-decoration-none fw-bold ff-oswald fs-5 d-flex" data-bs-toggle="collapse" href="#collapseHospital" role="button" aria-expanded="false" aria-controls="collapseHospital">
+                <i class="fa-solid fa-hospital me-1 align-self-center"></i> Hospital <i class="ms-auto fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="collapse" id="collapseHospital">
+                <p class="p-2">
+                  El Hospital CQM se encuentra a solo 4 minutos en auto lo cual puede ser esencial para garantizar una atención médica rápida en caso de emergencia, así como para brindar mayor tranquilidad y acceso a servicios médicos especializados.
+                </p>
+              </div>
+            </li>
+
+            <li class="list-group-item bg-transparent">
+              <a class="link-dark text-decoration-none fw-bold ff-oswald fs-5 d-flex" data-bs-toggle="collapse" href="#collapseMarket" role="button" aria-expanded="false" aria-controls="collapseMarket">
+                <i class="fa-solid fa-store me-1 align-self-center"></i> Supermercado <i class="ms-auto fa-solid fa-chevron-down"></i>
+              </a>
+              <div class="collapse" id="collapseMarket">
+                <p class="p-2">
+                  El Supermercado está solo 7 minutos en auto, lo cual brinda comodidad, ahorro de tiempo y dinero, mayor variedad de productos y mayor disponibilidad de productos frescos y de temporada.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+
+          <a href="#" class="btn btn-orange fs-5 align-self-center w-100 d-block d-lg-none">Ver Inventario <i class="fa-solid fa-right-long"></i></a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 
   {{-- Galería --}}
   <section class="splide" aria-label="Galería The One Residences" id="gallery-home">
@@ -427,12 +502,5 @@
     </div>
 
   </section>
-
-  <div class="p-5 row justify-content-evenly bg-orange">
-    <h6 class="fs-1 col-12 col-lg-4">Contacta un agente</h6>
-    <a href="#" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2">
-      Ver Inventario <i class="fa-solid fa-right-long"></i>
-    </a>
-  </div>
 
 @endsection

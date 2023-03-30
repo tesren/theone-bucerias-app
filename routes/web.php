@@ -15,3 +15,7 @@ use App\Http\Controllers\PublicPagesController;
 */
 
 Route::get('/', [PublicPagesController::class, 'home'])->name('home');
+
+Route::get('/condominios-en-venta', [PublicPagesController::class, 'inventory'])->name('inventory');
+
+Route::get('/condominio-en-venta/{id}', [PublicPagesController::class, 'unit'])->name('unit');

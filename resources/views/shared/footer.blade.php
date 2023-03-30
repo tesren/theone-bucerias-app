@@ -1,3 +1,10 @@
+<div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
+    <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">Contacta un agente</h6>
+    <a href="#" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2">
+        Contactar <i class="fa-solid fa-right-long"></i>
+    </a>
+</div>
+
 <footer class="position-relative py-5" style="background-image: url('{{asset('/img/footer_background.webp')}}')">
 
     <div class="container">
