@@ -19,23 +19,27 @@ window.addEventListener('scroll', function() {
 
   var splide = document.getElementById('gallery-home');
 
-  if(splide){
-    splide = new Splide( '#gallery-home', {
-      type   : 'loop',
-      perPage: 5,
-      perMove: 1,
-      pagination: false,
-
-      breakpoints: {
-        640: {
-          perPage: 2,
-        },
-        480: {
-          perPage: 1,
-        },
-      },
-
-    } );
+  window.addEventListener('load', function() {
+    // aquí puedes poner el código que deseas ejecutar después de que se hayan cargado todos los recursos de la página
+    if(splide){
+      splide = new Splide( '#gallery-home', {
+        type   : 'loop',
+        perPage: 5,
+        perMove: 1,
+        pagination: false,
   
-    splide.mount();
-  }
+        breakpoints: {
+          640: {
+            perPage: 2,
+          },
+          480: {
+            perPage: 1,
+          },
+        },
+  
+      } );
+    
+      splide.mount();
+    }
+    
+  });

@@ -71,7 +71,7 @@
     </div>
 
     <div class="col-12 col-lg-4">
-      <img src="{{asset('/img/dinning-area.webp')}}" alt="Dinning area - The One Residences" class="w-100">
+      <img src="{{asset('/img/dinning-area.webp')}}" alt="Dinning area - The One Residences" class="w-100" loading="lazy">
     </div>
 
   </div>
@@ -89,8 +89,8 @@
     <div class="col-12 col-lg-5 z-3 px-3 px-lg-0 mb-5">
 
       <div class="text-white fw-bold">Playa Bucerías</div>
-      <div class="progress rounded-0 mb-4" role="progressbar" aria-label="Distancia a la Playa" aria-valuenow="160" aria-valuemin="0" aria-valuemax="1600">
-        <div class="progress-bar bg-orange" style="width: 10%">130m</div>
+      <div class="progress rounded-0 mb-4" role="progressbar" aria-label="Distancia a la Playa" aria-valuenow="45" aria-valuemin="0" aria-valuemax="1600">
+        <div class="progress-bar bg-orange" style="width: 10%">45m</div>
       </div>
 
       <div class="text-white fw-bold">Bucerías Centro</div>
@@ -154,7 +154,7 @@
 
     <div class="col-12 col-lg-9">
 
-      <div class="d-flex justify-content-center justify-content-lg-start mb-5">
+      <div class="d-flex justify-content-center justify-content-lg-between mb-5">
         <h3 class="fs-1 text-center text-lg-start">Tipos de <span class="text-orange">Condominios</span></h3>
         <a href="#" class="btn btn-orange align-self-center d-none d-lg-block">Descubre más <i class="fa-solid fa-right-long"></i></a>
       </div>
@@ -199,10 +199,10 @@
                 <div class="card w-100 border-0 position-relative">
 
                   @php
-                    $blueprint = $unit->getFirstMedia('blueprint');
+                    $blueprint = '/media/'.$unit->blueprint_path;
                   @endphp
 
-                  <img src="@isset($blueprint){{ $blueprint->getUrl('medium') }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}">
+                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:cover;" loading="lazy">
 
                   <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
@@ -229,10 +229,10 @@
                 <div class="card w-100 border-0 position-relative">
 
                   @php
-                    $blueprint = $unit->getFirstMedia('blueprint');
+                    $blueprint = '/media/'.$unit->blueprint_path;
                   @endphp
 
-                  <img src="@isset($blueprint){{ $blueprint->getUrl('medium') }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}">
+                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:cover;" loading="lazy">
 
                   <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
@@ -258,10 +258,10 @@
                 <div class="card w-100 border-0 position-relative">
 
                   @php
-                    $blueprint = $unit->getFirstMedia('blueprint');
+                    $blueprint = '/media/'.$unit->blueprint_path;
                   @endphp
 
-                  <img src="@isset($blueprint){{ $blueprint->getUrl('medium') }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}">
+                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:cover;" loading="lazy">
 
                   <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
@@ -287,10 +287,10 @@
                 <div class="card w-100 border-0 position-relative">
 
                   @php
-                    $blueprint = $unit->getFirstMedia('blueprint');
+                    $blueprint = '/media/'.$unit->blueprint_path;
                   @endphp
 
-                  <img src="@isset($blueprint){{ $blueprint->getUrl('medium') }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}">
+                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:cover;" loading="lazy">
 
                   <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
@@ -326,7 +326,7 @@
             <i class="fa-solid fa-water-ladder position-absolute top-0 end-0 fa-2x text-orange me-4 mt-4"></i>
             <div class="ff-oswald text-orange pt-5">AMENIDADES</div>
             <div class="fs-3">Alberca</div>
-            <p>Alberca Infinita ubicada en la terraza del edificio</p>
+            <p>Alberca Infinita de 3x17 metros ubicada en la terraza del edificio</p>
           </div>
         </div>
 
@@ -480,22 +480,22 @@
 
       <ul class="splide__list">
         <li class="splide__slide">
-          <img src="{{'/img/the-one-pool.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;">
+          <img src="{{'/img/the-one-pool.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
         </li>
         <li class="splide__slide">
-          <img src="{{'/img/kitchen-terrace.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;">
+          <img src="{{'/img/kitchen-terrace.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
         </li>
         <li class="splide__slide">
-          <img src="{{'/img/bedroom.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;">
+          <img src="{{'/img/bedroom.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
         </li>
         <li class="splide__slide">
-          <img src="{{'/img/kitchen.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;">
+          <img src="{{'/img/kitchen.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
         </li>
         <li class="splide__slide">
-          <img src="{{'/img/roof-garden.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;">
+          <img src="{{'/img/roof-garden.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
         </li>
         <li class="splide__slide">
-          <img src="{{'/img/rooftop.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;">
+          <img src="{{'/img/rooftop.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
         </li>
       </ul>
 

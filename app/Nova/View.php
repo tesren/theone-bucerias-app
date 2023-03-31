@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use Laravel\Nova\Fields\Image;
 
 
@@ -64,7 +62,6 @@ class View extends Resource
             ID::make()->sortable(),
             Text::make('Nombre', 'name_es')->rules('required', 'max:150')->help('El nombre en Español'),
             Text::make('Name', 'name_en')->rules('required', 'max:150')->help('El nombre en Inglés'),
-            //Images::make('Imagen', 'building_views')->hideFromIndex()->conversionOnDetailView('preview'), 
             Image::make('Imagen', 'img_path')->disk('media'),
 
         ];

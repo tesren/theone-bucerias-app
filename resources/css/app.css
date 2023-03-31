@@ -198,6 +198,40 @@ hr{
     transition: 0.3s;
 }
 
+.bg-Apartada{
+    background-color: var(--orange);
+}
+
+.bg-Disponible{
+    background-color: #276D3D;
+}
+
+.bg-Vendida{
+    background-color: #B50505;
+}
+
+[data-fancybox]:hover{
+    cursor: pointer;
+}
+
+/* Formulario de contacto */
+.form-contact{
+    background-color: #bcbcbc;
+    border-radius: 0;
+    border: none;
+    color: black !important;
+    display: block;
+    width: 100%;
+    padding: 5px;
+}
+
+.form-contact::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+
 
 @media (max-width: 992px) {
     .mt-6{

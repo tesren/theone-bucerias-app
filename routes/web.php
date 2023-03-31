@@ -14,8 +14,14 @@ use App\Http\Controllers\PublicPagesController;
 |
 */
 
+Route::redirect('/login', '/nova/login', 301);
+
 Route::get('/', [PublicPagesController::class, 'home'])->name('home');
 
 Route::get('/condominios-en-venta', [PublicPagesController::class, 'inventory'])->name('inventory');
 
 Route::get('/condominio-en-venta/{id}', [PublicPagesController::class, 'unit'])->name('unit');
+
+Route::get('/contacto', [PublicPagesController::class, 'contact'])->name('contact');
+
+Route::post('/enviar-mail', [PublicPagesController::class, 'sendMail'])->name('send.email');

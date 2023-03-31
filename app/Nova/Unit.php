@@ -20,9 +20,8 @@ use App\Nova\Actions\ChangeUnitView;
 use Laravel\Nova\Fields\BelongsToMany;
 use App\Nova\Actions\AssignPaymentPlan;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Files;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
 use App\Nova\ChangeStatus;
+use Laravel\Nova\Fields\Image;
 
 class Unit extends Resource
 {
@@ -133,11 +132,15 @@ class Unit extends Resource
     protected function imageFields() {
 
         return [
-            Images::make('Portada', 'portrait')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
-            Images::make('Isométrico', 'isometric')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
-            Images::make('Galería', 'gallery')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
-            Images::make('Ubicación en planta', 'floor')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
-            Images::make('Planos de la unidad', 'blueprint')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
+           // Images::make('Portada', 'portrait')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
+            Image::make('Portada', 'portrait_path')->disk('media')->creationRules('required'),
+            Image::make('Planos', 'blueprint_path')->disk('media')->creationRules('required'),
+            Image::make('Isométrico', 'isometric_path')->disk('media')->creationRules('required'),
+
+            //Images::make('Isométrico', 'isometric')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
+            //Images::make('Galería', 'gallery')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
+            //Images::make('Ubicación en planta', 'floor')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
+            //Images::make('Planos de la unidad', 'blueprint')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
 
         ];
 

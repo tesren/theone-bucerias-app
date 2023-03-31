@@ -1,8 +1,25 @@
 <div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
     <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">Contacta un agente</h6>
-    <a href="#" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2">
+    <button type="button" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2" data-bs-toggle="modal" data-bs-target="#contactModal">
         Contactar <i class="fa-solid fa-right-long"></i>
-    </a>
+    </button>
+</div>
+
+{{-- Modal de contacto --}}
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div class="modal-title fs-5 ff-oswald" id="contactModalLabel">Contactar</div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @include('shared.contact-form')
+            </div>
+        
+        </div>
+    </div>
 </div>
 
 <footer class="position-relative py-5" style="background-image: url('{{asset('/img/footer_background.webp')}}')">
