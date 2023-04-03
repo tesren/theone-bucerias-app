@@ -20,9 +20,10 @@
 
     @include('shared.footer')
 
+    @yield('javascript')
+
     @vite(['resources/js/app.js'])
     
-    @yield('javascript')
 </body>
 
 </html>

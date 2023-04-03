@@ -76,16 +76,16 @@
 
         <div class="col-12 col-lg-5 align-self-center">
 
-            <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div id="carouselExampleFade" class="carousel carousel-dark slide carousel-fade" data-bs-theme="dark">
 
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img src="{{ asset( $isometric_url) }}" alt="Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos">
+                        <img src="{{ asset( $isometric_url) }}" alt="Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos" style="height:380px; object-fit:cover;">
                     </div>
 
                     <div class="carousel-item">
-                        <img src="{{ asset( $blueprint_url) }}" alt="Planos del Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos">
+                        <img src="{{ asset( $blueprint_url) }}" alt="Planos del Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos" style="height:380px; object-fit:cover;">
                     </div>
                   
                 </div>
@@ -183,6 +183,130 @@
         </div>
 
     </div>
+
+    {{-- Planes de pago --}}
+    @if ($unit->status == 'Disponible')
+        <h4 class="mb-5 text-center text-lightblue fs-1 pt-5" id="plans">{{__('Planes de')}} <span class="text-orange">{{__('Pago')}}</span> </h4>
+
+        <ul class="nav nav-pills mb-5 justify-content-center" id="pills-tab" role="tablist">
+
+            @php
+                $k = 1;
+                $j = 1;
+            @endphp
+
+            @foreach ($plans as $plan)
+                <li class="nav-item" role="presentation">
+                    <button class="fs-5 ff-oswald text-uppercase nav-link mx-2 @if($k == 1) active @endif" id="pills-plan-nav-{{$plan->id}}" data-bs-toggle="pill" data-bs-target="#pills-plan-tab-{{$plan->id}}" type="button" role="tab" @if($k == 1)aria-selected="true" @endif>
+                        {{$plan->name}}
+                    </button>
+                </li>
+                @php $k++; @endphp
+            @endforeach
+        </ul>
+
+        <div class="tab-content mb-6" id="pills-tabContent">
+
+            @foreach ($plans as $plan)
+                @php
+                    if(isset($plan->discount)){
+                        $discount = $unit->price * ($plan->discount/100);
+                        $price = $unit->price - $discount;
+                    }else{
+                        $price = $unit->price;
+                    }
+
+                    $enganche = ($price) * ($plan->down_payment/100);
+                    $closing = ($price) * ($plan->closing_payment/100);
+                    $meses = ($price) * ($plan->months_percent/100);
+
+                    if( isset($plan->second_payment) ){
+                        $second = $price * ($plan->second_payment/100);
+                    }
+
+                    if(isset($meses) and isset($plan->months_quantity)){                        
+                        $mes = $meses / ($plan->months_quantity);
+                    }
+                    else{
+                        $mes = 0;
+                    }
+                @endphp
+
+                <div class="tab-pane fade @if($j == 1) show active @endif" id="pills-plan-tab-{{$plan->id}}" role="tabpanel" aria-labelledby="pills-plan-nav-{{$plan->id}}" tabindex="{{$j}}">
+                    <div class="row px-1 justify-content-center">
+
+                        <div class="col-12 col-lg-8 col-xl-6 fs-4 bg-light rounded-1 fw-light px-0 shadow-6">
+
+                            <div class="d-flex justify-content-center mb-3 position-relative fs-1 bg-dark py-2 rounded-top-1">
+                                <div class="text-center text-white ms-2">{{$plan->name}}</div>
+                            </div>
+
+                            <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
+                                <div>{{__('Precio de Lista')}} </div>
+                                <div class="text-end @isset($plan->discount) text-decoration-line-through @endisset">${{ number_format($unit->price, 2) }} {{$unit->currency}}</div>
+                            </div>
+
+                            @isset($plan->discount)
+
+                                <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
+                                    <div>{{__('Descuento del')}} {{$plan->discount}}%</div>
+                                    <div class="text-end">${{ number_format($discount, 2) }} {{$unit->currency}}</div>
+                                </div>
+
+                                <div class="d-flex justify-content-between mb-3 px-1 px-lg-3 bg-dark text-white py-2">
+                                    <div>{{__('Precio Final')}} </div>
+                                    <div class="text-end">${{ number_format($price, 2) }} {{$unit->currency}}</div>
+                                </div>
+
+                            @endisset
+                            
+                            <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
+                                <div>{{$plan->down_payment}}% {{__('de Enganche')}} </div>
+                                <div class="text-end">${{ number_format($enganche, 2) }} {{$unit->currency}}</div>
+                            </div>
+
+                            @isset ($plan->second_payment)
+                                <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
+                                    <div>{{$plan->second_payment}}% {{__('Segundo Pago')}} </div>
+                                    <div class="text-end">${{ number_format($second, 2) }} {{$unit->currency}}</div>
+                                </div>
+                            @endisset
+                            
+                            @if ($meses != 0)
+                                <div class="d-flex justify-content-between mb-3 px-1 px-lg-3 fs-5">
+                                    <div>{{$plan->months_percent}}% {{__('en')}} {{$plan->months_quantity}} {{__('Mensualidades')}}</div>
+                                    <div class="text-end fs-4">${{ number_format($meses, 2) }} {{$unit->currency}} 
+                                        @if($mes != 0)<div class="fs-6">${{number_format($mes,2)}} {{__('por mes')}}</div> @endif
+                                    </div>
+                                </div>
+                            @endif
+                            
+                            @isset($plan->closing_payment)
+                                <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
+                                    <div>{{$plan->closing_payment}}% {{__('Pago Final')}} </div>
+                                    <div class="text-end">${{ number_format($closing, 2) }} {{$unit->currency}}</div>
+                                </div>
+                            @endisset
+
+                        </div>
+
+                        <div class="w-100"></div>
+
+                    </div>
+                </div>
+
+                @php $j++; @endphp
+            @endforeach
+
+        </div>
+
+        @if(session('message'))
+            <div class="text-center text-white fs-2 mb-6">
+                <i class="fa-regular fa-circle-check"></i> {{__(session('message'))}}
+            </div>
+        @endif
+
+    @endif
 
 @endsection
 

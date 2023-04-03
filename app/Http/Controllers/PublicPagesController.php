@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Unit;
 use App\Models\View;
 use App\Models\Message;
+use App\Models\PaymentPlan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -31,8 +32,9 @@ class PublicPagesController extends Controller
 
     public function unit($id){
         $unit = Unit::find($id);
+        $plans = PaymentPlan::all();
 
-        return view('unit', compact('unit'));
+        return view('unit', compact('unit', 'plans'));
     }
 
     public function contact($id){

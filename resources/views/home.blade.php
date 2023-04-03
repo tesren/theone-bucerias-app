@@ -504,3 +504,7 @@
   </section>
 
 @endsection
+
+@section('javascript')
+  <script src="{{asset('/js/splide.min.js')}}" defer></script>
+@endsection
