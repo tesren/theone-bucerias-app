@@ -11,26 +11,13 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 
-class ConstructionUpdate extends Model implements HasMedia
+class ConstructionUpdate extends Model 
 {
-    use HasFactory, SoftDeletes, InteractsWithMedia;
+    use HasFactory, SoftDeletes;
 
     protected $casts = [
         'date' => 'date'
     ];
 
-    public function registerMediaConversions(Media $media = null): void
-    {
-        $this->addMediaConversion('thumb')->width(300);
-
-        $this->addMediaConversion('medium')->width(600);
-        
-        $this->addMediaConversion('large')->width(1280);
-    }
-
-    public function registerMediaCollections(): void
-    {
-        $this->addMediaCollection('portraitc')->singleFile();
-        $this->addMediaCollection('galleryc');
-    }
+    
 }

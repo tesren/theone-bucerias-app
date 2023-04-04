@@ -24,4 +24,6 @@ Route::get('/condominio-en-venta/{id}', [PublicPagesController::class, 'unit'])-
 
 Route::get('/contacto', [PublicPagesController::class, 'contact'])->name('contact');
 
+Route::get('/avances-de-obra', [PublicPagesController::class, 'construction'])->name('construction');
+
 Route::post('/enviar-mail', [PublicPagesController::class, 'sendMail'])->name('send.email');

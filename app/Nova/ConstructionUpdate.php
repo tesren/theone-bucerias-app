@@ -2,13 +2,14 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
+use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\URL;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\Text;
-use Ebess\AdvancedNovaMediaLibrary\Fields\Images;
-use Laravel\Nova\Panel;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ConstructionUpdate extends Resource
 {
@@ -67,19 +68,21 @@ class ConstructionUpdate extends Resource
     {
         return [
             ID::make()->sortable(),
-            Date::make('Fecha de la Actualización', 'date')->required()->sortable(),
+            Date::make('Fecha del Avance', 'date')->required()->sortable(),
             Text::make('Descripción', 'description')->help('Pequeña descripción de lo que se hizo en la obra de construcción')->nullable(),
             Text::make('Description', 'description_en')->help('Pequeña descripción de lo que se hizo en la obra de construcción en INGLÉS')->nullable(),
 
-            new Panel('Imágenes', $this->imageFields()),
+            new Panel('Imágenes y Video', $this->imageFields()),
         ];
     }
 
     protected function imageFields() {
 
         return [
-            Images::make('Portada', 'portraitc')->hideFromIndex()->rules('required')->enableExistingMedia(),
-            Images::make('Galería', 'galleryc')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
+            Image::make('Portada', 'portrait_path')->hideFromIndex()->rules('required')->disk('media'),
+            URL::make('Video Youtube', 'video_link')->help('Pega el link del video de Youtube')->displayUsing(fn () => "Ver Video"),
+
+            //Images::make('Galería', 'galleryc')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
         ];
 
     }

@@ -1,26 +1,61 @@
-<div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
-    <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">Contacta un agente</h6>
-    <button type="button" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2" data-bs-toggle="modal" data-bs-target="#contactModal">
-        Contactar <i class="fa-solid fa-right-long"></i>
-    </button>
-</div>
+@if (Route::currentRouteName() != 'contact')
+    <div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
+        <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">Contacta un agente</h6>
+        <button type="button" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2" data-bs-toggle="modal" data-bs-target="#contactModal">
+            Contactar <i class="fa-solid fa-right-long"></i>
+        </button>
+    </div>
+@endif
 
 {{-- Modal de contacto --}}
 <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content bg-dark">
 
             <div class="modal-header">
-                <div class="modal-title fs-5 ff-oswald" id="contactModalLabel">Contactar</div>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-title fs-4 ff-oswald text-orange" id="contactModalLabel">Contacta para más información</div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="text-white fs-6 mb-4 ff-oswald">No te pierdas esta oportunidad, contáctame para que puedas disfrutar de tu nueva propiedad lo antes posible</div>
                 @include('shared.contact-form')
             </div>
         
         </div>
     </div>
 </div>
+
+@if ( session('contact_message') )
+
+    {{-- Modal de confirmación --}}
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark">
+
+                <div class="modal-header">
+                    <div class="modal-title fs-5 ff-oswald text-orange" id="confirmationModalLabel">Gracias por contactar</div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center py-4">
+                    <div class="text-white fs-4 mb-1"><i class="fa-regular fa-circle-check"></i> {{ __(session('contact_message')) }}</div>
+                    <div class="fs-6 mb-3 text-white">Nos contactaremos con usted lo mas pronto posible</div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const myModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            if(myModal){
+                myModal.show(myModal);
+            }
+        };
+    </script>
+    
+@endif
+
 
 <footer class="position-relative py-5" style="background-image: url('{{asset('/img/footer_background.webp')}}')">
 

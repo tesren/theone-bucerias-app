@@ -24,15 +24,19 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link me-5" href="{{route('inventory')}}">{{__('Inventario')}}</a>
+              <a class="nav-link me-5" href="{{route('inventory')}}">{{__('Condominios')}}</a>
             </li>
+
+            {{-- <li class="nav-item">
+              <a class="nav-link me-5" href="{{route('construction')}}">{{__('Avances de Obra')}}</a>
+            </li> --}}
             
             <li class="nav-item">
                 <a class="nav-link me-5" href="#">{{__('Nosotros')}}</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link me-5 me-lg-0" href="#">{{__('Contacto')}}</a>
+                <a class="nav-link me-5 me-lg-0" href="{{route('contact')}}">{{__('Contacto')}}</a>
             </li>
 
           </ul>

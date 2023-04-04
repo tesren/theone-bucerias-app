@@ -10,7 +10,7 @@
     <input type="hidden" name="utm_campaign" value="{{ request()->query('utm_campaign') }}">
 
     <div class="row justify-content-center mt-4">
-        <button type="submit" class="btn btn-orange rounded-0 disabled">{{__('Enviar')}}</button>
+        <button type="submit" class="btn btn-orange rounded-0">{{__('Enviar')}}</button>
     </div>
 
 </form>

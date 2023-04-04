@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Unit;
 use App\Models\View;
+use App\Mail\NewLead;
 use App\Models\Message;
 use App\Models\PaymentPlan;
 use Illuminate\Http\Request;
+use App\Models\ConstructionUpdate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class PublicPagesController extends Controller
@@ -37,17 +40,23 @@ class PublicPagesController extends Controller
         return view('unit', compact('unit', 'plans'));
     }
 
-    public function contact($id){
+    public function construction(){
+        $updates = ConstructionUpdate::all();
+
+        return view('construction', compact('updates'));
+    }
+
+    public function contact(){
         return view('contact');
     }
 
-    public function sendMail($id){
+    public function sendMail(Request $request){
 
         $validator = Validator::make( $request->all(), [
             'name'       => 'required|string|min:1|max:255',
             'email'      => 'required|email|string|max:255',
             'messsage'    => 'nullable|string|max:500',
-            'g-recaptcha-response' => 'recaptcha|required',
+            //'g-recaptcha-response' => 'recaptcha|required',
         ]);
 
         if ( $validator->fails() ) {
@@ -65,14 +74,16 @@ class PublicPagesController extends Controller
             $msg->save();
 
             
-            $email = Mail::to('info@theonebucerias.mx');
-
+            $email = Mail::to('theoneresidences@outlook.com');
+            $email->cc('info@theonebucerias.mx');
             $email->bcc(['erick@punto401.com','javier@punto401.com']);
+
+            //$email = Mail::to('erick@punto401.com');
             
             $email->send(new NewLead($msg));
             
 
-            return redirect()->back()->with('message', 'Gracias, su mensaje ha sido enviado');
+            return redirect()->back()->with('contact_message', 'Gracias, su mensaje ha sido enviado');
         }    
     }
 }

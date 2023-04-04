@@ -216,7 +216,7 @@ hr{
 
 /* Formulario de contacto */
 .form-contact{
-    background-color: #bcbcbc;
+    background-color: #efefef;
     border-radius: 0;
     border: none;
     color: black !important;
@@ -226,7 +226,7 @@ hr{
 }
 
 .form-contact::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
+    color: black;
     opacity: 1; /* Firefox */
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;

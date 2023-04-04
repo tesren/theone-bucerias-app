@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
 class NewLead extends Mailable
 {
@@ -33,7 +34,8 @@ class NewLead extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'New Lead',
+            from: new Address('info@theonebucerias.mx', 'The One Residences'),
+            subject: 'Un Cliente dejó sus datos',
         );
     }
 
@@ -45,7 +47,7 @@ class NewLead extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.new-lead',
         );
     }
 
