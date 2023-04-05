@@ -1,16 +1,16 @@
 @extends('shared.base')
 
 @section('titles')
-    <title>The One Residences - Inventario</title>
-    <meta name="description" content="Condominios en Preventa en Bucerías Nayarit, echa un vistazo a todo nuestro inventario y escoge el condominio de tus sueños.">
+    <title>{{__('Condominios Disponibles')}} - The One Residences</title>
+    <meta name="description" content="{{__('Inventario de Condominios disponibles en The One Residences Bucerías Nayarit, echa un vistazo a todo nuestro inventario y escoge el condominio de tus sueños.')}}">
 @endsection
 
 @section('content')
 
-<div class="p-3 p-lg-5 bg-dark text-white">
+<div class="px-3 py-5 px-lg-5 py-lg-5 bg-dark text-white">
     <div class="container my-6">
-        <div class="d-flex ff-oswald text-orange fs-5"><hr> Inventario</div>
-        <h1>Condominios Disponibles</h1>    
+        <div class="d-flex ff-oswald text-orange fs-5 pt-5 p-lg-0"><hr> {{__('Inventario')}}</div>
+        <h1>{{__('Condominios Disponibles')}}</h1>    
     </div>
 </div>
 
@@ -53,7 +53,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="position-absolute start-0 top-0" viewBox="{{$view->view_box}}">
                             @foreach ($view->units as $unit )
 
-                                <a href="{{route('unit', ['id'=>$unit->id, 'utm_campaign' => request()->query('utm_campaign'), 'utm_source' => request()->query('utm_source'), 'utm_medium' => request()->query('utm_medium') ] )}}" class="text-decoration-none position-relative">
+                                <a href="{{route('unit', ['id'=>$unit->id] )}}" class="text-decoration-none position-relative">
                                     
                                     <polygon class="building-{{strtolower($unit->status)}}" points="{{ $unit->shape->points ?? '0,0'}}"></polygon>
 
@@ -76,8 +76,8 @@
         </div>
 
         {{-- Simbología --}}
-        <ul class="position-absolute end-0 top-0 p-4 list-unstyled bg-glass text-white">
-            <li class="fw-bold mb-1">Disponibilidad</li>
+        <ul class="position-absolute end-0 top-0 p-2 p-lg-4 list-unstyled bg-glass text-white">
+            <li class="fw-bold mb-1">{{__('Disponibilidad')}}</li>
             <li><i class="fa-solid fa-square text-success"></i> {{__('Disponible')}}</li>
             <li><i class="fa-solid fa-square text-warning"></i> {{__('Apartado')}}</li>
             <li><i class="fa-solid fa-square text-danger"></i> {{__('Vendido')}}</li>

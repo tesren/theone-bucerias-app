@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use App\Models\ConstructionUpdate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use Spatie\Honeypot\ProtectAgainstSpam;
+
 
 class PublicPagesController extends Controller
 {
@@ -56,7 +58,6 @@ class PublicPagesController extends Controller
             'name'       => 'required|string|min:1|max:255',
             'email'      => 'required|email|string|max:255',
             'messsage'    => 'nullable|string|max:500',
-            //'g-recaptcha-response' => 'recaptcha|required',
         ]);
 
         if ( $validator->fails() ) {

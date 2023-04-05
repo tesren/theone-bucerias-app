@@ -1,8 +1,8 @@
 @extends('shared.base')
 
 @section('titles')
-    <title>Condominio {{$unit->name}} - The One Residences</title>
-    <meta name="description" content="Condominio con {{$unit->view->name_es}} en pre-venta en Bucerías Nayarit con {{$unit->bedrooms}} recámaras y {{$unit->bathrooms}} baños a solo 2 min caminando de la Playa.">
+    <title>{{__('Condominio')}} {{$unit->name}} - The One Residences</title>
+    <meta name="description" content="{{__('Condominio con')}} @if(app()->getLocale() == 'en') {{$unit->view->name_en}} @else {{$unit->view->name_es}} @endif {{__('en pre-venta en Bucerías Nayarit con')}} {{$unit->bedrooms}} {{__('recámaras y')}} {{$unit->bathrooms}} {{__('baños a solo 2 min caminando de la Playa.')}}">
 
 @endsection
 
@@ -14,8 +14,11 @@
 
     @php
         $portada_url = '/media/'.$unit->portrait_path;
-        $isometric_url = '/media/'.$unit->isometric_path;
         $blueprint_url = '/media/'.$unit->blueprint_path;
+
+        if($unit->isometric_path){
+            $isometric_url = '/media/'.$unit->isometric_path;
+        }
     @endphp
 
     {{-- Portada  --}}
@@ -27,9 +30,9 @@
             <div class="col-11 col-lg-9 align-self-center">
                 <div class="ff-oswald d-flex mb-4">
                     <hr class="text-white">
-                    <div class="align-self-center fw-bold text-uppercase">Detalles</div>
+                    <div class="align-self-center fw-bold text-uppercase">{{__('Detalles')}}</div>
                 </div>
-                <h1 class="fs-0">Condominio {{$unit->name}}</h1>
+                <h1 class="fs-0">{{__('Condominio')}} {{$unit->name}}</h1>
             </div>
         </div>
 
@@ -38,35 +41,47 @@
     {{-- Detalles --}}
     <div class="row mb-6 justify-content-evenly">
 
-        <div class="col-12 col-lg-3 align-self-center">
+        <div class="col-12 col-lg-3 align-self-center mb-5 mb-lg-0">
             <div class="ff-oswald text-orange d-flex mb-4">
                 <hr>
-                <div class="align-self-center fw-bold text-uppercase">Tipo de Condominio</div>
+                <div class="align-self-center fw-bold text-uppercase">{{__('Tipo de Condominio')}}</div>
             </div>
 
-            <h2 class="fs-1 mb-4">{{$unit->area}} m2 / <br> <span class="text-orange">{{$unit->bedrooms}} Recámaras</span> </h2>
+            <h2 class="fs-1 mb-4">
+                {{$unit->area}} m² / <br> 
+                
+                @if ($unit->bedrooms == 0)
+                    <span class="text-orange">{{__('Estudio')}}</span>  
+                @else
+                    <span class="text-orange">{{$unit->bedrooms}} {{__('Recámaras')}}</span> 
+                @endif
+            </h2>
 
             <ul class="list-group list-group-flush text-uppercase ff-oswald fw-bold">
 
                 <li class="list-group-item d-flex justify-content-between">
-                    <div><i class="fa-solid fa-bed me-2 text-orange"></i> Recámaras</div> <div>{{$unit->bedrooms}}</div>
+                    @if ($unit->bedrooms == 0)
+                        <div><i class="fa-solid fa-bed me-2 text-orange"></i> {{__('Estudio')}}</div>
+                    @else
+                        <div><i class="fa-solid fa-bed me-2 text-orange"></i> {{__('Recámaras')}}</div> <div>{{$unit->bedrooms}}</div>
+                    @endif
                 </li>
             
                 <li class="list-group-item d-flex justify-content-between">
-                    <div><i class="fa-solid fa-bath me-2 text-orange"></i> Baños</div> <div>{{$unit->bathrooms}}</div>
+                    <div><i class="fa-solid fa-bath me-2 text-orange"></i> {{__('Baños')}}</div> <div>{{$unit->bathrooms}}</div>
                 </li>
 
                 <li class="list-group-item d-flex justify-content-between">
-                    <div><i class="fa-solid fa-building me-3 text-orange"></i> Piso</div> <div>@if($unit->floor == 0) Planta Baja @else {{$unit->floor}} @endif</div>
+                    <div><i class="fa-solid fa-building me-3 text-orange"></i> {{__('Piso')}}</div> <div>@if($unit->floor == 0) {{__('Planta Baja')}} @else {{$unit->floor}} @endif</div>
                 </li>
 
                 <li class="list-group-item">
                     @if ($unit->view_id == 1 and $unit->floor > 1)
-                        <i class="fa-solid fa-water text-orange me-2"></i> {{$unit->view->name_es}}
+                        <i class="fa-solid fa-water text-orange me-2"></i> @if(app()->getLocale() == 'en') {{$unit->view->name_en}} @else {{$unit->view->name_es}} @endif
                     @elseif($unit->view_id == 2)
-                        <i class="fa-solid fa-road text-orange me-2"></i> {{$unit->view->name_es}}
+                        <i class="fa-solid fa-road text-orange me-2"></i> @if(app()->getLocale() == 'en') {{$unit->view->name_en}} @else {{$unit->view->name_es}} @endif
                     @else
-                        <i class="fa-solid fa-leaf text-orange me-2"></i> {{_('Vista al Jardín')}}
+                        <i class="fa-solid fa-leaf text-orange me-2"></i> {{__('Vista al Jardín')}}
                     @endif
                 </li>
 
@@ -81,23 +96,27 @@
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img src="{{ asset( $isometric_url) }}" alt="Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos" style="height:380px; object-fit:cover;">
-                    </div>
-
-                    <div class="carousel-item">
                         <img src="{{ asset( $blueprint_url) }}" alt="Planos del Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos" style="height:380px; object-fit:cover;">
                     </div>
+
+                    @if ($unit->isometric_path)
+                        <div class="carousel-item">
+                            <img src="{{ asset( $isometric_url) }}" alt="Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos" style="height:380px; object-fit:cover;">
+                        </div>
+                    @endif
                   
                 </div>
 
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+                @if ($unit->isometric_path)
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                @endif
 
             </div>
 
@@ -106,23 +125,23 @@
     </div>
 
     {{-- Interiores, exteriores y Vista --}}
-    <ul class="nav nav-pills mb-5 justify-content-center" id="pills-tab" role="tablist">
+    <ul class="nav nav-pills mb-5 justify-content-center px-2" id="pills-tab" role="tablist">
 
-        <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
+        <li class="nav-item col-6 col-lg-3 px-2" role="presentation">
           <button class="nav-link active w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
-            Interiores
+            {{__('Interiores')}}
           </button>
         </li>
 
-        <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
+        <li class="nav-item col-6 col-lg-3 px-2" role="presentation">
           <button class="nav-link w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
-            Exteriores
+            {{__('Exteriores')}}
           </button>
         </li>
 
-        <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
+        <li class="nav-item col-12 col-lg-3 px-2" role="presentation">
           <button class="nav-link w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
-            Vista
+            {{__('Vista')}}
           </button>
         </li>
 
@@ -145,7 +164,7 @@
                     <div class="col-6 col-lg-4 p-1">
                         <img src="{{asset('/img/interiors/kitchen.webp')}}" alt="Cocina y área de estar" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
                     </div>
-                    <div class="col-6 col-lg-4 p-1">
+                    <div class="col-12 col-lg-4 p-1">
                         <img src="{{asset('/img/interiors/kitchen-terrace.webp')}}" alt="Cocina y área de estar" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
                     </div>
                 </div>
@@ -186,9 +205,9 @@
 
     {{-- Planes de pago --}}
     @if ($unit->status == 'Disponible')
-        <h4 class="mb-5 text-center text-lightblue fs-1 pt-5" id="plans">{{__('Planes de')}} <span class="text-orange">{{__('Pago')}}</span> </h4>
+        <h4 class="mb-4 text-center text-lightblue fs-1 pt-5" id="plans">{{__('Planes de')}} <span class="text-orange">{{__('Pago')}}</span> </h4>
 
-        <ul class="nav nav-pills mb-5 justify-content-center" id="pills-tab" role="tablist">
+        <ul class="nav nav-pills mb-5 justify-content-center px-2" id="pills-tab" role="tablist">
 
             @php
                 $k = 1;

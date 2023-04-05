@@ -1,8 +1,8 @@
 @if (Route::currentRouteName() != 'contact')
     <div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
-        <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">Contacta un agente</h6>
+        <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">{{__('Contacta un agente')}}</h6>
         <button type="button" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2" data-bs-toggle="modal" data-bs-target="#contactModal">
-            Contactar <i class="fa-solid fa-right-long"></i>
+            {{__('Contactar')}} <i class="fa-solid fa-right-long"></i>
         </button>
     </div>
 @endif
@@ -13,11 +13,11 @@
         <div class="modal-content bg-dark">
 
             <div class="modal-header">
-                <div class="modal-title fs-4 ff-oswald text-orange" id="contactModalLabel">Contacta para más información</div>
+                <div class="modal-title fs-4 ff-oswald text-orange" id="contactModalLabel">{{__('Contacta para más información')}}</div>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="text-white fs-6 mb-4 ff-oswald">No te pierdas esta oportunidad, contáctame para que puedas disfrutar de tu nueva propiedad lo antes posible</div>
+                <div class="text-white fs-6 mb-4 ff-oswald">{{__('No te pierdas esta oportunidad, contáctame para que puedas disfrutar de tu nueva propiedad lo antes posible')}}</div>
                 @include('shared.contact-form')
             </div>
         
@@ -33,12 +33,12 @@
             <div class="modal-content bg-dark">
 
                 <div class="modal-header">
-                    <div class="modal-title fs-5 ff-oswald text-orange" id="confirmationModalLabel">Gracias por contactar</div>
+                    <div class="modal-title fs-5 ff-oswald text-orange" id="confirmationModalLabel">{{__('Gracias por contactar')}}</div>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center py-4">
                     <div class="text-white fs-4 mb-1"><i class="fa-regular fa-circle-check"></i> {{ __(session('contact_message')) }}</div>
-                    <div class="fs-6 mb-3 text-white">Nos contactaremos con usted lo mas pronto posible</div>
+                    <div class="fs-6 mb-3 text-white">{{__('Nos contactaremos con usted lo mas pronto posible')}}</div>
                 </div>
             
             </div>
@@ -70,33 +70,33 @@
                 </a>
     
                 <a href="https://goo.gl/maps/gF2Tp3yJffcd44nZA" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-house-chimney"></i> Calle Lázaro Cárdenas 41, Flamingos, 63732 Bucerías, Nay.
+                    <i class="fa-solid fa-house-chimney"></i> {{__('Calle')}} Lázaro Cárdenas 41, Flamingos, 63732 Bucerías, Nay.
                 </a>
                 
             </div>
     
             <div class="col-12 col-lg-3 mb-5 mb-lg-0">
-                <div class="text-orange mb-4">Menú</div>
+                <div class="text-orange mb-4">{{__('Menú')}}</div>
 
                 <div class="list-group list-group-flush">
-                    <a href="#" class="list-group-item link-light bg-transparent ps-0">Inicio</a>
-                    <a href="#" class="list-group-item link-light bg-transparent ps-0">Condominios</a>
-                    <a href="#" class="list-group-item link-light bg-transparent ps-0">Nosotros</a>
-                    <a href="#" class="list-group-item link-light bg-transparent ps-0">Contacto</a>
-                    <a href="#" class="list-group-item link-light bg-transparent ps-0">Políticas de Privacidad</a>
+                    <a href="{{route('home')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Inicio')}}</a>
+                    <a href="{{route('inventory')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Condominios')}}</a>
+                    <a href="{{route('home')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Nosotros')}}</a>
+                    <a href="{{route('contact')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Contacto')}}</a>
+                    <a href="{{route('home')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Políticas de Privacidad')}}</a>
                 </div>
 
             </div>
 
 
             <div class="col-12 col-lg-3 mb-5 mb-lg-0">
-                <div class="text-orange mb-4">Llámanos</div>
+                <div class="text-orange mb-4">{{__('Llámanos')}}</div>
 
                 <a href="#" class="link-light text-decoration-none d-block mb-4">
                     <i class="fa-solid fa-phone"></i> | 322 555 5555
                 </a>
 
-                <div class="text-white fw-light mb-3">Las imagenes son con fines ilustrativos. Precios y dimensiones pueden cambiar sin previo aviso.</div>
+                <div class="text-white fw-light mb-3">{{__('Las imagenes son con fines ilustrativos. Precios y dimensiones pueden cambiar sin previo aviso.')}}</div>
                 <div class="text-white fw-light">The One Residences © {{date('Y')}}.</div>
             </div>
     

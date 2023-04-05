@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PublicPagesController;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +16,20 @@ use App\Http\Controllers\PublicPagesController;
 */
 
 Route::redirect('/login', '/nova/login', 301);
+Route::post('/enviar-mail', [PublicPagesController::class, 'sendMail'])->name('send.email')->middleware(ProtectAgainstSpam::class);
 
-Route::get('/', [PublicPagesController::class, 'home'])->name('home');
 
-Route::get('/condominios-en-venta', [PublicPagesController::class, 'inventory'])->name('inventory');
+//Rutas con traducciones
+Route::localized(function () {
 
-Route::get('/condominio-en-venta/{id}', [PublicPagesController::class, 'unit'])->name('unit');
+    Route::get('/', [PublicPagesController::class, 'home'])->name('home');
 
-Route::get('/contacto', [PublicPagesController::class, 'contact'])->name('contact');
+    Route::get( Lang::uri('/condominios-en-venta'), [PublicPagesController::class, 'inventory'])->name('inventory');
 
-Route::get('/avances-de-obra', [PublicPagesController::class, 'construction'])->name('construction');
+    Route::get( Lang::uri('/condominio-en-venta').'/{id}', [PublicPagesController::class, 'unit'])->name('unit');
 
-Route::post('/enviar-mail', [PublicPagesController::class, 'sendMail'])->name('send.email');
+    Route::get( Lang::uri('/contacto'), [PublicPagesController::class, 'contact'])->name('contact');
+
+    Route::get( Lang::uri('/avances-de-obra'), [PublicPagesController::class, 'construction'])->name('construction');
+
+});

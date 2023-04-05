@@ -4,11 +4,9 @@
 
 return [
     '/contacto' => '/contact',
-    '/estilo-de-vida' => '/lifestyle',
     '/nosotros' => '/about-us',
-    '/aviso-de-privacidad' => '/privacy-politics',
-    '/amenidades' => '/amenities',
-    '/inventario-condominios' => '/condo-inventory',
+    '/aviso-de-privacidad' => '/privacy-policy',
+    '/condominios-en-venta' => '/condos-for-sale',
     '/avances-de-obra' => '/construction-progress',
     '/busqueda' => '/search',
     '/condominio-en-venta' => '/condominium-for-sale'

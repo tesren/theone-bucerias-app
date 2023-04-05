@@ -133,9 +133,9 @@ class Unit extends Resource
 
         return [
            // Images::make('Portada', 'portrait')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
-            Image::make('Portada', 'portrait_path')->disk('media')->creationRules('required'),
-            Image::make('Planos', 'blueprint_path')->disk('media')->creationRules('required'),
-            Image::make('Isométrico', 'isometric_path')->disk('media')->creationRules('required'),
+            Image::make('Portada', 'portrait_path')->disk('media')->creationRules('required')->hideFromIndex(),
+            Image::make('Planos', 'blueprint_path')->disk('media')->creationRules('required')->hideFromIndex(),
+            Image::make('Isométrico', 'isometric_path')->disk('media')->creationRules('required')->hideFromIndex(),
 
             //Images::make('Isométrico', 'isometric')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
             //Images::make('Galería', 'gallery')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),

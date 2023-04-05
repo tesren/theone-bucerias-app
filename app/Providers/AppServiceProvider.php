@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //Solo en produccion
+        /* $this->app->bind('path.public', function() {
+            return '/home/theonebucerias/public_html/new.theonebucerias.mx/';
+        }); */
     }
 
     /**

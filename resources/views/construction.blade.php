@@ -5,12 +5,16 @@
     <meta name="description" content="{{__('Aquí podrás consultar el progreso de construcción de The One Residences Bucerías a través del tiempo.')}}">
 @endsection
 
+@section('css')
+    <link rel="stylesheet" href="{{asset('css/fancybox.min.css')}}">
+@endsection
+
 @section('content')
     
-<div class="p-3 p-lg-5 bg-dark text-white">
+<div class="px-3 py-5 px-lg-5 py-lg-5 bg-dark text-white">
     <div class="container my-6">
-        <div class="d-flex ff-oswald text-orange fs-5"><hr> Construcción</div>
-        <h1>Avances de Obra</h1>    
+        <div class="d-flex ff-oswald text-orange fs-5 pt-5 p-lg-0"><hr> {{__('Construcción')}}</div>
+        <h1>{{__('Avances de Obra')}}</h1>
     </div>
 </div>
 
@@ -23,7 +27,7 @@
             //$images = $update->getMedia('galleryc');
         @endphp
 
-        <h3 class="fs-2 text-lightblue mb-3 text-center">{{__('Progreso de la construcción')}} - {{ __(date_format($update->date, 'F')); }} {{ date_format($update->date, 'Y'); }}</h3>
+        <h3 class="fs-2 text-lightblue mb-3 text-center">{{__('Progreso de la construcción')}} - <span class="text-orange">{{ __(date_format($update->date, 'F')); }} {{ date_format($update->date, 'Y'); }}</span></h3>
         @isset($update->description)
             @if (app()->getLocale() == 'es')
                 <p class="fs-5 fw-light text-center text-white">{{$update->description}}</p>
@@ -33,9 +37,12 @@
         @endisset
 
         <div class="col-11 col-lg-7 text-center mb-6 px-0 position-relative">
-            <img class="w-100 rounded-2 shadow-6" src="{{$portrait}}" alt="{{__('Progreso de la obra')}} - {{ date_format($update->date, 'M Y'); }}" data-fancybox="gallery-{{$update->id}}" style="height: 65vh; object-fit:cover;" loading="lazy">
-            <div class="blue-bg text-center d-flex justify-content-center">
-                <a href="#gallery-{{$update->id}}-1" class="btn btn-blue align-self-center px-4" style="z-index: 20;"><i class="fa-regular fa-eye"></i> {{__('Ver')}}</a>
+            <img class="w-100 rounded-2 shadow-6" src="{{$portrait}}" alt="{{__('Progreso de la obra')}} - {{ date_format($update->date, 'M Y'); }}" style="height: 60vh; object-fit:cover;" loading="lazy">
+
+            <div class="position-absolute top-0 start-0 w-100 h-100 text-center d-flex justify-content-center">
+                <a href="{{$update->video_link}}" class="btn btn-orange align-self-center px-4 z-3" data-fancybox="video-{{$update->id}}">
+                    <i class="fa-regular fa-eye"></i> {{__('Ver Video')}}
+                </a>
             </div>
         </div>
 
@@ -46,4 +53,13 @@
     @endforeach
 </div>
 
+@endsection
+
+@section('javascript')
+    <script src="{{asset('js/fancybox.umd.js')}}"></script>
+    <script>
+        Fancybox.bind("[data-fancybox]", {
+            // Your custom options
+        });
+    </script>
 @endsection
