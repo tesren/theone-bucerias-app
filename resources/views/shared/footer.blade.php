@@ -1,4 +1,4 @@
-@if (Route::currentRouteName() != 'contact')
+@if (Route::currentRouteName() != 'contact.es' or Route::currentRouteName() != 'contact.en')
     <div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
         <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">{{__('Contacta un agente')}}</h6>
         <button type="button" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2" data-bs-toggle="modal" data-bs-target="#contactModal">
@@ -57,16 +57,18 @@
 @endif
 
 
-<footer class="position-relative py-5" style="background-image: url('{{asset('/img/footer_background.webp')}}')">
+<footer class="position-relative pt-5" style="background-image: url('{{asset('/img/footer_background.webp')}}')">
 
-    <div class="container">
-        <div class="row justify-content-between position-relative z-3">
+    <div class="fondo-oscuro"></div>
+
+    <div class="container pb-5">
+        <div class="row justify-content-between position-relative z-2">
 
             <div class="col-12 col-lg-4 mb-5 mb-lg-0">
                 <img src="{{asset('/img/the-one-logo-white.webp')}}" alt="Logo The One Residences" width="200px" class="d-block mb-4 mx-auto me-lg-auto">
     
-                <a href="mailto:theoneresidences@outlook.com" class="link-light d-block text-decoration-none mb-3">
-                    <i class="fa-solid fa-envelope"></i> theoneresidences@outlook.com
+                <a href="mailto:info@theonebucerias.mx" class="link-light d-block text-decoration-none mb-3">
+                    <i class="fa-solid fa-envelope"></i> info@theonebucerias.mx
                 </a>
     
                 <a href="https://goo.gl/maps/gF2Tp3yJffcd44nZA" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer">
@@ -81,7 +83,7 @@
                 <div class="list-group list-group-flush">
                     <a href="{{route('home')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Inicio')}}</a>
                     <a href="{{route('inventory')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Condominios')}}</a>
-                    <a href="{{route('home')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Nosotros')}}</a>
+                    <a href="{{route('about')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Nosotros')}}</a>
                     <a href="{{route('contact')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Contacto')}}</a>
                     <a href="{{route('home')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Políticas de Privacidad')}}</a>
                 </div>
@@ -103,7 +105,8 @@
         </div>
     </div>
 
-    <div class="fondo-oscuro"></div>
-
+    <div class="fs-6 py-2 text-center position-relative z-2">
+        <a class="link-light" href="https://punto401.com/">{{__('Creado por Punto401 Maketing')}}</a>
+    </div>
     
 </footer>

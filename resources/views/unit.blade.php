@@ -3,7 +3,6 @@
 @section('titles')
     <title>{{__('Condominio')}} {{$unit->name}} - The One Residences</title>
     <meta name="description" content="{{__('Condominio con')}} @if(app()->getLocale() == 'en') {{$unit->view->name_en}} @else {{$unit->view->name_es}} @endif {{__('en pre-venta en Bucerías Nayarit con')}} {{$unit->bedrooms}} {{__('recámaras y')}} {{$unit->bathrooms}} {{__('baños a solo 2 min caminando de la Playa.')}}">
-
 @endsection
 
 @section('css')
@@ -326,6 +325,11 @@
         @endif
 
     @endif
+
+    {{-- Botón de Volver --}}
+    <a href="{{route('inventory')}}" class="btn btn-orange shadow-6 position-fixed bottom-0 start-0 z-3 m-3">
+        <i class="fa-solid fa-chevron-left"></i> {{__('Volver')}}
+    </a>
 
 @endsection
 

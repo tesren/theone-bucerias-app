@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
 use App\Nova\Unit;
 use Laravel\Nova\Fields\BelongsTo;
+use App\Nova\Actions\ChangeTextCoordinates;
 
 class Shape extends Resource
 {
@@ -61,7 +62,7 @@ class Shape extends Resource
     {
         return [
             ID::make()->sortable(),
-            BelongsTo::make('Unidad', 'unit', Unit::class)->withoutTrashed()->rules('required'),
+            BelongsTo::make('Unidad', 'unit', Unit::class)->withoutTrashed()->rules('required')->sortable(),
             Text::make('Puntos', 'points')->rules('required', 'max:255')->help('Todos los puntos del polígono'),
             Number::make('Texto X', 'text_x')->rules('required')->min(0)->help('Posición en X del texto del polígono'),
             Number::make('Texto Y', 'text_y')->rules('required')->min(0)->help('Posición en Y del texto del polígono'),
@@ -109,6 +110,8 @@ class Shape extends Resource
      */
     public function actions(NovaRequest $request)
     {
-        return [];
+        return [
+            new ChangeTextCoordinates,
+        ];
     }
 }

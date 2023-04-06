@@ -52,6 +52,10 @@ class PublicPagesController extends Controller
         return view('contact');
     }
 
+    public function about(){
+        return view('about');
+    }
+
     public function sendMail(Request $request){
 
         $validator = Validator::make( $request->all(), [
@@ -75,13 +79,13 @@ class PublicPagesController extends Controller
             $msg->save();
 
             
-            $email = Mail::to('theoneresidences@outlook.com');
+/*             $email = Mail::to('theoneresidences@outlook.com');
             $email->cc('info@theonebucerias.mx');
-            $email->bcc(['erick@punto401.com','javier@punto401.com']);
+            $email->bcc(['erick@punto401.com','javier@punto401.com']); */
 
-            //$email = Mail::to('erick@punto401.com');
+            /* $email = Mail::to('erick@punto401.com');
             
-            $email->send(new NewLead($msg));
+            $email->send(new NewLead($msg)); */
             
 
             return redirect()->back()->with('contact_message', 'Gracias, su mensaje ha sido enviado');

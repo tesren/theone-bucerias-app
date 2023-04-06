@@ -32,4 +32,21 @@ Route::localized(function () {
 
     Route::get( Lang::uri('/avances-de-obra'), [PublicPagesController::class, 'construction'])->name('construction');
 
+    Route::get( Lang::uri('/nosotros'), [PublicPagesController::class, 'about'])->name('about');
+
 });
+
+Route::get('/route-cache', function () {
+    Artisan::call('route:cache');
+    return 'Route cache completed.';
+})->name('artisan.route');
+
+Route::get('/config-cache', function () {
+    Artisan::call('config:cache');
+    return 'Config cache completed.';
+})->name('artisan.config');
+
+Route::get('/view-cache', function () {
+    Artisan::call('view:cache');
+    return 'View cache completed.';
+})->name('artisan.view');

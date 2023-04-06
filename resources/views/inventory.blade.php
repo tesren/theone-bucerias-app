@@ -16,7 +16,7 @@
 
 
 {{-- Menú de navegación --}}
-<ul class="nav nav-pills mb-5 justify-content-center mt-6" id="pills-tab" role="tablist">
+<ul class="nav nav-pills mb-4 justify-content-center mt-6" id="pills-tab" role="tablist">
     @php $i = 1; @endphp
     @foreach ($views as $view)
         <li class="nav-item ff-oswald fs-4 mx-3" role="presentation">
@@ -31,6 +31,8 @@
         @php $i++; @endphp
     @endforeach
 </ul>
+
+<h2 class="mb-5 text-center fw-light fs-3">{{__('Haga clic en una unidad para ver más detalles')}}</h2>
 
 <div class="row justify-content-center">
 
@@ -59,7 +61,7 @@
 
                                     <text x="{{$unit->shape->text_x ?? 0;}}" 
                                         y="{{$unit->shape->text_y ?? 0; }}"
-                                        font-size="40" font-weight="bold" fill="#fff" class="fw-light">
+                                        font-size="36" font-weight="bold" fill="#fff" class="fw-light">
                                         {{$unit->name}}
                                     </text>
                                     
@@ -82,6 +84,16 @@
             <li><i class="fa-solid fa-square text-warning"></i> {{__('Apartado')}}</li>
             <li><i class="fa-solid fa-square text-danger"></i> {{__('Vendido')}}</li>
         </ul>
+
+        {{-- Click me escritorio --}}
+        <div class="position-absolute text-white fs-4 d-none d-lg-block" style="top:33%; right:14%;">
+            <i class="fa-solid fa-arrow-left fa-shake"></i> {{__('Haz clic en una unidad')}}
+        </div>
+
+        {{-- Click me movil --}}
+        <div class="position-absolute text-white fs-5 d-block d-lg-none" style="top:33%; left:3%;">
+            {{__('Clic')}} <i class="fa-solid fa-arrow-right fa-shake"></i>
+        </div>
 
     </div>
 

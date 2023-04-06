@@ -162,7 +162,7 @@
       <ul class="nav nav-pills mb-5 justify-content-center" id="pills-tab" role="tablist">
 
         <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
-          <button class="nav-link active w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+          <button class="nav-link w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
             {{__('Estudio')}}
           </button>
         </li>
@@ -174,7 +174,7 @@
         </li>
 
         <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
-          <button class="nav-link w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+          <button class="nav-link active w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
             02 {{__('Recámaras')}}
           </button>
         </li>
@@ -190,7 +190,7 @@
       <div class="tab-content" id="pills-tabContent">
 
         {{-- Estudios --}}
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
 
           <div class="row px-0">
 
@@ -260,7 +260,7 @@
         </div>
 
         {{-- 2 Recámaras --}}
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+        <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
           <div class="row px-0">
 
             @foreach ($two_bedrooms as $unit)
@@ -444,7 +444,7 @@
                 <img src="{{asset('img/vista-edificio-min.webp')}}" class="d-block w-100" alt="Ubicación The One Residences Bucerías" loading="lazy">
               </div>
               <div class="carousel-item">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.923456434327!2d-105.33918008478108!3d20.753896302479934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84214171485563f7%3A0x312112c4aabbcff4!2sThe%20One%20Residences!5e0!3m2!1ses-419!2smx!4v1680112283882!5m2!1ses-419!2smx" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3730.923456434327!2d-105.33918008478108!3d20.753896302479934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84214171485563f7%3A0x312112c4aabbcff4!2sThe%20One%20Residences!5e0!3m2!1ses-419!2smx!4v1680112283882!5m2!1ses-419!2smx" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
 

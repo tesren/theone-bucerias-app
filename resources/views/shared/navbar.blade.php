@@ -33,19 +33,13 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link me-5 @if($route == 'es.inventory' or $route == 'en.inventory') active @endif" href="{{route('inventory')}}">
-                {{__('Condominios')}}
-              </a>
-            </li>
-
-            <li class="nav-item">
               <a class="nav-link me-5 @if($route == 'es.construction' or $route == 'en.construction') active @endif" href="{{route('construction')}}">
                 {{__('Avances de Obra')}}
               </a>
             </li>
             
             <li class="nav-item">
-                <a class="nav-link me-5" href="#">
+                <a class="nav-link me-5 @if($route == 'es.about' or $route == 'en.about') active @endif" href="{{route('about')}}">
                   {{__('Nosotros')}}
                 </a>
             </li>
@@ -54,6 +48,12 @@
                 <a class="nav-link me-5 @if($route == 'es.contact' or $route == 'en.contact') active @endif" href="{{route('contact')}}">
                   {{__('Contacto')}}
                 </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link me-5 @if($route == 'es.inventory' or $route == 'en.inventory') active @endif" href="{{route('inventory')}}">
+                {{__('Inventario')}}
+              </a>
             </li>
 
             <li class="nav-item me-5 align-self-start align-self-lg-center mt-3 mt-lg-0">
@@ -85,11 +85,11 @@
           </ul>
 
           <div class="align-self-center mt-5 mt-lg-0">
-            <a href="https://www.facebook.com/TheOneResidencesBucerias" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Facebook">
+            <a href="https://www.facebook.com/people/The-One-Residences/100091549483181/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Facebook">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
             
-            <a href="https://www.instagram.com/theoneresidencesbucerias/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Instagram">
+            <a href="https://www.instagram.com/theoneresidences/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Instagram">
               <i class="fa-brands fa-instagram"></i>
             </a>
 

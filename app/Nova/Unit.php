@@ -20,8 +20,8 @@ use App\Nova\Actions\ChangeUnitView;
 use Laravel\Nova\Fields\BelongsToMany;
 use App\Nova\Actions\AssignPaymentPlan;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use App\Nova\ChangeStatus;
 use Laravel\Nova\Fields\Image;
+use App\Nova\Actions\ChangeStatus;
 
 class Unit extends Resource
 {
@@ -189,6 +189,7 @@ class Unit extends Resource
     {
         return [
             new AssignPaymentPlan,
+            new ChangeStatus,
         ];
     }
 }
