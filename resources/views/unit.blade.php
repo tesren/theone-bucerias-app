@@ -316,6 +316,13 @@
                 @php $j++; @endphp
             @endforeach
 
+            {{-- Botón de Volver --}}
+            <div class="text-center">
+                <a href="{{route('inventory')}}" class="btn btn-orange text-center shadow-6 z-3 m-3 fs-5">
+                    <i class="fa-solid fa-chevron-left"></i> {{__('Volver')}}
+                </a>
+            </div>
+
         </div>
 
         @if(session('message'))
@@ -325,11 +332,6 @@
         @endif
 
     @endif
-
-    {{-- Botón de Volver --}}
-    <a href="{{route('inventory')}}" class="btn btn-orange shadow-6 position-fixed bottom-0 start-0 z-3 m-3">
-        <i class="fa-solid fa-chevron-left"></i> {{__('Volver')}}
-    </a>
 
 @endsection
 

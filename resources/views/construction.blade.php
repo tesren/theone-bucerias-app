@@ -27,7 +27,7 @@
             //$images = $update->getMedia('galleryc');
         @endphp
 
-        <h3 class="fs-2 text-lightblue mb-3 text-center">{{__('Progreso de la construcción')}} - <span class="text-orange">{{ __(date_format($update->date, 'F')); }} {{ date_format($update->date, 'Y'); }}</span></h3>
+        <h2 class="fs-2 text-lightblue mb-3 text-center">{{__('Progreso de la construcción')}} - <span class="text-orange">{{ __(date_format($update->date, 'F')); }} {{ date_format($update->date, 'Y'); }}</span></h2>
         @isset($update->description)
             @if (app()->getLocale() == 'es')
                 <p class="fs-5 fw-light text-center text-white">{{$update->description}}</p>
@@ -36,7 +36,7 @@
             @endif
         @endisset
 
-        <div class="col-11 col-lg-7 text-center mb-6 px-0 position-relative">
+        <div class="col-11 col-lg-8 col-xl-7 text-center mb-6 px-0 position-relative">
             <img class="w-100 rounded-2 shadow-6" src="{{$portrait}}" alt="{{__('Progreso de la obra')}} - {{ date_format($update->date, 'M Y'); }}" style="height: 60vh; object-fit:cover;" loading="lazy">
 
             <div class="position-absolute top-0 start-0 w-100 h-100 text-center d-flex justify-content-center">
@@ -44,6 +44,8 @@
                     <i class="fa-regular fa-eye"></i> {{__('Ver Video')}}
                 </a>
             </div>
+
+            <div class="fondo-oscuro rounded-2"></div>
         </div>
 
         {{-- @foreach ($images as $img)

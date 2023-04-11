@@ -1,5 +1,4 @@
 import './bootstrap';
-import './bootstrap.bundle.min.js';
 
 window.addEventListener('scroll', function() {
     var navbar = document.getElementById('the-one-navbar');
@@ -41,3 +40,11 @@ document.addEventListener( 'DOMContentLoaded', function() {
   }
 
 } );
+
+window.onload = function() {
+  var myModal = document.getElementById('confirmationModal');
+  if(myModal){
+    myModal = new bootstrap.Modal(myModal);
+    myModal.show(myModal);
+  }
+};

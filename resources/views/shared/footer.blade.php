@@ -44,15 +44,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        window.onload = function() {
-            const myModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-            if(myModal){
-                myModal.show(myModal);
-            }
-        };
-    </script>
     
 @endif
 
@@ -92,11 +83,11 @@
 
 
             <div class="col-12 col-lg-3 mb-5 mb-lg-0">
-                <div class="text-orange mb-4">{{__('Llámanos')}}</div>
+                {{--<div class="text-orange mb-4">{{__('Llámanos')}}</div>
 
-                <a href="#" class="link-light text-decoration-none d-block mb-4">
+                 <a href="#" class="link-light text-decoration-none d-block mb-4">
                     <i class="fa-solid fa-phone"></i> | 322 555 5555
-                </a>
+                </a> --}}
 
                 <div class="text-white fw-light mb-3">{{__('Las imagenes son con fines ilustrativos. Precios y dimensiones pueden cambiar sin previo aviso.')}}</div>
                 <div class="text-white fw-light">The One Residences © {{date('Y')}}.</div>
@@ -106,7 +97,7 @@
     </div>
 
     <div class="fs-6 py-2 text-center position-relative z-2">
-        <a class="link-light" href="https://punto401.com/">{{__('Creado por Punto401 Maketing')}}</a>
+        <a class="link-light" href="https://punto401.com/">{{__('Sitio web creado por Punto401 Maketing')}}</a>
     </div>
     
 </footer>
