@@ -34,6 +34,8 @@ Route::localized(function () {
 
     Route::get( Lang::uri('/nosotros'), [PublicPagesController::class, 'about'])->name('about');
 
+    Route::get( Lang::uri('/politicas-privacidad'), [PublicPagesController::class, 'politics'])->name('policy');
+
 });
 
 Route::get('/route-cache', function () {

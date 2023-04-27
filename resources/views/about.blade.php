@@ -42,7 +42,7 @@
             </p>
 
             <p>
-                {{__('Nuestros colaboradores son especialistas cada uno en el ramo que se les ha asignado, se ha colaborado con despachos de reconocimiento nacional e internacional como es Impulsora de Proyectos del Ara. Abraham Zabludovsky, Issac Broid Zajman en su momento Taller Cinco, Moyao Arquitectos del Ara, Arimatea Moyao, en diversos proyectos que van desde Espacios Deportivos, Centros Culturales, Centros de Convenciones, Centros Comerciales, Museos, Hoteles, Hospitales, Oficias, Edificios de Departamentos, Vivienda de Interes Social, Medio y Residencial, pasando por varias especialidades dentro de nuestra labor, como son, de Interiores, de Mobiliario, Urbanismo y Arquitectura del Paisaje.')}}
+                {{__('Nuestros colaboradores son especialistas cada uno en el ramo que se les ha asignado, se ha colaborado con despachos de reconocimiento nacional e internacional como es Impulsora de Proyectos del Arq. Abraham Zabludovsky, Issac Broid Zajman en su momento Taller Cinco, Moyao Arquitectos del Ara, Arimatea Moyao, en diversos proyectos que van desde espacios deportivos, centros culturales, centros de convenciones, centros comerciales, museos, hoteles, hospitales, oficinas, edificios de departamentos, vivienda de interés social, medio y residencial, pasando por varias especialidades dentro de nuestra labor, como son, de interiores, de mobiliario, urbanismo y arquitectura del paisaje.')}}
             </p>
         </div>
 

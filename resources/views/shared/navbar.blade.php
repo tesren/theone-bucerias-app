@@ -85,15 +85,15 @@
           </ul>
 
           <div class="align-self-center mt-5 mt-lg-0">
-            <a href="https://www.facebook.com/people/The-One-Residences/100091549483181/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Facebook">
+            <a href="https://www.facebook.com/DomusVallartaInmobiliaria" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Facebook">
               <i class="fa-brands fa-facebook-f"></i>
             </a>
             
-            <a href="https://www.instagram.com/theoneresidences/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Instagram">
+            <a href="https://www.instagram.com/domus_vallarta/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Instagram">
               <i class="fa-brands fa-instagram"></i>
             </a>
 
-            <a href="#" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Whatsapp">
+            <a href="https://wa.me/5213322005523?text=Hola,%20vengo%20del%20sitio%20web%20de%20The%20One%20Bucerias" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Whatsapp">
               <i class="fa-brands fa-whatsapp"></i>
             </a>
             

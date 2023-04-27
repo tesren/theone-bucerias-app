@@ -58,12 +58,12 @@
             <div class="col-12 col-lg-4 mb-5 mb-lg-0">
                 <img src="{{asset('/img/the-one-logo-white.webp')}}" alt="Logo The One Residences" width="200px" class="d-block mb-4 mx-auto me-lg-auto">
     
-                <a href="mailto:info@theonebucerias.mx" class="link-light d-block text-decoration-none mb-3">
-                    <i class="fa-solid fa-envelope"></i> info@theonebucerias.mx
+                <a href="mailto:info@domusvallarta.com" class="link-light d-block text-decoration-none mb-3">
+                    <i class="fa-solid fa-envelope"></i> info@domusvallarta.com
                 </a>
     
                 <a href="https://goo.gl/maps/gF2Tp3yJffcd44nZA" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-solid fa-house-chimney"></i> {{__('Calle')}} Lázaro Cárdenas 41, Flamingos, 63732 Bucerías, Nay.
+                    <i class="fa-solid fa-house-chimney"></i> {{__('Calle')}} Lazaro Cardenas #43 {{__('esq.')}} Galeana 63732, Bucerias, Nayarit.
                 </a>
                 
             </div>
@@ -76,7 +76,7 @@
                     <a href="{{route('inventory')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Condominios')}}</a>
                     <a href="{{route('about')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Nosotros')}}</a>
                     <a href="{{route('contact')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Contacto')}}</a>
-                    <a href="{{route('home')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Políticas de Privacidad')}}</a>
+                    <a href="{{route('policy')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Políticas de Privacidad')}}</a>
                 </div>
 
             </div>

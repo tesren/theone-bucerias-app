@@ -61,7 +61,7 @@
 
       <h2 class="mb-5 fs-1">{{__('Descubre el paraíso en la costa de Nayarit')}}</h2>
       <p class="fs-6 mb-5 fw-light">
-        {{__('La ubicación de The One en Bucerías, conjuga las riquezas más grandes de este exclusivo destino, su playa y el interior del pueblo. Por ello, ofrece la mejor ubicación en la Zona Dorada, donde se puede escuchar el sonido de las olas del mar y oler la esencia del agua salada, donde se podrá disfrutar de las espectaculares puestas del sol, practicar deportes de mar y disfrutar de la vida trendy que ofrece esta zona. Ubicado en el corazón de Bucerías en la Calle Lázaro #43 Cárdenas entre la calles Morelos y Galeana, a sólo 1 cuadra de la playa. The One reúne una visión de amenidades de estilo de vida de lujo dentro de un entorno boutique sin igual en el área.')}}
+        {{__('La ubicación de The One en Bucerías, conjuga las riquezas más grandes de este exclusivo destino, su playa y el interior del pueblo. Por ello, ofrece la mejor ubicación en la Zona Dorada, donde se puede escuchar el sonido de las olas del mar y oler la esencia del agua salada, donde se podrá disfrutar de las espectaculares puestas del sol, practicar deportes de mar y disfrutar de la vida trendy que ofrece esta zona. Ubicado en el corazón de Bucerías en la Calle Lázaro Cárdenas #43 entre la calles Morelos y Galeana, a sólo 1 cuadra de la playa. The One reúne una visión de amenidades de estilo de vida de lujo dentro de un entorno boutique sin igual en el área.')}}
       </p>
       
       <a href="{{route('inventory')}}" class="btn btn-orange fs-5 text-uppercase">
@@ -202,7 +202,7 @@
                     $blueprint = '/media/'.$unit->blueprint_path;
                   @endphp
 
-                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:cover;" loading="lazy">
+                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:contain;" loading="lazy">
 
                   <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
@@ -238,7 +238,7 @@
                     $blueprint = '/media/'.$unit->blueprint_path;
                   @endphp
 
-                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:cover;" loading="lazy">
+                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:contain;" loading="lazy">
 
                   <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
@@ -271,7 +271,7 @@
                     $blueprint = '/media/'.$unit->blueprint_path;
                   @endphp
 
-                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:cover;" loading="lazy">
+                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:contain;" loading="lazy">
 
                   <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
@@ -305,7 +305,7 @@
                     $blueprint = '/media/'.$unit->blueprint_path;
                   @endphp
 
-                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:cover;" loading="lazy">
+                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:contain;" loading="lazy">
 
                   <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
@@ -392,7 +392,7 @@
             <i class="fa-solid fa-shop position-absolute top-0 end-0 fa-2x text-orange me-4 mt-4"></i>
             <div class="ff-oswald text-orange pt-5 text-uppercase">{{__('Amenidades')}}</div>
             <div class="fs-3">{{__('Área Comercial')}}</div>
-            <p>{{__('Área comercial en planta baja del Edificio')}}</p>
+            <p>{{__('Área comercial en planta baja del edificio')}}</p>
           </div>
         </div>
         
@@ -491,7 +491,7 @@
               </a>
               <div class="collapse" id="collapseHospital">
                 <p class="p-2">
-                  {{__('El Hospital CQM se encuentra a solo 4 minutos en auto lo cual puede ser esencial para garantizar una atención médica rápida en caso de emergencia, así como para brindar mayor tranquilidad y acceso a servicios médicos especializados.')}}
+                  {{__('El CMQ se encuentra a sólo 4 minutos en auto, lo cual puede ser esencial para garantizar una atención médica rápida en caso de emergencia, así como para brindar mayor tranquilidad y acceso a servicios médicos especializados.')}}
                 </p>
               </div>
             </li>
@@ -502,7 +502,7 @@
               </a>
               <div class="collapse" id="collapseMarket">
                 <p class="p-2">
-                  {{__('El Supermercado está solo 7 minutos en auto, lo cual brinda comodidad, ahorro de tiempo y dinero, mayor variedad de productos y mayor disponibilidad de productos frescos y de temporada.')}}
+                  {{__('El supermercado está a sólo 7 minutos en auto, lo cual brinda comodidad, ahorro de tiempo y dinero, mayor variedad de productos y mayor disponibilidad de productos frescos y de temporada.')}}
                 </p>
               </div>
             </li>

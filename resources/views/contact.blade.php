@@ -20,16 +20,16 @@
 
         <div class="d-flex ff-oswald text-orange fs-5 mb-4"><hr> {{__('Contacto')}}</div>
         <h2 class="mb-4">{{__('Información de Contacto')}}</h2>       
-        <p class="fs-5 mb-5">{{__('Contáctanos por cualquiera de los siguientes medios o por medio de nuestro formulario de contacto y con gusto lo atenderemos')}}</p>
+        <p class="fs-5 mb-5">{{__('Contáctanos por cualquiera de los siguientes medios o a través de nuestro formulario de contacto y con gusto lo atenderemos.')}}</p>
         
-        {{-- <a href="tel:+523225555555" class="d-block link-dark fs-5 mb-3 text-decoration-none">
+        <a href="tel:+523221155040" class="d-block link-dark fs-5 mb-3 text-decoration-none">
             <i class="fa-solid fa-mobile-screen-button"></i> 
-            322 555 5555
-        </a> --}}
+            +52 (322)-115-5040
+        </a>
 
-        <a href="mailto:info@theonebucerias.mx" class="d-block link-dark fs-5 text-decoration-none">
+        <a href="mailto:info@domusvallarta.com" class="d-block link-dark fs-5 text-decoration-none">
             <i class="fa-regular fa-envelope"></i>
-            info@theonebucerias.mx
+            info@domusvallarta.com
         </a>
 
     </div>

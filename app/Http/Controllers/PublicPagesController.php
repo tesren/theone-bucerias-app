@@ -79,16 +79,19 @@ class PublicPagesController extends Controller
             $msg->save();
 
             
-/*             $email = Mail::to('theoneresidences@outlook.com');
-            $email->cc('info@theonebucerias.mx');
-            $email->bcc(['erick@punto401.com','javier@punto401.com']); */
+            $email = Mail::to('info@domusvallarta.com');
+            $email->cc(['info@theonebucerias.mx', 'theoneresidences@outlook.com']);
+            $email->bcc(['erick@punto401.com','javier@punto401.com']);
 
-            /* $email = Mail::to('erick@punto401.com');
+            /* $email = Mail::to('erick@punto401.com');*/
             
-            $email->send(new NewLead($msg)); */
+            $email->send(new NewLead($msg)); 
             
-
             return redirect()->back()->with('contact_message', 'Gracias, su mensaje ha sido enviado');
         }    
+    }
+
+    public function politics(){
+        return view('privacy-policy');
     }
 }

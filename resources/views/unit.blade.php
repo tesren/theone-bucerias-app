@@ -95,7 +95,7 @@
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img src="{{ asset( $blueprint_url) }}" alt="Planos del Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos" style="height:380px; object-fit:cover;">
+                        <img src="{{ asset( $blueprint_url) }}" alt="Planos del Condominio {{$unit->name}} The One Residences, Bucerías" class="w-100" data-fancybox="planos" style="height:380px; object-fit:contain;">
                     </div>
 
                     @if ($unit->isometric_path)
