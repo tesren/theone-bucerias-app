@@ -1,7 +1,11 @@
+@php
+  $contact = request()->query('contact');
+@endphp
+
 <nav class="navbar navbar-dark navbar-expand-lg bg-transparent fixed-top py-1" id="the-one-navbar" data-bs-theme="dark">
     <div class="container">
 
-      <a class="navbar-brand" href="{{route('home')}}">
+      <a class="navbar-brand" href="{{route('home', request()->query() )}}">
         <img width="150px" src="{{asset('img/the-one-logo-white.webp')}}" alt="The One Residences Logo">
       </a>
 
@@ -27,31 +31,33 @@
             @endphp
 
             <li class="nav-item">
-              <a class="nav-link mx-0 mx-lg-5 @if($route == 'es.home' or $route == 'en.home') active @endif" href="{{route('home')}}">
+              <a class="nav-link mx-0 mx-lg-5 @if($route == 'es.home' or $route == 'en.home') active @endif" href="{{route('home', request()->query() )}}">
                 {{__('Inicio')}}
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link me-5 @if($route == 'es.construction' or $route == 'en.construction') active @endif" href="{{route('construction')}}">
+              <a class="nav-link me-5 @if($route == 'es.construction' or $route == 'en.construction') active @endif" href="{{route('construction', request()->query() )}}">
                 {{__('Avances de Obra')}}
               </a>
             </li>
             
             <li class="nav-item">
-                <a class="nav-link me-5 @if($route == 'es.about' or $route == 'en.about') active @endif" href="{{route('about')}}">
+                <a class="nav-link me-5 @if($route == 'es.about' or $route == 'en.about') active @endif" href="{{route('about', request()->query() )}}">
                   {{__('Nosotros')}}
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link me-5 @if($route == 'es.contact' or $route == 'en.contact') active @endif" href="{{route('contact')}}">
-                  {{__('Contacto')}}
-                </a>
-            </li>
+            @if ($contact != 'no')
+              <li class="nav-item">
+                  <a class="nav-link me-5 @if($route == 'es.contact' or $route == 'en.contact') active @endif" href="{{route('contact', request()->query() )}}">
+                    {{__('Contacto')}}
+                  </a>
+              </li>
+            @endif
 
             <li class="nav-item">
-              <a class="nav-link me-5 @if($route == 'es.inventory' or $route == 'en.inventory') active @endif" href="{{route('inventory')}}">
+              <a class="nav-link me-5 @if($route == 'es.inventory' or $route == 'en.inventory') active @endif" href="{{route('inventory', request()->query() )}}">
                 {{__('Inventario')}}
               </a>
             </li>
@@ -84,20 +90,22 @@
 
           </ul>
 
-          <div class="align-self-center mt-5 mt-lg-0">
-            <a href="https://www.facebook.com/DomusVallartaInmobiliaria" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            
-            <a href="https://www.instagram.com/domus_vallarta/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
+          @if ($contact != 'no')
+            <div class="align-self-center mt-5 mt-lg-0">
+              <a href="https://www.facebook.com/DomusVallartaInmobiliaria" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              
+              <a href="https://www.instagram.com/domus_vallarta/" class="link-light text-decoration-none me-2" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
 
-            <a href="https://wa.me/5213322005523?text=Hola,%20vengo%20del%20sitio%20web%20de%20The%20One%20Bucerias" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Whatsapp">
-              <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            
-          </div>
+              <a href="https://wa.me/5213322005523?text=Hola,%20vengo%20del%20sitio%20web%20de%20The%20One%20Bucerias" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+            </div>
+          @endif
+          
 
         </div>
 

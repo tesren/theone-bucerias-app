@@ -7,6 +7,10 @@
 
 @section('content')
 
+  @php
+    $contact = request()->query('contact');
+  @endphp
+
   <div class="position-relative">
 
     <div class="row justify-content-evenly position-absolute h-100 top-0 start-0 z-3">
@@ -14,7 +18,7 @@
       <div class="col-12 col-lg-5 align-self-end h-70 border-start border-2 px-3 px-lg-4">
         <div class="ff-oswald text-white mb-5 fs-5">THE ONE RESIDENCES</div>
         <h1 class="fs-0 text-white mb-5">{{__('Condominios en el corazón de Bucerías, Nayarit.')}}</h1>
-        <a href="{{route('inventory')}}" class="link-light text-decoration-none fs-4">{{__('Ver Inventario')}} <i class="fa-solid fa-right-long"></i></a>
+        <a href="{{route('inventory', request()->query() )}}" class="link-light text-decoration-none fs-4">{{__('Ver Inventario')}} <i class="fa-solid fa-right-long"></i></a>
       </div>
 
       <div class="col-12 col-lg-3"></div>
@@ -43,9 +47,12 @@
 
     </div>
 
-    <a href="{{route('contact')}}" class="btn btn-orange position-absolute text-uppercase end-0 top-50 z-3 fs-4 d-none d-lg-block" style="transform: rotate(90deg);  transform-origin: right; margin-right:25px;">
-      {{__('Contacto')}}
-    </a>
+    @if ($contact != 'no')
+      <a href="{{route('contact', request()->query() )}}" class="btn btn-orange position-absolute text-uppercase end-0 top-50 z-3 fs-4 d-none d-lg-block" style="transform: rotate(90deg);  transform-origin: right; margin-right:25px;">
+        {{__('Contacto')}}
+      </a>
+    @endif
+    
 
   </div>
 
@@ -64,7 +71,7 @@
         {{__('La ubicación de The One en Bucerías, conjuga las riquezas más grandes de este exclusivo destino, su playa y el interior del pueblo. Por ello, ofrece la mejor ubicación en la Zona Dorada, donde se puede escuchar el sonido de las olas del mar y oler la esencia del agua salada, donde se podrá disfrutar de las espectaculares puestas del sol, practicar deportes de mar y disfrutar de la vida trendy que ofrece esta zona. Ubicado en el corazón de Bucerías en la Calle Lázaro Cárdenas #43 entre la calles Morelos y Galeana, a sólo 1 cuadra de la playa. The One reúne una visión de amenidades de estilo de vida de lujo dentro de un entorno boutique sin igual en el área.')}}
       </p>
       
-      <a href="{{route('inventory')}}" class="btn btn-orange fs-5 text-uppercase">
+      <a href="{{route('inventory', request()->query() )}}" class="btn btn-orange fs-5 text-uppercase">
         {{__('Ver Inventario')}} <i class="fa-solid fa-right-long"></i>
       </a>
 
@@ -156,7 +163,7 @@
 
       <div class="d-flex justify-content-center justify-content-lg-between mb-5">
         <h3 class="fs-1 text-center text-lg-start">{{__('Tipos de')}} <span class="text-orange">{{__('Condominios')}}</span></h3>
-        <a href="{{route('inventory')}}" class="btn btn-orange align-self-center d-none d-lg-block">{{__('Descubre más')}} <i class="fa-solid fa-right-long"></i></a>
+        <a href="{{route('inventory', request()->query() )}}" class="btn btn-orange align-self-center d-none d-lg-block">{{__('Descubre más')}} <i class="fa-solid fa-right-long"></i></a>
       </div>
 
       <ul class="nav nav-pills mb-5 justify-content-center" id="pills-tab" role="tablist">
@@ -216,7 +223,7 @@
                       <div class="fs-5 mb-4 text-orange">{{$unit->view->name_es}}</div>
                     @endif
 
-                    <a href="{{route('unit', ['id'=> $unit->id])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
+                    <a href="{{route('unit', ['id'=> $unit->id, 'contact' => $contact])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
                   </div>
                 </div>
               </div>
@@ -250,7 +257,7 @@
                     @else
                       <div class="fs-5 mb-4 text-orange">{{$unit->view->name_es}}</div>
                     @endif                    
-                    <a href="{{route('unit', ['id'=> $unit->id])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
+                    <a href="{{route('unit', ['id'=> $unit->id, 'contact' => $contact])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
                   </div>
                 </div>
               </div>
@@ -283,7 +290,7 @@
                     @else
                       <div class="fs-5 mb-4 text-orange">{{$unit->view->name_es}}</div>
                     @endif                    
-                    <a href="{{route('unit', ['id'=> $unit->id])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
+                    <a href="{{route('unit', ['id'=> $unit->id, 'contact' => $contact ])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
                   </div>
 
                 </div>
@@ -319,7 +326,7 @@
                       <div class="fs-5 mb-4 text-orange">{{$unit->view->name_es}}</div>
                     @endif
 
-                    <a href="{{route('unit', ['id'=> $unit->id])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
+                    <a href="{{route('unit', ['id'=> $unit->id, 'contact' => $contact] )}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
                   </div>
                 </div>
               </div>
@@ -426,7 +433,7 @@
 
       <div class="row justify-content-between mb-4 mb-lg-5">
         <h5 class="fs-1 col-12 col-lg-9 text-center text-lg-start">{{__('Todo al')}} <span class="text-orange">{{__('alcance')}}</span></h5>
-        <a href="{{route('inventory')}}" class="btn btn-orange fs-5 align-self-center col-12 col-lg-3 d-none d-lg-block">{{__('Ver Inventario')}} <i class="fa-solid fa-right-long"></i></a>
+        <a href="{{route('inventory', request()->query() )}}" class="btn btn-orange fs-5 align-self-center col-12 col-lg-3 d-none d-lg-block">{{__('Ver Inventario')}} <i class="fa-solid fa-right-long"></i></a>
       </div>
       
 
@@ -509,7 +516,7 @@
 
           </ul>
 
-          <a href="{{route('inventory')}}" class="btn btn-orange fs-5 align-self-center w-100 d-block d-lg-none">{{__('Ver Inventario')}} <i class="fa-solid fa-right-long"></i></a>
+          <a href="{{route('inventory', request()->query() )}}" class="btn btn-orange fs-5 align-self-center w-100 d-block d-lg-none">{{__('Ver Inventario')}} <i class="fa-solid fa-right-long"></i></a>
 
         </div>
 

@@ -1,10 +1,16 @@
-@if (Route::currentRouteName() != 'contact.es' or Route::currentRouteName() != 'contact.en')
-    <div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
-        <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">{{__('Contacta un agente')}}</h6>
-        <button type="button" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2" data-bs-toggle="modal" data-bs-target="#contactModal">
-            {{__('Contactar')}} <i class="fa-solid fa-right-long"></i>
-        </button>
-    </div>
+@php
+    $contact = request()->query('contact');
+@endphp
+
+@if ($contact != 'no')
+    @if (Route::currentRouteName() != 'contact.es' or Route::currentRouteName() != 'contact.en')
+        <div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
+            <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">{{__('Contacta un agente')}}</h6>
+            <button type="button" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2" data-bs-toggle="modal" data-bs-target="#contactModal">
+                {{__('Contactar')}} <i class="fa-solid fa-right-long"></i>
+            </button>
+        </div>
+    @endif
 @endif
 
 {{-- Modal de contacto --}}
@@ -58,9 +64,11 @@
             <div class="col-12 col-lg-4 mb-5 mb-lg-0">
                 <img src="{{asset('/img/the-one-logo-white.webp')}}" alt="Logo The One Residences" width="200px" class="d-block mb-4 mx-auto me-lg-auto">
     
-                <a href="mailto:info@domusvallarta.com" class="link-light d-block text-decoration-none mb-3">
-                    <i class="fa-solid fa-envelope"></i> info@domusvallarta.com
-                </a>
+                @if ($contact != 'no')
+                    <a href="mailto:info@domusvallarta.com" class="link-light d-block text-decoration-none mb-3">
+                        <i class="fa-solid fa-envelope"></i> info@domusvallarta.com
+                    </a>
+                @endif
     
                 <a href="https://goo.gl/maps/gF2Tp3yJffcd44nZA" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer">
                     <i class="fa-solid fa-house-chimney"></i> {{__('Calle')}} Lazaro Cardenas #43 {{__('esq.')}} Galeana 63732, Bucerias, Nayarit.
