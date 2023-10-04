@@ -68,7 +68,7 @@
 
       <h2 class="mb-5 fs-1">{{__('Descubre el paraíso en la costa de Nayarit')}}</h2>
       <p class="fs-6 mb-5 fw-light">
-        {{__('La ubicación de The One en Bucerías, conjuga las riquezas más grandes de este exclusivo destino, su playa y el interior del pueblo. Por ello, ofrece la mejor ubicación en la Zona Dorada, donde se puede escuchar el sonido de las olas del mar y oler la esencia del agua salada, donde se podrá disfrutar de las espectaculares puestas del sol, practicar deportes de mar y disfrutar de la vida trendy que ofrece esta zona. Ubicado en el corazón de Bucerías en la Calle Lázaro Cárdenas #43 entre la calles Morelos y Galeana, a sólo 1 cuadra de la playa. The One reúne una visión de amenidades de estilo de vida de lujo dentro de un entorno boutique sin igual en el área.')}}
+        {{__('La ubicación de The One en Bucerías, conjuga las riquezas más grandes de este exclusivo destino, su playa y el interior del pueblo. Por ello, ofrece la mejor ubicación en la Zona Dorada, donde se puede escuchar el sonido de las olas del mar y oler la esencia del agua salada, donde se podrá disfrutar de las espectaculares puestas del sol, practicar deportes de mar y disfrutar de la vida trendy que ofrece esta zona. Ubicado en el corazón de Bucerías en la Calle Lázaro Cárdenas #43 entre la calles Morelos y Galeana, a unos pasos de la playa. The One reúne una visión de amenidades de estilo de vida de lujo dentro de un entorno boutique sin igual en el área.')}}
       </p>
       
       <a href="{{route('inventory', request()->query() )}}" class="btn btn-orange fs-5 text-uppercase">

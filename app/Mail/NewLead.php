@@ -35,7 +35,7 @@ class NewLead extends Mailable
     {
         return new Envelope(
             from: new Address('info@theonebucerias.mx', 'The One Residences'),
-            subject: 'Un Cliente dejó sus datos',
+            subject: 'Nuevo Lead desde The One Residences',
         );
     }
 

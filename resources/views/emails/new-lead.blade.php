@@ -10,14 +10,18 @@
     </head>
 
     <body>
-        <p>Este mensaje fue enviado desde un formulario de contacto en el sitio web de The One Bucerías</p>
+        <p>Contacto recibido del sitio web de The One Residences.</p>
+        <p>Referido por: Punto401</p> <br>
 
-        <p>Mensaje de: <strong>{{$msg->name}}</strong></p>
+        <p>Nombre: <strong>{{$msg->name}}</strong></p>
         <p>Correo: <strong>{{$msg->email}}</strong></p>
         <p>Teléfono: <strong>{{$msg->phone ?? 'Sin especificar'}}</strong></p>
-        <p>Contenido: <strong>{{$msg->content ?? 'Sin Contenido'}}</strong></p> <br>
-        <p>Enviado desde: <a href="{{$msg->url}}">{{$msg->url}}</a> </p>
+        <p>Contenido: <strong>{{$msg->content ?? 'Sin Contenido'}}</strong></p>
+        <p>Enviado desde: <a href="{{$msg->url}}">{{$msg->url}}</a> </p> <br>
+
         <p>Enviado el: {{ date_format( $msg->created_at, 'd/M/Y H:i:s') }}</p>
+        <p>Este mensaje fue enviado desde un formulario de contacto en el sitio web de The One Residences</p>
+
     </body>
 
 </html>

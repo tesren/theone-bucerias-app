@@ -43,7 +43,7 @@ class PublicPagesController extends Controller
     }
 
     public function construction(){
-        $updates = ConstructionUpdate::all();
+        $updates = ConstructionUpdate::orderBy('date', 'desc')->get();
 
         return view('construction', compact('updates'));
     }
@@ -81,7 +81,7 @@ class PublicPagesController extends Controller
             
             $email = Mail::to('info@domusvallarta.com');
             //$email->cc(['info@theonebucerias.mx', 'theoneresidences@outlook.com']);
-            $email->bcc(['erick@punto401.com','javier@punto401.com']);
+            $email->bcc('ventas@punto401.com');
 
             /* $email = Mail::to('erick@punto401.com');*/
             
