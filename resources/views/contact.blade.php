@@ -43,7 +43,7 @@
             <input type="number" class="form-contact mb-3" name="phone" id="phone" placeholder="{{__('Teléfono')}}" min="0" value="{{ old('phone') }}">
             <textarea class="form-contact mb-3" name="message" id="message" cols="30" rows="6" placeholder="{{__('Mensaje')}}" maxlength="255">{{ old('message') }}</textarea>
         
-            <input type="hidden" name="url" value="{{url()->current()}}">
+            <input type="hidden" name="url" value="{{ request()->fullUrl() }}">
             <input type="hidden" name="utm_campaign" value="{{ request()->query('utm_campaign') }}">
         
             <div class="row justify-content-center mt-4">

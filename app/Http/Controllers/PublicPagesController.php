@@ -79,10 +79,9 @@ class PublicPagesController extends Controller
             $msg->save();
 
             
-            $email = Mail::to('info@domusvallarta.com');
+            $email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');
             //$email->cc(['info@theonebucerias.mx', 'theoneresidences@outlook.com']);
-            $email->bcc('ventas@punto401.com');
-
+        
             /* $email = Mail::to('erick@punto401.com');*/
             
             $email->send(new NewLead($msg)); 
