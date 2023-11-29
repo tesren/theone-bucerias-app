@@ -28,10 +28,10 @@
     <div class="row justify-content-evenly my-6">
 
         <div class="col-12 col-lg-4 mb-5 mb-lg-0">
-            <img src="{{asset('img/about-img.webp')}}" alt="comunArquitectura" class="w-100">
+            <img src="{{asset('/img/about-us.webp')}}" alt="comunArquitectura" class="w-100">
         </div>
 
-        <div class="col-12 col-lg-5 align-self-center">
+        <div class="col-12 col-lg-8 col-xl-6 align-self-center">
             <div class="ff-oswald d-flex mb-3 mb-lg-5 text-orange">
                 <hr>
                 <div class="align-self-center fw-bold text-uppercase">{{__('Sobre Nosotros')}}</div>

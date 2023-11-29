@@ -1,7 +1,9 @@
 import './bootstrap';
 
-window.addEventListener('scroll', function() {
-    var navbar = document.getElementById('the-one-navbar');
+var navbar = document.getElementById('the-one-navbar');
+
+if(navbar){
+  window.addEventListener('scroll', function() {
     var scrollPosition = window.scrollY;
     var scrollThreshold = 400; // Cambia este valor para ajustar la cantidad de scroll necesaria
   
@@ -12,7 +14,9 @@ window.addEventListener('scroll', function() {
       navbar.classList.remove('bg-dark');
       navbar.classList.add('bg-transparent');
     }
-});
+  });
+}
+
 
 var splide = document.getElementById('gallery-home');
 

@@ -36,19 +36,14 @@ Route::localized(function () {
 
     Route::get( Lang::uri('/politicas-privacidad'), [PublicPagesController::class, 'politics'])->name('policy');
 
+    //landing pages
+    Route::get( Lang::uri('/agendar-cita'), [PublicPagesController::class, 'appointment'])->name('appointment');
+    Route::get( Lang::uri('/cotizador'), [PublicPagesController::class, 'quoter'])->name('quoter');
+    Route::get( Lang::uri('/landing-page'), [PublicPagesController::class, 'general'])->name('general');
+
 });
 
-Route::get('/route-cache', function () {
-    Artisan::call('route:cache');
-    return 'Route cache completed.';
-})->name('artisan.route');
-
-Route::get('/config-cache', function () {
-    Artisan::call('config:cache');
-    return 'Config cache completed.';
-})->name('artisan.config');
-
-Route::get('/view-cache', function () {
-    Artisan::call('view:cache');
-    return 'View cache completed.';
-})->name('artisan.view');
+Route::get('/theone-optimize', function () {
+    Artisan::call('optimize');
+    return 'application optimized';
+})->name('artisan.optimized');

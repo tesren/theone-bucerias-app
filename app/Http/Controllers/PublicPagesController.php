@@ -78,11 +78,21 @@ class PublicPagesController extends Controller
 
             $msg->save();
 
+            //solo en landing de agendar cita
+            $contact_pref = $request->input('contact_method');
+            $ap_date = $request->input('ap_date');
+            $ap_time = $request->input('ap_time');
+
+            if( isset($contact_pref) ){
+                $msg->ap_time = $ap_time;
+                $msg->ap_date = $ap_date;
+                $msg->contact_pref = $contact_pref;    
+            }
             
             $email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');
             //$email->cc(['info@theonebucerias.mx', 'theoneresidences@outlook.com']);
         
-            /* $email = Mail::to('erick@punto401.com');*/
+            //$email = Mail::to('erick@punto401.com');
             
             $email->send(new NewLead($msg)); 
             
@@ -92,5 +102,26 @@ class PublicPagesController extends Controller
 
     public function politics(){
         return view('privacy-policy');
+    }
+
+    //landing pages
+    public function general(){
+        $studios = Unit::where('bedrooms', 0)->get();
+        $one_bedrooms = Unit::where('bedrooms', 1)->get();
+        $two_bedrooms = Unit::where('bedrooms', 2)->limit(6)->get();
+        $three_bedrooms = Unit::where('bedrooms', 3)->get();
+
+        return view('landing-pages.general', compact('studios', 'one_bedrooms', 'two_bedrooms', 'three_bedrooms') );
+    }
+
+    public function appointment(){
+        return view('landing-pages.appointment');
+    }
+
+    public function quoter(){
+        $units = Unit::where('status', 'Disponible')->orderBy('price')->get();
+        $plans = PaymentPlan::all();
+
+        return view('landing-pages.quoter', compact('units', 'plans') );
     }
 }
