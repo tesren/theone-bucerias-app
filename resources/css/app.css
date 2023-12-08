@@ -133,6 +133,11 @@
     transition: 0.2s;
 }
 
+.btn-orange.disabled, .btn-orange:disabled, fieldset:disabled .btn {
+    background-color: var(--orange) !important;
+    opacity: var(--bs-btn-disabled-opacity);
+}
+
 .btn-orange:hover, .btn-orange:focus{
     background-color: #b98a1d;
     transition: 0.3s;

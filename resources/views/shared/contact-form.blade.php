@@ -14,3 +14,11 @@
     </div>
 
 </form>
+
+@if (session('message'))
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      gtag('event', 'generate_lead', {'currency': 'MXN', 'value': 1});
+    });
+  </script>
+@endif

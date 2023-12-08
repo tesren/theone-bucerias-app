@@ -10,25 +10,37 @@
     </head>
 
     <body>
-        <p>Contacto recibido del sitio web de The One Residences. @if( isset($msg->contact_pref) ) Esta persona esta interesada en agendar una cita. @endif</p>
+        <p>
+            Contacto recibido del sitio web de The One Residences
+            @if( isset($msg->contact_pref) ) Esta persona esta interesada en agendar una cita. @endif
+            @if( isset($msg->unit) ) <br> Esta persona descargó una cotización de la unidad {{$msg->unit->name}} con el plan de pagos {{$msg->plan->name}}. @endif
+        </p>
+        
         <p>Referido por: Punto401</p> <br>
-
-        <p>Nombre: <strong>{{$msg->name}}</strong></p>
+    
+        <p>Mensaje de: <strong>{{$msg->name}}</strong></p>
         <p>Correo: <strong>{{$msg->email}}</strong></p>
-        <p>Teléfono: <strong>{{$msg->phone ?? 'Sin especificar'}}</strong></p>
-
+        <p>Telêfono: <strong>{{$msg->phone ?? 'Sin especificar'}}</strong></p>
+    
         @if ( isset($msg->contact_pref) )
             <p>Preferencia de contacto: {{$msg->contact_pref}}</p>
             <p>Día para la cita: {{$msg->ap_date}}</p>
             <p>Hora para la cita: {{$msg->ap_time}}</p>
         @endif
-
-        <p>Contenido: <strong>{{$msg->content ?? 'Sin Contenido'}}</strong></p>
-        <p>Enviado desde: <a href="{{$msg->url}}">{{$msg->url}}</a> </p> <br>
-
-        <p>Enviado el: {{ date_format( $msg->created_at, 'd/M/Y H:i:s') }}</p>
-        <p>Este mensaje fue enviado desde un formulario de contacto en el sitio web de The One Residences</p>
-
+    
+        <p>Contenido: <strong>{{$msg->content ?? 'Sin Contenido'}}</strong></p> <br>
+    
+        <p>Enviado el: {{$msg->created_at}}</p>
+        <p>Desde: {{$msg->url}}</p>
+    
+        @if ( isset($msg->contact_pref) )
+            <p>Este mensaje fue enviado desde la landing page de agendar cita en theonebucerias.mx</p>
+        @elseif (isset($msg->unit))
+            <p>Este mensaje fue enviado desde la landing page de cotizar en theonebucerias.mx</p>
+        @else
+            <p>Este mensaje fue enviado desde un formulario de contacto en theonebucerias.mx</p>
+        @endif
+    
     </body>
 
 </html>

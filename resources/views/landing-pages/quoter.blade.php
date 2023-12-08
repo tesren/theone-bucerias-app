@@ -104,7 +104,7 @@
     {{-- Cálculos --}}
     <div class="row justify-content-evenly py-5  mx-auto w-100" id="calculator">
 
-        <div class="col-11 col-lg-4 text-white card rounded-0 p-3 align-self-center mb-3 mb-lg-0 bg-orange">
+        <div class="col-11 col-lg-4 text-white card rounded-0 p-3 align-self-center mb-3 mb-lg-0 bg-dark">
 
             <h2 class="fw-bold-agrandir fs-3 mb-2">{{__('Compara precios y planes')}}</h2>
 
@@ -160,6 +160,11 @@
                         <td id="down_amount"></td>
                     </tr>
 
+                    <tr id="second_row" class="">
+                        <td>{{__('Segundo pago')}} (<span id="second_percent"></span>%)</td>
+                        <td id="second_amount"></td>
+                    </tr>
+
                     <tr id="months_row" class="">
                         <td>{{__('Pagos Mensuales')}} (<span id="month_percent"></span>%)</td>
                         <td id="month_amount"></td>
@@ -179,49 +184,51 @@
 
             </table>
 
+            <div class="text-center">
+                <button type="button" class="btn btn-orange" disabled id="download_button" data-bs-toggle="modal" data-bs-target="#downloadModal">
+                    <i class="fa-solid fa-download"></i> {{__('Download')}} PDF
+                </button>
+            </div>
+
         </div>
     </div>
+
+    {{-- Agendar cita --}}
+    @include('shared.appointment')
     
     {{-- Galería --}}
     <section class="splide" aria-label="Galería The One Residences" id="gallery-home">
 
-    <div class="splide__track">
+        <div class="splide__track">
 
-        <ul class="splide__list">
-        <li class="splide__slide">
-            <img src="{{'/img/the-one-pool.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/kitchen-terrace.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/bedroom.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/kitchen.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/roof-garden.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/rooftop.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        </ul>
+            <ul class="splide__list">
+            <li class="splide__slide">
+                <img src="{{'/img/the-one-pool.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
+            </li>
+            <li class="splide__slide">
+                <img src="{{'/img/kitchen-terrace.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
+            </li>
+            <li class="splide__slide">
+                <img src="{{'/img/bedroom.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
+            </li>
+            <li class="splide__slide">
+                <img src="{{'/img/kitchen.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
+            </li>
+            <li class="splide__slide">
+                <img src="{{'/img/roof-garden.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
+            </li>
+            <li class="splide__slide">
+                <img src="{{'/img/rooftop.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
+            </li>
+            </ul>
 
-    </div>
+        </div>
 
     </section>
 
 
     {{-- Footer --}}
-    @if (Route::currentRouteName() != 'contact.es' or Route::currentRouteName() != 'contact.en')
-        <div class="p-4 p-lg-5 row justify-content-evenly bg-orange">
-            <h6 class="fs-1 col-12 col-lg-4 text-center text-lg-start">{{__('Contacta un agente')}}</h6>
-            <button type="button" class="btn btn-dark fs-5 text-uppercase align-self-center rounded-0 col-12 col-lg-2" data-bs-toggle="modal" data-bs-target="#contactModal">
-                {{__('Contactar')}} <i class="fa-solid fa-right-long"></i>
-            </button>
-        </div>
-    @endif
+    <div class="p-4 p-lg-5 row justify-content-evenly bg-orange"></div>
 
     {{-- Modal de contacto --}}
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
@@ -237,6 +244,50 @@
                     @include('shared.contact-form')
                 </div>
             
+            </div>
+        </div>
+    </div>
+
+    {{-- Modal de descarga --}}
+    <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark">
+
+                <div class="modal-header text-white">
+                    <div class="modal-title fs-5 fw-bold" id="downloadModalLabel">{{__('Download')}} PDF</div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p class="fw-light text-white">{{__('Completa el formulario a continuación y un PDF detallado de la cotización')}}</p>
+                    <form action="{{route('send.email')}}#sh_contact_form" method="post" onsubmit="disableBtn()">
+                        @csrf
+                        <x-honeypot />
+                
+                        <input class="form-contact mb-3" type="text" name="name" id="contact_name" required placeholder="{{__('Nombre')}}">
+                
+                        <input class="form-contact mb-3" type="email" name="email" id="contact_email" required placeholder="{{__('Email')}}">
+                
+                        <input class="form-contact mb-3" type="number" name="phone" id="contact_tel" required placeholder="{{__('Teléfono')}}">
+                
+                        <textarea class="form-contact mb-3" name="message" id="contact_msg" cols="30" rows="3" placeholder="{{__('Mensaje')}}(opcional)"></textarea>
+                
+                        <input type="hidden" name="url" value="{{ request()->fullUrl() }}">
+
+                        <input type="hidden" id="down_unit_id" name="down_unit_id" value="">
+                        <input type="hidden" id="down_plan_id" name="down_plan_id" value="">
+                
+                        <button id="download_submit" class="btn btn-orange w-100 mb-4" type="submit" @if(session('contact_message')) disabled @endif>{{__('Enviar')}}</button>
+                    </form>
+                </div>
+
+                @if (session('contact_message'))
+                    <div class="modal-footer text-center" style="color: #198754;">
+                        <i class="far fa-check-circle"></i>
+                        {{ __(session('contact_message')) }}
+                    </div>           
+                @endif
+
             </div>
         </div>
     </div>
@@ -311,8 +362,12 @@
         arrayPlans = JSON.parse(arrayPlans);
         //console.log(arrayPlans);
 
+        //descargar pdf
         let unit_input = document.getElementById('unit_id');
         let plan_input = document.getElementById('plan_id');
+        let hinput_unit = document.getElementById('down_unit_id');
+        let download_button = document.getElementById('download_button');
+        let hinput_plan = document.getElementById('down_plan_id');
 
         //table cells
         let unit_name = document.getElementById('unit_name');
@@ -322,6 +377,8 @@
         let discount_amount = document.getElementById('discount_amount');
         let down_percent = document.getElementById('down_percent');
         let down_amount = document.getElementById('down_amount');
+        let second_percent = document.getElementById('second_percent');
+        let second_amount = document.getElementById('second_amount');
         let final_percent = document.getElementById('final_percent');
         let final_amount = document.getElementById('final_amount');
         let final_price = document.getElementById('final_price');
@@ -330,6 +387,10 @@
         const months_row = document.getElementById('months_row');
         const discount_row = document.getElementById('discount_row');
 
+        function disableBtn(){
+            let download_submit = document.getElementById('download_submit');
+            download_submit.disabled = true;
+        }
 
         function updateCalculations(){
 
@@ -379,6 +440,16 @@
             down_percent.innerHTML = selected_plan.down_payment;
             down_amount.innerHTML = formatter.format(down_payment);
 
+            //segundo pago
+            let second_payment = discounted_price * (selected_plan.second_payment/100);
+            second_percent.innerHTML = selected_plan.second_payment;
+            second_amount.innerHTML = formatter.format(second_payment);
+            if(selected_plan.second_payment == 0 || selected_plan.second_payment == null){
+                second_row.classList = 'd-none';
+            }else{
+                second_row.classList = ' ';
+            }
+
             //mensualidades
             let month_payment = discounted_price * (selected_plan.months_percent/100);
             month_percent.innerHTML = selected_plan.months_percent;
@@ -393,6 +464,11 @@
             let final_payment = discounted_price * (selected_plan.closing_payment/100);
             final_percent.innerHTML = selected_plan.closing_payment;
             final_amount.innerHTML = formatter.format(final_payment);
+
+            //modal de descarga
+            download_button.disabled = false;
+            hinput_unit.value = selected_unit.id;
+            hinput_plan.value = selected_plan.id;
 
         }
     </script>

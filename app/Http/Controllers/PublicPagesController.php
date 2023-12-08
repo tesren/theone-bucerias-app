@@ -12,6 +12,7 @@ use App\Models\ConstructionUpdate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Honeypot\ProtectAgainstSpam;
+use PDF;
 
 
 class PublicPagesController extends Controller
@@ -83,18 +84,42 @@ class PublicPagesController extends Controller
             $ap_date = $request->input('ap_date');
             $ap_time = $request->input('ap_time');
 
+            //solo landing page de cotizador
+            $unit_id = $request->input('down_unit_id');
+            $plan_id = $request->input('down_plan_id');
+
             if( isset($contact_pref) ){
                 $msg->ap_time = $ap_time;
                 $msg->ap_date = $ap_date;
                 $msg->contact_pref = $contact_pref;    
             }
             
+            //solo landing page de cotizador
+            if( isset($unit_id) ){
+
+                $unit = Unit::find($unit_id);
+                $plan = PaymentPlan::find($plan_id);
+
+                $msg->unit = $unit;
+                $msg->plan = $plan;
+
+                $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                ->loadView( 'pdf.payment_plan', [
+                    'unit' => $unit,
+                    'plan' => $plan,
+                ]);
+            }
+
             $email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');
             //$email->cc(['info@theonebucerias.mx', 'theoneresidences@outlook.com']);
         
             //$email = Mail::to('erick@punto401.com');
             
-            $email->send(new NewLead($msg)); 
+            //$email->send(new NewLead($msg));
+
+            if( isset($pdf) ){
+                return $pdf->stream();
+            }
             
             return redirect()->back()->with('contact_message', 'Gracias, su mensaje ha sido enviado');
         }    
