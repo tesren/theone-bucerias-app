@@ -28,6 +28,9 @@
     <title>The One Residences - {{__('Condominios en Bucerías Nayarit con vista al mar')}}</title>
     <meta name="description" content="{{__('The One Residences es un desarrollo inmobiliario en Bucerías Nayarit con condominios en preventa ubicados a solo 2 minutos caminando de la playa. Descubre tu hogar en el paraíso con nuestras residencias de lujo diseñadas con la más alta calidad y comodidad. Conoce nuestras opciones de departamentos en venta y aprovecha la oportunidad de vivir en uno de los lugares más exclusivos de la Riviera Nayarit')}}">
 
+    <link rel="preload" href="{{asset('css/fancybox.min.css')}}" as="style">
+    <link rel="stylesheet" href="{{asset('css/fancybox.min.css')}}">
+    
     @vite(['resources/css/app.css'])
 
     <!-- Google tag (gtag.js) -->
@@ -79,15 +82,15 @@
           <div class="carousel-inner">
     
             <div class="carousel-item active">
-              <img src="{{asset('/img/the-one-residences.webp')}}" class="d-block w-100" alt="The One Residences - Fachada" style="height:100vh; object-fit:cover;">
+                <img src="{{asset('/img/exteriors/terrace.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
             </div>
     
             <div class="carousel-item">
-              <img src="{{asset('/img/the-one-residences-back.webp')}}" class="d-block w-100" alt="The One Residences - Fachada trasera" loading="lazy" style="height:100vh; object-fit:cover;">
+                <img src="{{asset('/img/exteriors/pool-terrace.webp')}}" class="d-block w-100" alt="The One Residences - Terraza y alberca" loading="lazy" style="height:100vh; object-fit:cover;">
             </div>
     
             <div class="carousel-item">
-              <img src="{{asset('/img/the-one-pool.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
+                <img src="{{asset('/img/exteriors/rooftop-pool.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
             </div>
     
           </div>
@@ -119,13 +122,13 @@
     </div>
 
     <div class="col-12 col-lg-4">
-        <img src="{{asset('/img/dinning-area.webp')}}" alt="Dinning area - The One Residences" class="w-100" loading="lazy">
+        <img src="{{asset('/img/front-side-view.webp')}}" alt="Dinning area - The One Residences" class="w-100" loading="lazy">
     </div>
 
     </div>
 
     {{-- Lugares cerca --}}
-    <div class="row justify-content-evenly position-relative mb-6 pt-5" style="background-image: url('{{asset('/img/kitchen-terrace.webp')}}'); background-repeat: no-repeat;background-size:cover; background-position:center;">
+    <div class="row justify-content-evenly position-relative mb-6 pt-5" style="background-image: url('{{asset('/img/interiors/living-room-view.webp')}}'); background-repeat: no-repeat;background-size:cover; background-position:center;">
 
     <div class="fondo-oscuro"></div>
 
@@ -382,35 +385,7 @@
     </div>
 
     {{-- Galería --}}
-    <section class="splide" aria-label="Galería The One Residences" id="gallery-home">
-
-    <div class="splide__track">
-
-        <ul class="splide__list">
-        <li class="splide__slide">
-            <img src="{{'/img/the-one-pool.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/kitchen-terrace.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/bedroom.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/kitchen.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/roof-garden.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-            <img src="{{'/img/rooftop.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        </ul>
-
-    </div>
-
-    </section>
-    
+    @include('shared.gallery')
 
 
     {{-- Footer --}}
@@ -502,6 +477,15 @@
     </footer>
 
     <script src="{{asset('/js/splide.min.js')}}" defer></script>
+    <script src="{{asset('js/fancybox.umd.js')}}" defer></script>
+    <script>
+        document.addEventListener( 'DOMContentLoaded', function() {
+            Fancybox.bind("[data-fancybox]", {
+                // Your custom options
+            });
+        });
+    </script>
+
     @vite(['resources/js/app.js'])
     
 </body>

@@ -79,15 +79,15 @@
           <div class="carousel-inner">
     
             <div class="carousel-item active">
-              <img src="{{asset('/img/the-one-residences.webp')}}" class="d-block w-100" alt="The One Residences - Fachada" style="height:100vh; object-fit:cover;">
+                <img src="{{asset('/img/exteriors/terrace.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
             </div>
     
             <div class="carousel-item">
-              <img src="{{asset('/img/the-one-residences-back.webp')}}" class="d-block w-100" alt="The One Residences - Fachada trasera" loading="lazy" style="height:100vh; object-fit:cover;">
+                <img src="{{asset('/img/exteriors/pool-terrace.webp')}}" class="d-block w-100" alt="The One Residences - Terraza y alberca" loading="lazy" style="height:100vh; object-fit:cover;">
             </div>
     
             <div class="carousel-item">
-              <img src="{{asset('/img/the-one-pool.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
+                <img src="{{asset('/img/exteriors/rooftop-pool.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
             </div>
     
           </div>
@@ -100,34 +100,7 @@
     @include('shared.appointment')
 
     {{-- Galería --}}
-    <section class="splide" aria-label="Galería The One Residences" id="gallery-home">
-
-        <div class="splide__track">
-
-            <ul class="splide__list">
-            <li class="splide__slide">
-                <img src="{{'/img/the-one-pool.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-            </li>
-            <li class="splide__slide">
-                <img src="{{'/img/kitchen-terrace.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-            </li>
-            <li class="splide__slide">
-                <img src="{{'/img/bedroom.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-            </li>
-            <li class="splide__slide">
-                <img src="{{'/img/kitchen.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-            </li>
-            <li class="splide__slide">
-                <img src="{{'/img/roof-garden.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-            </li>
-            <li class="splide__slide">
-                <img src="{{'/img/rooftop.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-            </li>
-            </ul>
-
-        </div>
-
-    </section>
+    @include('shared.gallery')
     
 
     {{-- Footer --}}

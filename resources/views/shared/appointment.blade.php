@@ -80,7 +80,7 @@
 
 </div>
 
-@if (session('message'))
+@if (session('contact_message'))
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       gtag('event', 'generate_lead', {'currency': 'MXN', 'value': 1});

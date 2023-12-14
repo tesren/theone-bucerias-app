@@ -6,6 +6,7 @@
 @endsection
 
 @section('css')
+    <link rel="preload" href="{{asset('css/fancybox.min.css')}}" as="style">
     <link rel="stylesheet" href="{{asset('css/fancybox.min.css')}}">
 @endsection
 
@@ -154,17 +155,23 @@
             <div class="container">
 
                 <div class="row px-0 justify-content-center">
-                    <div class="col-12 p-1">
-                        <img src="{{asset('/img/interiors/dinning-kitchen.webp')}}" alt="Cocina y área de estar" class="w-100" loading="lazy" style="max-height: 300px; object-fit:cover;" data-fancybox="interiors">
+                    <div class="col-6 col-lg-4 p-1">
+                        <img src="{{asset('/img/interiors/balcony.webp')}}" alt="Balcón con vista" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
                     </div>
                     <div class="col-6 col-lg-4 p-1">
-                        <img src="{{asset('/img/interiors/bedroom.webp')}}" alt="Cocina y área de estar" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
+                        <img src="{{asset('/img/interiors/bedroom-new.webp')}}" alt="Recámara" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
                     </div>
                     <div class="col-6 col-lg-4 p-1">
-                        <img src="{{asset('/img/interiors/kitchen.webp')}}" alt="Cocina y área de estar" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
+                        <img src="{{asset('/img/interiors/bedroom-view.webp')}}" alt="Vista de la recámara" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
                     </div>
-                    <div class="col-12 col-lg-4 p-1">
-                        <img src="{{asset('/img/interiors/kitchen-terrace.webp')}}" alt="Cocina y área de estar" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
+                    <div class="col-6 col-lg-4 p-1">
+                        <img src="{{asset('/img/interiors/bathroom-shower.webp')}}" alt="Baño completo" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
+                    </div>
+                    <div class="col-6 col-lg-4 p-1">
+                        <img src="{{asset('/img/interiors/living-room-view.webp')}}" alt="Cocina y comedor con vista" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
+                    </div>
+                    <div class="col-6 col-lg-4 p-1">
+                        <img src="{{asset('/img/interiors/living-room.webp')}}" alt="Cocina y comedor" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="interiors">
                     </div>
                 </div>
                 
@@ -176,14 +183,17 @@
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
           <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-4 p-1">
-                    <img src="{{asset('/img/exteriors/roof-garden.webp')}}" alt="The One Residences Bucerías, exteriores" class="w-100" loading="lazy" style="height: 300px; object-fit:cover;" data-fancybox="exteriors">
+                <div class="col-12 p-1">
+                    <img src="{{asset('/img/exteriors/pool-terrace.webp')}}" alt="The One Residences Bucerías, Alberca" class="w-100" loading="lazy" style="height: 300px; object-fit:cover;" data-fancybox="exteriors">
+                </div>
+                <div class="col-6 col-lg-4 p-1">
+                    <img src="{{asset('/img/exteriors/rooftop-new.webp')}}" alt="The One Residences Bucerías, Terraza" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="exteriors">
+                </div>
+                <div class="col-6 col-lg-4 p-1">
+                    <img src="{{asset('/img/exteriors/rooftop-pool.webp')}}" alt="The One Residences Bucerías, Alberca y terraza" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="exteriors">
                 </div>
                 <div class="col-12 col-lg-4 p-1">
-                    <img src="{{asset('/img/exteriors/rooftop.webp')}}" alt="The One Residences Bucerías, exteriores" class="w-100" loading="lazy" style="height: 300px; object-fit:cover;" data-fancybox="exteriors">
-                </div>
-                <div class="col-12 col-lg-4 p-1">
-                    <img src="{{asset('/img/exteriors/the-one-pool.webp')}}" alt="The One Residences Bucerías, exteriores" class="w-100" loading="lazy" style="height: 300px; object-fit:cover;" data-fancybox="exteriors">
+                    <img src="{{asset('/img/exteriors/terrace.webp')}}" alt="The One Residences Bucerías, Terraza" class="w-100" loading="lazy" style="height: 350px; object-fit:cover;" data-fancybox="exteriors">
                 </div>
             </div>
           </div>

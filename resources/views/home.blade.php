@@ -5,6 +5,11 @@
     <meta name="description" content="{{__('The One Residences es un desarrollo inmobiliario en Bucerías Nayarit con condominios en preventa ubicados a solo 2 minutos caminando de la playa. Descubre tu hogar en el paraíso con nuestras residencias de lujo diseñadas con la más alta calidad y comodidad. Conoce nuestras opciones de departamentos en venta y aprovecha la oportunidad de vivir en uno de los lugares más exclusivos de la Riviera Nayarit')}}">
 @endsection
 
+@section('css')
+  <link rel="preload" href="{{asset('css/fancybox.min.css')}}" as="style">
+  <link rel="stylesheet" href="{{asset('css/fancybox.min.css')}}">
+@endsection
+
 @section('content')
 
   @php
@@ -32,15 +37,15 @@
       <div class="carousel-inner">
 
         <div class="carousel-item active">
-          <img src="{{asset('/img/the-one-residences.webp')}}" class="d-block w-100" alt="The One Residences - Fachada" style="height:100vh; object-fit:cover;">
+          <img src="{{asset('/img/exteriors/terrace.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
         </div>
 
         <div class="carousel-item">
-          <img src="{{asset('/img/the-one-residences-back.webp')}}" class="d-block w-100" alt="The One Residences - Fachada trasera" loading="lazy" style="height:100vh; object-fit:cover;">
+          <img src="{{asset('/img/exteriors/pool-terrace.webp')}}" class="d-block w-100" alt="The One Residences - Terraza y alberca" loading="lazy" style="height:100vh; object-fit:cover;">
         </div>
 
         <div class="carousel-item">
-          <img src="{{asset('/img/the-one-pool.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
+          <img src="{{asset('/img/exteriors/rooftop-pool.webp')}}" class="d-block w-100" alt="The One Residences - Terraza" loading="lazy" style="height:100vh; object-fit:cover;">
         </div>
 
       </div>
@@ -61,13 +66,13 @@
 
     <div class="col-12 col-lg-4 align-self-center mb-5 mb-lg-0">
 
-      <div class="text-orange ff-oswald d-flex mb-4">
+      <div class="text-orange ff-oswald d-flex mb-3">
         <hr>
         <div class="align-self-center fw-bold text-uppercase">{{__('El Proyecto')}}</div>
       </div>
 
-      <h2 class="mb-5 fs-1">{{__('Descubre el paraíso en la costa de Nayarit')}}</h2>
-      <p class="fs-6 mb-5 fw-light">
+      <h2 class="mb-4 fs-1">{{__('Descubre el paraíso en la costa de Nayarit')}}</h2>
+      <p class="fs-6 mb-4 fw-light">
         {{__('La ubicación de The One en Bucerías, conjuga las riquezas más grandes de este exclusivo destino, su playa y el interior del pueblo. Por ello, ofrece la mejor ubicación en la Zona Dorada, donde se puede escuchar el sonido de las olas del mar y oler la esencia del agua salada, donde se podrá disfrutar de las espectaculares puestas del sol, practicar deportes de mar y disfrutar de la vida trendy que ofrece esta zona. Ubicado en el corazón de Bucerías en la Calle Lázaro Cárdenas #43 entre la calles Morelos y Galeana, a unos pasos de la playa. The One reúne una visión de amenidades de estilo de vida de lujo dentro de un entorno boutique sin igual en el área.')}}
       </p>
       
@@ -77,14 +82,14 @@
 
     </div>
 
-    <div class="col-12 col-lg-4">
-      <img src="{{asset('/img/dinning-area.webp')}}" alt="Dinning area - The One Residences" class="w-100" loading="lazy">
+    <div class="col-12 col-lg-4 align-self-center">
+      <img src="{{asset('/img/front-side-view.webp')}}" alt="Dinning area - The One Residences" class="w-100" loading="lazy">
     </div>
 
   </div>
 
   {{-- Lugares cerca --}}
-  <div class="row justify-content-evenly position-relative mb-6 pt-5" style="background-image: url('{{asset('/img/kitchen-terrace.webp')}}'); background-repeat: no-repeat;background-size:cover; background-position:center;">
+  <div class="row justify-content-evenly position-relative mb-6 pt-5" style="background-image: url('{{asset('/img/interiors/living-room-view.webp')}}'); background-repeat: no-repeat;background-size:cover; background-position:center;">
 
     <div class="fondo-oscuro"></div>
 
@@ -526,37 +531,18 @@
   </div>
 
   {{-- Galería --}}
-  <section class="splide" aria-label="Galería The One Residences" id="gallery-home">
-
-    <div class="splide__track">
-
-      <ul class="splide__list">
-        <li class="splide__slide">
-          <img src="{{'/img/the-one-pool.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-          <img src="{{'/img/kitchen-terrace.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-          <img src="{{'/img/bedroom.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-          <img src="{{'/img/kitchen.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-          <img src="{{'/img/roof-garden.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-        <li class="splide__slide">
-          <img src="{{'/img/rooftop.webp'}}" alt="The One Residences - Terraza" class="w-100" style="height:200px; object-fit:cover;" loading="lazy">
-        </li>
-      </ul>
-
-    </div>
-
-  </section>
+  @include('shared.gallery')
 
 @endsection
 
 @section('javascript')
   <script src="{{asset('/js/splide.min.js')}}" defer></script>
+  <script src="{{asset('js/fancybox.umd.js')}}" defer></script>
+  <script>
+    document.addEventListener( 'DOMContentLoaded', function() {
+      Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+      });
+    });
+  </script>
 @endsection

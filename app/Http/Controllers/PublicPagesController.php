@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Unit;
 use App\Models\View;
 use App\Mail\NewLead;
@@ -9,10 +10,10 @@ use App\Models\Message;
 use App\Models\PaymentPlan;
 use Illuminate\Http\Request;
 use App\Models\ConstructionUpdate;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
 use Spatie\Honeypot\ProtectAgainstSpam;
-use PDF;
+use Illuminate\Support\Facades\Validator;
 
 
 class PublicPagesController extends Controller
@@ -88,10 +89,14 @@ class PublicPagesController extends Controller
             $unit_id = $request->input('down_unit_id');
             $plan_id = $request->input('down_plan_id');
 
+            //para el webhook
+            $type = "Contacto desde el sitio web de The One Residences";
+
             if( isset($contact_pref) ){
                 $msg->ap_time = $ap_time;
                 $msg->ap_date = $ap_date;
-                $msg->contact_pref = $contact_pref;    
+                $msg->contact_pref = $contact_pref;
+                $type = 'El cliente dejó sus datos y está interesado en una cita en The One Residences el día '.$ap_date.' a las '.$ap_time;  
             }
             
             //solo landing page de cotizador
@@ -108,14 +113,35 @@ class PublicPagesController extends Controller
                     'unit' => $unit,
                     'plan' => $plan,
                 ]);
+
+                $type = 'El cliente descargó una cotización de la unidad '.$unit->name.' y el plan de pago '.$plan->name;  
             }
+
+            
+            //Envíamos webhook
+            $webhookUrl = 'https://hooks.zapier.com/hooks/catch/4710110/3fvqx5c/';
+
+            // Datos que deseas enviar en el cuerpo de la solicitud
+            $data = [
+                'name' => $msg->name,
+                'email' => $msg->email,
+                'phone' => $msg->phone,
+                'url' => $msg->url,
+                'content' => $msg->content,
+                'type'  => $type,
+                'created_at' => $msg->created_at,
+            ];
+
+            // Enviar la solicitud POST al webhook
+            $response = Http::post($webhookUrl, $data);
+
 
             $email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');
             //$email->cc(['info@theonebucerias.mx', 'theoneresidences@outlook.com']);
         
             //$email = Mail::to('erick@punto401.com');
             
-            //$email->send(new NewLead($msg));
+            $email->send(new NewLead($msg));
 
             if( isset($pdf) ){
                 return $pdf->stream();
