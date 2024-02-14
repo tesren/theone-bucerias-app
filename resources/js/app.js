@@ -52,3 +52,19 @@ window.onload = function() {
     myModal.show(myModal);
   }
 };
+
+document.addEventListener( 'DOMContentLoaded', function() {
+
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+
+  if(tooltipTriggerList){
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+  }
+
+  tooltipList.forEach(function (tooltip) {
+    tooltip.show();
+  });
+
+});

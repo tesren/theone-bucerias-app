@@ -103,6 +103,81 @@
         
     
     </div>
+
+    {{-- Menú de navegación --}}
+    <ul class="nav nav-pills mb-4 justify-content-center mt-6" id="pills-tab" role="tablist">
+        @php $i = 1; @endphp
+        @foreach ($views as $view)
+            <li class="nav-item ff-oswald fs-4 mx-3" role="presentation">
+                <button class="nav-link @if($i == 2) active @endif" id="pills-{{$view->id}}-tab" data-bs-toggle="pill" data-bs-target="#pills-{{$view->id}}" type="button" role="tab" aria-controls="pills-{{$view->id}}" @if($i == 2) aria-selected="true" @endif>
+                    @if (app()->getlocale() == 'es')
+                        {{$view->name_es}}
+                    @else
+                        {{$view->name_en}}
+                    @endif
+                </button>
+            </li>
+            @php $i++; @endphp
+        @endforeach
+    </ul>
+
+    <h2 class="mb-5 text-center fw-light fs-3">{{__('Haga clic en una unidad para ver más detalles')}}</h2>
+
+    <div class="row justify-content-center">
+
+        {{-- Vistas --}}
+        <div class="col-12 col-lg-9 col-xl-7 col-xxl-6 position-relative px-0">
+            <div class="tab-content mb-6" id="pills-tabContent">
+                @php $j = 1; @endphp
+                @foreach ($views as $view)
+        
+                    @php
+                        $url = '/media/'.$view->img_path;
+                    @endphp
+        
+                    <div class="tab-pane fade @if($j == 2) show active @endif" id="pills-{{$view->id}}" role="tabpanel" aria-labelledby="pills-{{$view->id}}-tab" tabindex="{{$j}}">
+                        
+                        <div class="svg-container">
+
+                            <img src="@isset($url) {{asset($url)}} @endisset" alt="{{$view->name_es}}" class="w-100 rounded-3">
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="position-absolute start-0 top-0" viewBox="{{$view->view_box}}">
+                                @foreach ($view->units as $unit )
+
+                                    <a href="#calculator" onclick="selectOption('{{$unit->id}}')" class="text-decoration-none position-relative">
+                                        
+                                        <polygon class="building-{{strtolower($unit->status)}}" points="{{ $unit->shape->points ?? '0,0'}}"></polygon>
+
+                                        <text x="{{$unit->shape->text_x ?? 0;}}" 
+                                            y="{{$unit->shape->text_y ?? 0; }}"
+                                            font-size="36" font-weight="bold" fill="#fff" class="fw-light">
+                                            {{$unit->name}}
+                                        </text>
+                                        
+                                    </a>
+                                @endforeach
+                            </svg>
+
+                        </div>
+
+                    </div>
+        
+                    @php $j++; @endphp
+                @endforeach
+            </div>
+
+            {{-- Simbología --}}
+            <ul class="position-absolute end-0 top-0 p-2 p-lg-4 list-unstyled bg-glass text-white">
+                <li class="fw-bold mb-1">{{__('Disponibilidad')}}</li>
+                <li><i class="fa-solid fa-square text-success"></i> {{__('Disponible')}}</li>
+                <li><i class="fa-solid fa-square text-warning"></i> {{__('Apartado')}}</li>
+                <li><i class="fa-solid fa-square text-danger"></i> {{__('Vendido')}}</li>
+            </ul>
+
+        </div>
+
+
+    </div>
     
     {{-- Cálculos --}}
     <div class="row justify-content-evenly py-5  mx-auto w-100" id="calculator">
@@ -126,7 +201,7 @@
                 <label for="plan_id" class="fw-bold text-white">{{__('Escoge un plan')}}</label>
                 <select name="plan_id" id="plan_id" class="form-select mb-2" onchange="updateCalculations()">
                     @foreach ($plans as $plan)
-                        <option value="{{$plan->id}}">{{__('Plan')}} - {{$plan->name}}</option>
+                        <option value="{{$plan->id}}">{{__('Plan')}} - @if(app()->getLocale()=='es') {{$plan->name}} @else {{$plan->name_en}} @endif</option>
                     @endforeach
                 </select>
 
@@ -229,12 +304,12 @@
             <div class="modal-content bg-dark">
 
                 <div class="modal-header text-white">
-                    <div class="modal-title fs-5 fw-bold" id="downloadModalLabel">{{__('Download')}} PDF</div>
+                    <div class="modal-title fs-5 fw-bold" id="downloadModalLabel">{{__('Descargar')}} PDF</div>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
-                    <p class="fw-light text-white">{{__('Completa el formulario a continuación y un PDF detallado de la cotización')}}</p>
+                    <p class="fw-light text-white">{{__('Rellena el formulario a continuación y reciba un PDF detallado de la cotización')}}</p>
                     <form action="{{route('send.email')}}#sh_contact_form" method="post" onsubmit="disableBtn()">
                         @csrf
                         <x-honeypot />
@@ -289,6 +364,23 @@
         
     @endif
 
+    {{-- Lenguaje --}}
+    @include('shared.lang-btn')
+
+    <a href="{{route('appointment')}}" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="{{__('Agenda una cita')}}"
+        class="text-decoration-none btn position-fixed d-flex justify-content-center shadow-4 rounded-circle text-white shadow-3 btn-dark" 
+        style="right:20px; bottom:100px; width:60px; height:60px; font-size:35px; z-index:4;">
+
+        <i class="fa-regular fa-calendar-check" style="line-height:1.3;"></i>
+    </a>
+
+    {{-- WhatsApp --}}
+    <a id="whatsapp" href="https://wa.me/5213322005523?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="{{__('Envíanos un mensaje')}}"
+        class="text-decoration-none position-fixed d-flex justify-content-center shadow-4 rounded-circle text-white z-3 shadow-3 btn btn-dark" 
+        style="right:20px; bottom:30px; width:60px; height:60px; font-size:45px;">
+
+        <i class="fa-brands align-self-center fa-whatsapp"></i>
+    </a>
 
     <footer class="position-relative pt-5" style="background-image: url('{{asset('/img/footer_background.webp')}}')">
 
@@ -445,6 +537,20 @@
             hinput_unit.value = selected_unit.id;
             hinput_plan.value = selected_plan.id;
 
+        }
+
+        function selectOption(unitId) {
+            // Obtén el select por su ID
+            var selectElement = document.getElementById('unit_id');
+
+            // Encuentra la opción correspondiente al unitId y establécela como seleccionada
+            var option = selectElement.querySelector('option[value="' + unitId + '"]');
+            if (option) {
+                option.selected = true;
+            }
+
+            // Puedes agregar una llamada a la función de actualización aquí si es necesario
+            updateCalculations();
         }
     </script>
     <script src="{{asset('/js/splide.min.js')}}" defer></script>

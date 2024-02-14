@@ -37,7 +37,7 @@
 <div class="row justify-content-center">
 
     {{-- Vistas --}}
-    <div class="col-12 col-lg-9 position-relative px-0">
+    <div class="col-12 col-lg-9 col-xl-8 col-xxl-7 position-relative px-0">
         <div class="tab-content mb-6" id="pills-tabContent">
             @php $j = 1; @endphp
             @foreach ($views as $view)
@@ -85,15 +85,6 @@
             <li><i class="fa-solid fa-square text-danger"></i> {{__('Vendido')}}</li>
         </ul>
 
-        {{-- Click me escritorio --}}
-        <div class="position-absolute text-white fs-4 d-none d-lg-block" style="top:33%; right:14%;">
-            <i class="fa-solid fa-arrow-left fa-shake"></i> {{__('Haz clic en una unidad')}}
-        </div>
-
-        {{-- Click me movil --}}
-        <div class="position-absolute text-white fs-5 d-block d-lg-none" style="top:33%; left:3%;">
-            {{__('Clic')}} <i class="fa-solid fa-arrow-right fa-shake"></i>
-        </div>
 
     </div>
 

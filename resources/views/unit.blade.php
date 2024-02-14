@@ -226,7 +226,11 @@
             @foreach ($plans as $plan)
                 <li class="nav-item" role="presentation">
                     <button class="fs-5 ff-oswald text-uppercase nav-link mx-2 @if($k == 1) active @endif" id="pills-plan-nav-{{$plan->id}}" data-bs-toggle="pill" data-bs-target="#pills-plan-tab-{{$plan->id}}" type="button" role="tab" @if($k == 1)aria-selected="true" @endif>
-                        {{$plan->name}}
+                        @if (app()->getLocale() == 'es')
+                            {{$plan->name}}
+                        @else
+                            {{$plan->name_en}}
+                        @endif
                     </button>
                 </li>
                 @php $k++; @endphp

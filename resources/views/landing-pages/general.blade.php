@@ -438,6 +438,23 @@
         
     @endif
 
+    {{-- Lenguaje --}}
+    @include('shared.lang-btn')
+
+    <a href="{{route('quoter')}}" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="{{__('Obtén una cotización')}}"
+        class="text-decoration-none btn position-fixed d-flex justify-content-center shadow-4 rounded-circle text-white shadow-3 btn-dark" 
+        style="right:20px; bottom:100px; width:60px; height:60px; font-size:35px; z-index:4;">
+
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+    </a>
+
+    {{-- WhatsApp --}}
+    <a id="whatsapp" href="https://wa.me/5213322005523?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="{{__('Envíanos un mensaje')}}"
+        class="text-decoration-none position-fixed d-flex justify-content-center shadow-4 rounded-circle text-white z-3 shadow-3 btn btn-dark" 
+        style="right:20px; bottom:30px; width:60px; height:60px; font-size:45px;">
+
+        <i class="fa-brands align-self-center fa-whatsapp"></i>
+    </a>
 
     <footer class="position-relative pt-5" style="background-image: url('{{asset('/img/footer_background.webp')}}')">
 

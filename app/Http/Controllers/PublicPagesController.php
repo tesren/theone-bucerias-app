@@ -39,7 +39,7 @@ class PublicPagesController extends Controller
 
     public function unit($id){
         $unit = Unit::find($id);
-        $plans = PaymentPlan::all();
+        $plans = PaymentPlan::latest()->get();
 
         return view('unit', compact('unit', 'plans'));
     }
@@ -172,7 +172,8 @@ class PublicPagesController extends Controller
     public function quoter(){
         $units = Unit::where('status', 'Disponible')->orderBy('price')->get();
         $plans = PaymentPlan::all();
-
-        return view('landing-pages.quoter', compact('units', 'plans') );
+        $views = View::all();
+ 
+        return view('landing-pages.quoter', compact('units', 'plans', 'views') );
     }
 }

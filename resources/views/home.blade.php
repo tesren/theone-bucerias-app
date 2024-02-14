@@ -533,6 +533,7 @@
   {{-- Galería --}}
   @include('shared.gallery')
 
+
 @endsection
 
 @section('javascript')

@@ -11,6 +11,15 @@
             </button>
         </div>
     @endif
+
+    {{-- WhatsApp --}}
+    <a id="whatsapp" href="https://wa.me/5213322005523?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="{{__('Envíanos un mensaje')}}"
+        class="text-decoration-none position-fixed d-flex justify-content-center shadow-4 rounded-circle text-white z-3 shadow-3 btn btn-dark" 
+        style="right:20px; bottom:30px; width:60px; height:60px; font-size:45px;">
+
+        <i class="fa-brands align-self-center fa-whatsapp"></i>
+    </a>
+    
 @endif
 
 {{-- Modal de contacto --}}
@@ -68,6 +77,8 @@
                     <a href="mailto:info@domusvallarta.com" class="link-light d-block text-decoration-none mb-3">
                         <i class="fa-solid fa-envelope"></i> info@domusvallarta.com
                     </a>
+
+                    <a href="tel:+523322005523" class="link-light d-block text-decoration-none mb-3"><i class="fa-solid fa-phone"></i> +52 332 200 5523</a>
                 @endif
     
                 <a href="https://goo.gl/maps/gF2Tp3yJffcd44nZA" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer">
@@ -91,11 +102,11 @@
 
 
             <div class="col-12 col-lg-3 mb-5 mb-lg-0">
-                {{--<div class="text-orange mb-4">{{__('Llámanos')}}</div>
+                <div class="text-orange mb-4">{{__('Comercializador exclusivo')}}</div>
 
-                 <a href="#" class="link-light text-decoration-none d-block mb-4">
-                    <i class="fa-solid fa-phone"></i> | 322 555 5555
-                </a> --}}
+                 <a href="https://domusvallarta.com/" class="text-decoration-none d-block mb-4">
+                    <img class="w-100" src="{{asset('/img/domus-logo-white.svg')}}" alt="Domus Vallarta Inmobiliaria">
+                </a>
 
                 <div class="text-white fw-light mb-3">{{__('Las imagenes son con fines ilustrativos. Precios y dimensiones pueden cambiar sin previo aviso.')}}</div>
                 <div class="text-white fw-light">The One Residences © {{date('Y')}}.</div>
