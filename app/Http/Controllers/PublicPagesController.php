@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use PDF;
+use Carbon\Carbon;
 use App\Models\Unit;
 use App\Models\View;
 use App\Mail\NewLead;
@@ -39,10 +40,22 @@ class PublicPagesController extends Controller
 
     public function unit($id){
         $unit = Unit::find($id);
-        $plans = PaymentPlan::latest()->get();
-
+    
+        // Obtener la fecha actual en un formato específico
+        $today = Carbon::now()->format('Y-m-d');
+    
+        $plans = PaymentPlan::where(function ($query) use ($today) {
+                // Incluir los 'plans' con 'expiration' nulo
+                $query->whereNull('expiration')
+                    // Excluir los 'plans' con 'expiration' menor o igual a la fecha actual
+                    ->orWhere('expiration', '>', $today);
+            })
+            ->latest()
+            ->get();
+    
         return view('unit', compact('unit', 'plans'));
     }
+    
 
     public function construction(){
         $updates = ConstructionUpdate::orderBy('date', 'desc')->get();
@@ -117,6 +130,12 @@ class PublicPagesController extends Controller
                 $type = 'El cliente descargó una cotización de la unidad '.$unit->name.' y el plan de pago '.$plan->name;  
             }
 
+            if( app()->getLocale() == 'es' ){
+                $lang = 'Español';
+            }
+            else{
+                $lang = 'Inglés';
+            }
             
             //Envíamos webhook
             $webhookUrl = 'https://hooks.zapier.com/hooks/catch/4710110/3fvqx5c/';
@@ -128,6 +147,9 @@ class PublicPagesController extends Controller
                 'phone' => $msg->phone,
                 'url' => $msg->url,
                 'content' => $msg->content,
+                'interest' => 'Condominios',
+                'development' => 'The One Residences',
+                'lang' => $lang,
                 'type'  => $type,
                 'created_at' => $msg->created_at,
             ];

@@ -270,7 +270,13 @@
                         <div class="col-12 col-lg-8 col-xl-6 fs-4 bg-light rounded-1 fw-light px-0 shadow-6">
 
                             <div class="d-flex justify-content-center mb-3 position-relative fs-1 bg-dark py-2 rounded-top-1">
-                                <div class="text-center text-white ms-2">{{$plan->name}}</div>
+                                <div class="text-center text-white ms-2">
+                                    @if (app()->getLocale() == 'es')
+                                        {{$plan->name}}
+                                    @else
+                                        {{$plan->name_en}}
+                                    @endif
+                                </div>
                             </div>
 
                             <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
@@ -319,6 +325,16 @@
                                     <div class="text-end">${{ number_format($closing, 2) }} {{$unit->currency}}</div>
                                 </div>
                             @endisset
+
+                            @if( isset($plan->extra_details) and isset($plan->extra_details_en) )
+                                <div class="text-white bg-dark py-2 fw-light rounded-bottom fs-6 px-2">
+                                    @if (app()->getLocale() == 'es')
+                                        {!! nl2br(e($plan->extra_details)) !!}
+                                    @else
+                                        {!! nl2br(e($plan->extra_details_en)) !!}
+                                    @endif
+                                </div>
+                            @endif
 
                         </div>
 

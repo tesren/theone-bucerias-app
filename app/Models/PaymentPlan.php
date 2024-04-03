@@ -10,6 +10,10 @@ class PaymentPlan extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $casts = [
+        'expiration' => 'date',
+    ];
+
     /**
      * The units that belong to the PaymentPlan
      *

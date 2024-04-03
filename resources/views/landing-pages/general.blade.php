@@ -221,7 +221,7 @@
             <div class="p-3 p-lg-4 bg-orange position-relative text-white" style="min-height: 225px;">
             <i class="fa-solid fa-dumbbell position-absolute top-0 end-0 fa-2x me-4 mt-4"></i>
             <div class="ff-oswald pt-5 text-uppercase">{{__('Amenidades')}}</div>
-            <div class="fs-3">{{__('Gimnasio')}}</div>
+            <div class="fs-3">{{__('Fitness Center')}}</div>
             <p>{{__('Equipado para mantenerte en forma todo el año')}}</p>
             </div>
         </div>

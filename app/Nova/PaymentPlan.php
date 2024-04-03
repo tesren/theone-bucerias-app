@@ -7,6 +7,8 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Date;
 
 class PaymentPlan extends Resource
 {
@@ -59,6 +61,8 @@ class PaymentPlan extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Nombre', 'name')->rules('required', 'max:255'),
+            Text::make('Nombre(Inglés)', 'name_en')->rules('required', 'max:255')->hideFromIndex(),
+
             Number::make('Descuento', 'discount')->min(0)->max(100)->sortable()->placeholder('Porcentaje de descuento')->displayUsing(
                 function($value){
                     if($value != null){
@@ -99,6 +103,12 @@ class PaymentPlan extends Resource
                     return $value.'%';
                 }
             ),
+
+            Markdown::make('Detalles extra', 'extra_details')->nullable()->help('Cualquier detalle extra que incluya este plan de pagos'),
+            Markdown::make('Detalles extra(Ing)', 'extra_details_en')->nullable()->help('Información extra en inglés'),
+
+            Date::make('Vencimiento', 'expiration')->nullable()->help('Dejar vacío si no tiene vencimiento')->hideFromIndex(),
+
         ];
     }
 

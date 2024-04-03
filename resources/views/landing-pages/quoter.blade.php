@@ -258,6 +258,10 @@
                         <td class="fw-bold" id="final_price"></td>
                     </tr>
 
+                    <tr id="details_row">
+                        <td colspan="2" id="extra_details" class="fw-light fs-6"></td>
+                    </tr>
+
                 </tbody>
 
             </table>
@@ -451,8 +455,10 @@
         let final_price = document.getElementById('final_price');
         let month_percent = document.getElementById('month_percent');
         let month_amount = document.getElementById('month_amount');
+        let extra_details = document.getElementById('extra_details');
         const months_row = document.getElementById('months_row');
         const discount_row = document.getElementById('discount_row');
+        const details_row = document.getElementById('details_row');
 
         function disableBtn(){
             let download_submit = document.getElementById('download_submit');
@@ -525,6 +531,16 @@
                 months_row.classList = 'd-none';
             }else{
                 months_row.classList = ' ';
+            }
+
+            //detalles extra
+            
+            extra_details.innerHTML = selected_plan.extra_details;
+           
+            if(selected_plan.extra_details == 0 || selected_plan.extra_details == null){
+                details_row.classList = 'd-none';
+            }else{
+                details_row.classList = ' ';
             }
 
             //pago final
