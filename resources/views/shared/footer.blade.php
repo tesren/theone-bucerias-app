@@ -91,11 +91,13 @@
                 <div class="text-orange mb-4">{{__('Menú')}}</div>
 
                 <div class="list-group list-group-flush">
-                    <a href="{{route('home')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Inicio')}}</a>
-                    <a href="{{route('inventory')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Condominios')}}</a>
-                    <a href="{{route('about')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Nosotros')}}</a>
-                    <a href="{{route('contact')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Contacto')}}</a>
-                    <a href="{{route('policy')}}" class="list-group-item link-light bg-transparent ps-0">{{__('Políticas de Privacidad')}}</a>
+                    <a href="{{route('home', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Inicio')}}</a>
+                    <a href="{{route('inventory', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Condominios')}}</a>
+                    <a href="{{route('about', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Nosotros')}}</a>
+                    @if ($contact != 'no')
+                        <a href="{{route('contact', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Contacto')}}</a>
+                    @endif
+                    <a href="{{route('policy', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Políticas de Privacidad')}}</a>
                 </div>
 
             </div>
@@ -116,7 +118,7 @@
     </div>
 
     <div class="fs-6 py-2 text-center position-relative z-2">
-        <a class="link-light" href="https://punto401.com/">{{__('Sitio web creado por Punto401 Maketing')}}</a>
+        <a class="link-light" href="https://punto401.com/">{{__('Sitio web creado por Punto401 Marketing')}}</a>
     </div>
     
 </footer>

@@ -88,6 +88,8 @@ class PaymentPlan extends Resource
                 }
             ),
 
+            Number::make('# Mensualidades', 'months_quantity')->min(0)->max(999)->hideFromIndex(),
+
             Number::make('% Total de los Pagos Mensuales', 'months_percent')->min(0)->max(100)->sortable()->displayUsing(
                 function($value){
                     if($value == null){

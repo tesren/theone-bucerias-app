@@ -533,6 +533,7 @@
   {{-- Galería --}}
   @include('shared.gallery')
 
+  @include('shared.promotion-modal')
 
 @endsection
 

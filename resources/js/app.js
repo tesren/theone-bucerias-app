@@ -67,4 +67,10 @@ document.addEventListener( 'DOMContentLoaded', function() {
     tooltip.show();
   });
 
+  var PromoModal = document.getElementById('promoModal');
+  if(PromoModal){
+    PromoModal = new bootstrap.Modal(PromoModal);
+    PromoModal.show();
+  }
+
 });

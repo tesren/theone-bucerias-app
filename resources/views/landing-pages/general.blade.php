@@ -488,7 +488,7 @@
         </div>
 
         <div class="fs-6 py-2 text-center position-relative z-2">
-            <a class="link-light" href="https://punto401.com/">{{__('Sitio web creado por Punto401 Maketing')}}</a>
+            <a class="link-light" href="https://punto401.com/">{{__('Sitio web creado por Punto401 Marketing')}}</a>
         </div>
         
     </footer>
