@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Unit;
 use App\Models\Message;
+use App\Observers\UnitObserver;
 use App\Observers\MessageObserver;
 use Illuminate\Support\ServiceProvider;
 
@@ -30,5 +32,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Message::observe(MessageObserver::class);
+        Unit::observe(UnitObserver::class);
     }
 }
