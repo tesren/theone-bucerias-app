@@ -2,11 +2,12 @@
 
 namespace App\Nova;
 
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Http\Requests\NovaRequest;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 
 class View extends Resource
@@ -62,6 +63,8 @@ class View extends Resource
             ID::make()->sortable(),
             Text::make('Nombre', 'name_es')->rules('required', 'max:150')->help('El nombre en Español'),
             Text::make('Name', 'name_en')->rules('required', 'max:150')->help('El nombre en Inglés'),
+            Boolean::make('Tiene vista', 'has_view')->sortable(),
+            Text::make('View Box', 'view_box')->rules('max:50')->help('NO modificar si no sabe qué es')->hideFromIndex(),
             Image::make('Imagen', 'img_path')->disk('media'),
 
         ];

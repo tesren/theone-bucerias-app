@@ -45,10 +45,10 @@ class UnitObserver
         if( isset($cachedLowest) ){
 
             // Comparar con el valor en caché para evitar notificaciones repetidas
-            if ( $cachedLowest['id'] != $lowestPricedUnit->id ) {
+            if ( $cachedLowest['id'] != $lowestPricedUnit->id  or $lowestPricedUnit->price != $cachedLowest['price']) {
 
                 // Si hay un cambio en la unidad más barata, notificar
-                $email = Mail::to('erick@punto401.com');
+                $email = Mail::to('erick@punto401.com')->cc('michelena@punto401.com');
                 $email->send(new NewLowestPrice($lowestPricedUnit));
 
             }
