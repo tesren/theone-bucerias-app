@@ -94,9 +94,11 @@
                     <a href="{{route('home', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Inicio')}}</a>
                     <a href="{{route('inventory', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Condominios')}}</a>
                     <a href="{{route('about', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Nosotros')}}</a>
+
                     @if ($contact != 'no')
                         <a href="{{route('contact', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Contacto')}}</a>
                     @endif
+
                     <a href="{{route('policy', request()->query() )}}" class="list-group-item link-light bg-transparent ps-0">{{__('Políticas de Privacidad')}}</a>
                 </div>
 
@@ -104,11 +106,16 @@
 
 
             <div class="col-12 col-lg-3 mb-5 mb-lg-0">
-                <div class="text-orange mb-4">{{__('Comercializador exclusivo')}}</div>
 
-                 <a href="https://domusvallarta.com/" class="text-decoration-none d-block mb-4">
-                    <img class="w-100" src="{{asset('/img/domus-logo-white.svg')}}" alt="Domus Vallarta Inmobiliaria">
-                </a>
+                @if ($contact != 'no')
+
+                    <div class="text-orange mb-4">{{__('Comercializador exclusivo')}}</div>
+
+                    <a href="https://domusvallarta.com/" class="text-decoration-none d-block mb-4">
+                        <img class="w-100" src="{{asset('/img/domus-logo-white.svg')}}" alt="Domus Vallarta Inmobiliaria">
+                    </a>
+
+                @endif
 
                 <div class="text-white fw-light mb-3">{{__('Las imagenes son con fines ilustrativos. Precios y dimensiones pueden cambiar sin previo aviso.')}}</div>
                 <div class="text-white fw-light">The One Residences © {{date('Y')}}.</div>

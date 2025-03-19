@@ -75,6 +75,12 @@
                     <div><i class="fa-solid fa-building me-3 text-orange"></i> {{__('Piso')}}</div> <div>@if($unit->floor == 0) {{__('Planta Baja')}} @else {{$unit->floor}} @endif</div>
                 </li>
 
+                @if ($unit->parking)
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div><i class="fa-solid fa-car me-2 text-orange"></i> {{__('Incluye estacionamiento')}}</div>
+                    </li>
+                @endif
+
                 <li class="list-group-item">
                     @if ($unit->view_id == 1 and $unit->floor > 1)
                         <i class="fa-solid fa-water text-orange me-2"></i> @if(app()->getLocale() == 'en') {{$unit->view->name_en}} @else {{$unit->view->name_es}} @endif

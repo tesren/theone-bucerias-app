@@ -86,6 +86,7 @@ class Unit extends Resource
             Boolean::make('Flexroom', 'flexroom')->help('Marque la casilla si la unidad cuenta con un Flexroom')->hideFromIndex(),
             Number::make('Baños', 'bathrooms')->rules('required')->min(0)->max(15)->step(0.5)->hideFromIndex(),
             Number::make('Piso', 'floor')->rules('required')->min(0)->max(15)->sortable(),
+            Boolean::make('Estacionamiento', 'parking')->help('Marque la casilla si la unidad cuenta con estacionamiento incluido')->hideFromIndex(),
             
             Number::make('Construcción total', 'area')->rules('required')->min(0)->step(0.01)->hideFromIndex()->help('El área total de la unidad en metros cuadrados')
             ->displayUsing(

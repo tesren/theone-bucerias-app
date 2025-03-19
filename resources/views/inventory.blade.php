@@ -83,37 +83,39 @@
 
                     </div>
                 @else
+                    <div class="tab-pane position-relative fade " id="pills-{{$view->id}}" role="tabpanel" aria-labelledby="pills-{{$view->id}}-tab" tabindex="{{$j}}">
 
-                    <div class="row px-0">
+                        <div class="row px-0">
 
-                        @foreach ($view->units as $unit)
-                            <div class="col-12 col-lg-4 mb-4">
-                                <div class="card w-100 border-0 position-relative">
-                
-                                @php
-                                    $blueprint = '/media/'.$unit->blueprint_path;
-                                @endphp
-                
-                                <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:contain;" loading="lazy">
-                
-                                <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
-                
-                                <div class="card-body">
-                                    <h4 class="card-title text-orange ff-oswald fs-6 mb-4">{{$unit->name}}</h4>
-                                    <div class="fs-3">{{__('Estudio')}} - {{$unit->bathrooms}}BA - {{$unit->area}}m²</div>
-                
-                                    @if (app()->getLocale() == 'en')
-                                    <div class="fs-5 mb-4 text-orange">{{$unit->view->name_en}}</div>
-                                    @else
-                                    <div class="fs-5 mb-4 text-orange">{{$unit->view->name_es}}</div>
-                                    @endif
-                
-                                    <a href="{{route('unit', ['id'=> $unit->id, 'contact' => request()->query('contact') ])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
+                            @foreach ($view->units as $unit)
+                                <div class="col-12 col-lg-4 mb-4">
+                                    <div class="card w-100 border-0 position-relative">
+                    
+                                    @php
+                                        $blueprint = '/media/'.$unit->blueprint_path;
+                                    @endphp
+                    
+                                    <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:contain;" loading="lazy">
+                    
+                                    <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
+                    
+                                    <div class="card-body">
+                                        <h4 class="card-title text-orange ff-oswald fs-6 mb-4">{{$unit->name}}</h4>
+                                        <div class="fs-3">{{__('Estudio')}} - {{$unit->bathrooms}}BA - {{$unit->area}}m²</div>
+                    
+                                        @if (app()->getLocale() == 'en')
+                                        <div class="fs-5 mb-4 text-orange">{{$unit->view->name_en}}</div>
+                                        @else
+                                        <div class="fs-5 mb-4 text-orange">{{$unit->view->name_es}}</div>
+                                        @endif
+                    
+                                        <a href="{{route('unit', ['id'=> $unit->id, 'contact' => request()->query('contact') ])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
+                                    </div>
+                                    </div>
                                 </div>
-                                </div>
-                            </div>
-                        @endforeach
-        
+                            @endforeach
+            
+                        </div>
                     </div>
                     
                 @endif
