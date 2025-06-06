@@ -88,6 +88,7 @@ class PublicPagesController extends Controller
             $msg->name = $request->input('name');
             $msg->email = $request->input('email');
             $msg->phone = $request->input('phone');
+            $msg->method = $request->input('contact_method');
             $msg->content = $request->input('message');
             $msg->url = $request->input('url');
 
@@ -105,12 +106,12 @@ class PublicPagesController extends Controller
             //para el webhook
             $type = "Contacto desde el sitio web de The One Residences";
 
-            if( isset($contact_pref) ){
+            /* if( isset($contact_pref) ){
                 $msg->ap_time = $ap_time;
                 $msg->ap_date = $ap_date;
                 $msg->contact_pref = $contact_pref;
                 $type = 'El cliente dejó sus datos y está interesado en una cita en The One Residences el día '.$ap_date.' a las '.$ap_time;  
-            }
+            } */
             
             //solo landing page de cotizador
             if( isset($unit_id) ){
@@ -138,7 +139,7 @@ class PublicPagesController extends Controller
             }
             
             //Envíamos webhook
-            $webhookUrl = 'https://hooks.zapier.com/hooks/catch/4710110/3fvqx5c/';
+            $webhookUrl = 'https://cloud.punto401.com/webhook/c7277fea-e8df-41b6-bbae-a3c66cbf77d5';
 
             // Datos que deseas enviar en el cuerpo de la solicitud
             $data = [
@@ -146,6 +147,7 @@ class PublicPagesController extends Controller
                 'email' => $msg->email,
                 'phone' => $msg->phone,
                 'url' => $msg->url,
+                'method' => $msg->method,
                 'content' => $msg->content,
                 'interest' => 'Condominios',
                 'development' => 'The One Residences',
@@ -154,8 +156,11 @@ class PublicPagesController extends Controller
                 'created_at' => $msg->created_at,
             ];
 
+            $n8nUser = env('N8N_AUTH_USER');
+            $n8nPass = env('N8N_AUTH_PASS');
+            
             // Enviar la solicitud POST al webhook
-            $response = Http::post($webhookUrl, $data);
+            $response = Http::withBasicAuth($n8nUser, $n8nPass)->post($webhookUrl, $data);
 
 
             $email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');

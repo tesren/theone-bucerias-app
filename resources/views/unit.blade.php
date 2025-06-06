@@ -79,6 +79,16 @@
                     <li class="list-group-item d-flex justify-content-between">
                         <div><i class="fa-solid fa-car me-2 text-orange"></i> {{__('Incluye estacionamiento')}}</div>
                     </li>
+                @else
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div><i class="fa-solid fa-xmark me-2 text-orange"></i> {{__('NO Incluye estacionamiento')}}</div>
+                    </li>
+                @endif
+
+                @if ($unit->storage)
+                    <li class="list-group-item d-flex justify-content-between">
+                        <div><i class="fa-solid fa-warehouse me-2 text-orange"></i> {{__('Incluye bodega')}}</div>
+                    </li>                    
                 @endif
 
                 <li class="list-group-item">
