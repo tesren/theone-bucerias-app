@@ -137,12 +137,7 @@ class Unit extends Resource
            // Images::make('Portada', 'portrait')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
             Image::make('Portada', 'portrait_path')->disk('media')->creationRules('required')->hideFromIndex(),
             Image::make('Planos', 'blueprint_path')->disk('media')->creationRules('required')->hideFromIndex(),
-            Image::make('Isométrico', 'isometric_path')->disk('media')->creationRules('required')->hideFromIndex(),
-
-            //Images::make('Isométrico', 'isometric')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
-            //Images::make('Galería', 'gallery')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
-            //Images::make('Ubicación en planta', 'floor')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
-            //Images::make('Planos de la unidad', 'blueprint')->hideFromIndex()/*->rules('required')*/->enableExistingMedia(),
+            Image::make('Isométrico', 'isometric_path')->disk('media')->hideFromIndex(),
 
         ];
 

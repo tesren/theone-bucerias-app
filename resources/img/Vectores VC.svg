@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1001 837.36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #198754;
+      }
+
+      .cls-1, .cls-2 {
+        mix-blend-mode: multiply;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 29px;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-5 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: #dc3545;
+      }
+    </style>
+  </defs>
+  <g class="cls-5">
+    <g id="Capa_2" data-name="Capa 2">
+      <g id="Content">
+        <g>
+          <g>
+            <polygon class="cls-1" points="804.28 110.02 261.62 140.68 261.62 243.97 804.28 232.27 804.28 110.02"/>
+            <polygon class="cls-1" points="451.95 345.71 451.95 345.71 804.28 346.98 804.28 232.27 261.62 243.97 261.62 345.02 451.95 345.71 451.95 345.71"/>
+            <polygon class="cls-1" points="451.95 345.71 451.95 436.13 804.28 437.4 804.28 346.98 451.95 345.71"/>
+            <polygon class="cls-1" points="451.95 345.71 261.62 345.02 261.62 435.44 451.95 436.13 451.95 345.71"/>
+            <polygon class="cls-1" points="451.95 526.55 804.28 527.82 804.28 437.4 451.95 436.13 451.95 526.55"/>
+            <polygon class="cls-1" points="451.95 436.13 261.62 435.44 261.62 525.86 451.95 526.55 451.95 436.13"/>
+            <polygon class="cls-1" points="451.95 616.97 804.28 618.25 804.28 527.82 451.95 526.55 451.95 616.97"/>
+            <polygon class="cls-2" points="451.95 526.55 261.62 525.86 261.62 616.28 451.95 616.97 451.95 526.55"/>
+            <polygon class="cls-1" points="451.95 707.39 804.28 708.67 804.28 618.25 451.95 616.97 451.95 707.39"/>
+            <polygon class="cls-2" points="451.95 616.97 261.62 616.28 261.62 706.71 451.95 707.39 451.95 616.97"/>
+            <polygon class="cls-2" points="451.95 813.35 671.65 813.35 671.65 708.67 451.95 707.39 451.95 813.35"/>
+          </g>
+          <text class="cls-3" transform="translate(498.6 192.68)"><tspan x="0" y="0">PH-3</tspan></text>
+          <text class="cls-3" transform="translate(498.6 302.68)"><tspan x="0" y="0">A - 23</tspan></text>
+          <text class="cls-3" transform="translate(593.77 399.57)"><tspan x="0" y="0">A - 19</tspan></text>
+          <text class="cls-3" transform="translate(322.44 399.57)"><tspan x="0" y="0">A - 20</tspan></text>
+          <text class="cls-3" transform="translate(593.77 489.79)"><tspan x="0" y="0">A - 15</tspan></text>
+          <text class="cls-3" transform="translate(322.44 489.79)"><tspan x="0" y="0">A - 16</tspan></text>
+          <text class="cls-3" transform="translate(593.77 586.9)"><tspan x="0" y="0">A - 10</tspan></text>
+          <text class="cls-3" transform="translate(322.44 586.9)"><tspan x="0" y="0">A - 11</tspan></text>
+          <text class="cls-3" transform="translate(593.77 672.88)"><tspan x="0" y="0">A - 05</tspan></text>
+          <text class="cls-3" transform="translate(322.44 672.88)"><tspan x="0" y="0">A - 06</tspan></text>
+          <text class="cls-3" transform="translate(527.45 768.88)"><tspan x="0" y="0">A - 24</tspan></text>
+          <rect class="cls-4" x=".5" y=".5" width="1000" height="836.36"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

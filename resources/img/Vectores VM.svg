@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1001 837.36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #198754;
+      }
+
+      .cls-1, .cls-2 {
+        mix-blend-mode: multiply;
+      }
+
+      .cls-3 {
+        fill: #fff;
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 29px;
+      }
+
+      .cls-4 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-5 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: #dc3545;
+      }
+    </style>
+  </defs>
+  <g class="cls-5">
+    <g id="Capa_2" data-name="Capa 2">
+      <g id="Content">
+        <g>
+          <g>
+            <polygon class="cls-1" points="704.83 233.25 704.83 132.94 485.61 134.54 485.61 232.82 704.83 233.25"/>
+            <polygon class="cls-1" points="485.61 134.54 277.83 136.06 277.83 232.41 485.61 232.82 485.61 134.54"/>
+            <polygon class="cls-2" points="485.61 320.85 704.83 324.51 704.83 233.25 485.61 232.82 485.61 320.85"/>
+            <polygon class="cls-2" points="485.61 232.82 277.83 232.41 277.83 317.38 485.61 320.85 485.61 232.82"/>
+            <polygon class="cls-2" points="485.61 403.18 704.83 405.01 704.83 324.51 485.61 320.85 485.61 403.18"/>
+            <polygon class="cls-2" points="485.61 320.85 277.83 317.38 277.83 401.45 485.61 403.18 485.61 320.85"/>
+            <polygon class="cls-2" points="485.61 485.57 704.83 484.89 704.83 405.01 485.61 403.18 485.61 485.57"/>
+            <polygon class="cls-2" points="485.61 403.18 277.83 401.45 277.83 486.22 485.61 485.57 485.61 403.18"/>
+            <polygon class="cls-2" points="485.61 568.25 704.83 566.32 704.83 484.89 485.61 485.57 485.61 568.25"/>
+            <polygon class="cls-2" points="485.61 485.57 277.83 486.22 277.83 570.08 485.61 568.25 485.61 485.57"/>
+            <polygon class="cls-1" points="485.61 568.25 485.61 653.53 704.83 651.6 704.83 566.32 485.61 568.25"/>
+            <polygon class="cls-2" points="485.61 568.25 277.83 570.08 277.83 655.36 485.61 653.53 485.61 568.25"/>
+            <polygon class="cls-1" points="485.61 734.41 704.83 727.06 704.83 651.6 485.61 653.53 485.61 734.41"/>
+            <polygon class="cls-2" points="277.83 655.36 277.83 741.39 485.61 734.41 485.61 653.53 277.83 655.36"/>
+          </g>
+          <text class="cls-3" transform="translate(553.85 193.42)"><tspan x="0" y="0">PH-1</tspan></text>
+          <text class="cls-3" transform="translate(355.19 193.42)"><tspan x="0" y="0">PH-2</tspan></text>
+          <text class="cls-3" transform="translate(553.85 285.2)"><tspan x="0" y="0">A - 21</tspan></text>
+          <text class="cls-3" transform="translate(355.19 285.2)"><tspan x="0" y="0">A - 22</tspan></text>
+          <text class="cls-3" transform="translate(553.85 369.2)"><tspan x="0" y="0">A - 17</tspan></text>
+          <text class="cls-3" transform="translate(355.19 369.2)"><tspan x="0" y="0">A - 18</tspan></text>
+          <text class="cls-3" transform="translate(553.85 455.2)"><tspan x="0" y="0">A - 13</tspan></text>
+          <text class="cls-3" transform="translate(355.19 455.2)"><tspan x="0" y="0">A - 14</tspan></text>
+          <text class="cls-3" transform="translate(553.85 531.86)"><tspan x="0" y="0">A - 08</tspan></text>
+          <text class="cls-3" transform="translate(355.19 531.86)"><tspan x="0" y="0">A - 09</tspan></text>
+          <text class="cls-3" transform="translate(553.85 617.55)"><tspan x="0" y="0">A - 03</tspan></text>
+          <text class="cls-3" transform="translate(355.19 617.55)"><tspan x="0" y="0">A - 04</tspan></text>
+          <text class="cls-3" transform="translate(553.85 701.05)"><tspan x="0" y="0">A - 02</tspan></text>
+          <text class="cls-3" transform="translate(355.19 701.05)"><tspan x="0" y="0">A - 01</tspan></text>
+          <rect class="cls-4" x=".5" y=".5" width="1000" height="836.36"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
