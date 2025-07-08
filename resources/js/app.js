@@ -67,10 +67,18 @@ document.addEventListener( 'DOMContentLoaded', function() {
     tooltip.show();
   });
 
-/*   var PromoModal = document.getElementById('promoModal');
+  var PromoModal = document.getElementById('promoModal');
   if(PromoModal){
-    PromoModal = new bootstrap.Modal(PromoModal);
-    PromoModal.show();
-  } */
+    var today = new Date();
+    var deadline = new Date('2025-08-01');
+
+    if(today < deadline){
+      setTimeout(() => {
+        var modal = new bootstrap.Modal(PromoModal);
+        modal.show();
+      }, 5000); // 5000 milisegundos = 5 segundos ⏱️
+    }
+  }
+
 
 });

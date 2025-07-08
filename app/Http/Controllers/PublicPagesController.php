@@ -38,23 +38,22 @@ class PublicPagesController extends Controller
         return view('inventory', compact('units', 'views') );
     }
 
-    public function unit($id){
-        $unit = Unit::find($id);
-    
-        // Obtener la fecha actual en un formato específico
+    public function unit($id)
+    {
+        $unit = Unit::findOrFail($id); // Por si el unit no existe 😬
         $today = Carbon::now()->format('Y-m-d');
-    
-        $plans = PaymentPlan::where(function ($query) use ($today) {
-                // Incluir los 'plans' con 'expiration' nulo
+
+        $plans = $unit->paymentPlans()
+            ->where(function ($query) use ($today) {
                 $query->whereNull('expiration')
-                    // Excluir los 'plans' con 'expiration' menor o igual a la fecha actual
                     ->orWhere('expiration', '>', $today);
             })
             ->latest()
             ->get();
-    
+
         return view('unit', compact('unit', 'plans'));
     }
+
     
 
     public function construction(){
