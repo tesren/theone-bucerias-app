@@ -10,16 +10,7 @@
                 {{__('Contactar')}} <i class="fa-solid fa-right-long"></i>
             </button>
         </div>
-    @endif
-
-    {{-- WhatsApp --}}
-    <a id="whatsapp" href="https://wa.me/5213322005523?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="{{__('Envíanos un mensaje')}}"
-        class="text-decoration-none position-fixed d-flex justify-content-center shadow-4 rounded-circle text-white z-3 shadow-3 btn btn-dark" 
-        style="right:20px; bottom:30px; width:60px; height:60px; font-size:45px;">
-
-        <i class="fa-brands align-self-center fa-whatsapp"></i>
-    </a>
-    
+    @endif    
 @endif
 
 {{-- Modal de contacto --}}
@@ -129,3 +120,33 @@
     </div>
     
 </footer>
+
+@if ($contact != 'no')
+     {{-- WhatsApp --}}
+    <a id="whatsapp" href="https://wa.me/5213322005523?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="{{__('Envíanos un mensaje')}}"
+        class="text-decoration-none position-fixed d-none d-lg-flex justify-content-center shadow-4 rounded-circle text-white z-3 shadow-3 btn btn-dark" 
+        style="right:20px; bottom:30px; width:60px; height:60px; font-size:45px;">
+
+        <i class="fa-brands align-self-center fa-whatsapp"></i>
+    </a>
+
+    <div class="sticky-bottom px-0 py-2 d-block d-lg-none bg-orange border-top border-light">
+        <div class="row">
+
+            <div class="col-7 lh-sm">
+                <div class="fw-light fs-7">
+                    WhatsApp
+                </div>
+                <div class="fs-5">{{__('Envíanos un mensaje')}}</div>
+            </div>
+
+            <div class="col-5 align-self-center">
+                <a class="btn btn-dark w-100 rounded-0 fs-6" href="https://wa.me/5213322005523?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+@endif

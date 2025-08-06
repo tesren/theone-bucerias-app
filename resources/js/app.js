@@ -63,14 +63,16 @@ document.addEventListener( 'DOMContentLoaded', function() {
     });
   }
 
-  tooltipList.forEach(function (tooltip) {
-    tooltip.show();
-  });
+  if (window.innerWidth > 992) {
+    tooltipList.forEach(function (tooltip) {
+      tooltip.show();
+    });
+  }
 
   var PromoModal = document.getElementById('promoModal');
   if(PromoModal){
     var today = new Date();
-    var deadline = new Date('2025-08-01');
+    var deadline = new Date('2025-09-01');
 
     if(today < deadline){
       setTimeout(() => {
