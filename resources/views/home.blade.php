@@ -173,11 +173,13 @@
 
       <ul class="nav nav-pills mb-5 justify-content-center" id="pills-tab" role="tablist">
 
-        <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
-          <button class="nav-link w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
-            {{__('Estudio')}}
-          </button>
-        </li>
+        @if ($studios->count() > 0)
+          <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
+            <button class="nav-link w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+              {{__('Estudio')}}
+            </button>
+          </li>
+        @endif
 
         <li class="nav-item col-6 col-lg-3 pe-3" role="presentation">
           <button class="nav-link w-100 ps-0 text-uppercase ff-oswald fs-5 fw-bold" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
@@ -202,41 +204,43 @@
       <div class="tab-content" id="pills-tabContent">
 
         {{-- Estudios --}}
-        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+        @if ($studios->count() > 0)
+          <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
 
-          <div class="row px-0">
+            <div class="row px-0">
 
-            @foreach ($studios as $unit)
-              <div class="col-12 col-lg-4 mb-4">
-                <div class="card w-100 border-0 position-relative">
+              @foreach ($studios as $unit)
+                <div class="col-12 col-lg-4 mb-4">
+                  <div class="card w-100 border-0 position-relative">
 
-                  @php
-                    $blueprint = '/media/'.$unit->blueprint_path;
-                  @endphp
+                    @php
+                      $blueprint = '/media/'.$unit->blueprint_path;
+                    @endphp
 
-                  <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:contain;" loading="lazy">
+                    <img src="@isset($blueprint){{ asset($blueprint) }}@endisset" class="card-img-top border-bottom" alt="Planos {{$unit->name}}" style="height: 300px; object-fit:contain;" loading="lazy">
 
-                  <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
+                    <div class="badge bg-{{$unit->status}} position-absolute top-0 start-0">{{__($unit->status)}}</div>
 
-                  <div class="card-body">
-                    <h4 class="card-title text-orange ff-oswald fs-6 mb-4">{{$unit->name}}</h4>
-                    <div class="fs-3">{{__('Estudio')}} - {{$unit->bathrooms}}BA - {{$unit->area}}m²</div>
+                    <div class="card-body">
+                      <h4 class="card-title text-orange ff-oswald fs-6 mb-4">{{$unit->name}}</h4>
+                      <div class="fs-3">{{__('Estudio')}} - {{$unit->bathrooms}}BA - {{$unit->area}}m²</div>
 
-                    @if (app()->getLocale() == 'en')
-                      <div class="fs-5 mb-4 text-orange">{{$unit->view->name_en}}</div>
-                    @else
-                      <div class="fs-5 mb-4 text-orange">{{$unit->view->name_es}}</div>
-                    @endif
+                      @if (app()->getLocale() == 'en')
+                        <div class="fs-5 mb-4 text-orange">{{$unit->view->name_en}}</div>
+                      @else
+                        <div class="fs-5 mb-4 text-orange">{{$unit->view->name_es}}</div>
+                      @endif
 
-                    <a href="{{route('unit', ['id'=> $unit->id, 'contact' => $contact])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
+                      <a href="{{route('unit', ['id'=> $unit->id, 'contact' => $contact])}}" class="btn btn-orange w-100">{{__('Más Info')}}</a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            @endforeach
+              @endforeach
 
+            </div>
+            
           </div>
-          
-        </div>
+        @endif
 
         {{-- 1 Recámara --}}
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">

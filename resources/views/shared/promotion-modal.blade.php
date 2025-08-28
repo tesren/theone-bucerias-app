@@ -21,25 +21,25 @@
 
                                 <div class="carousel-item active">
                                     <picture>
-                                        <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-1-'.app()->getLocale().'.webp')}}" type="image/webp">
+                                        <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-1-'.app()->getLocale().'.jpg')}}" type="image/webp">
 
-                                        <img src="{{asset('img/promos/promo-1-'.app()->getLocale().'.webp')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
+                                        <img src="{{asset('img/promos/promo-1-'.app()->getLocale().'.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
                                     </picture>
                                 </div>
 
                                 <div class="carousel-item">
                                     <picture>
-                                        <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-2-'.app()->getLocale().'.webp')}}" type="image/webp">
+                                        <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-2-'.app()->getLocale().'.jpg')}}" type="image/webp">
 
-                                        <img src="{{asset('img/promos/promo-2-'.app()->getLocale().'.webp')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
+                                        <img src="{{asset('img/promos/promo-2-'.app()->getLocale().'.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
                                     </picture>
                                 </div>
 
                                 <div class="carousel-item">
                                     <picture>
-                                        <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-3-'.app()->getLocale().'.webp')}}" type="image/webp">
+                                        <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-3-'.app()->getLocale().'.jpg')}}" type="image/webp">
 
-                                        <img src="{{asset('img/promos/promo-3-'.app()->getLocale().'.webp')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
+                                        <img src="{{asset('img/promos/promo-3-'.app()->getLocale().'.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
                                     </picture>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
 
                 </div>
 
-                {{-- <img src="{{asset('/img/exteriors/rooftop-pool.webp')}}" alt="{{__('Promoción por tiempo limitado')}}" class="w-100"> --}}
+                {{-- <img src="{{asset('/img/exteriors/rooftop-pool.jpg')}}" alt="{{__('Promoción por tiempo limitado')}}" class="w-100"> --}}
             </div>
 
             <div class="modal-footer">

@@ -57,7 +57,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" class="position-absolute start-0 top-0" viewBox="{{$view->view_box}}">
                                 @foreach ($view->units as $unit )
 
-                                    <a href="{{route('unit', ['id'=>$unit->id, 'contact'=>request()->query('contact') ] )}}" class="text-decoration-none position-relative">
+                                    <a href="{{ $unit->name == 'L-02' || $unit->name == 'L-01' ? "#" : route('unit', ['id'=>$unit->id, 'contact'=>request()->query('contact') ]) }}" class="text-decoration-none position-relative">
                                         
                                         <polygon class="building-{{strtolower($unit->status)}}" points="{{ $unit->shape->points ?? '0,0'}}"></polygon>
 
