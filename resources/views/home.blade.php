@@ -83,7 +83,7 @@
     </div>
 
     <div class="col-12 col-lg-4 align-self-center">
-      <img src="{{asset('/img/front-side-view.webp')}}" alt="Dinning area - The One Residences" class="w-100" loading="lazy">
+      <img src="{{asset('/img/the-one-new-front.webp')}}" alt="Dinning area - The One Residences" class="w-100" loading="lazy">
     </div>
 
   </div>

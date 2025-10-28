@@ -72,7 +72,7 @@ document.addEventListener( 'DOMContentLoaded', function() {
   var PromoModal = document.getElementById('promoModal');
   if(PromoModal){
     var today = new Date();
-    var deadline = new Date('2025-09-01');
+    var deadline = new Date('2025-11-01');
 
     if(today < deadline){
       setTimeout(() => {

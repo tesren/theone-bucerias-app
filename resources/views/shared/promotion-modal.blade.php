@@ -23,7 +23,7 @@
                                     <picture>
                                         <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-1-'.app()->getLocale().'.jpg')}}" type="image/webp">
 
-                                        <img src="{{asset('img/promos/promo-1-'.app()->getLocale().'.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
+                                        <img src="{{asset('img/promos/promo-1-'.app()->getLocale().'-oct.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
                                     </picture>
                                 </div>
 
@@ -31,7 +31,7 @@
                                     <picture>
                                         <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-2-'.app()->getLocale().'.jpg')}}" type="image/webp">
 
-                                        <img src="{{asset('img/promos/promo-2-'.app()->getLocale().'.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
+                                        <img src="{{asset('img/promos/promo-2-'.app()->getLocale().'-oct.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
                                     </picture>
                                 </div>
 
@@ -39,7 +39,7 @@
                                     <picture>
                                         <source media="(max-width: 768px)" srcset="{{asset('img/promos/promo-3-'.app()->getLocale().'.jpg')}}" type="image/webp">
 
-                                        <img src="{{asset('img/promos/promo-3-'.app()->getLocale().'.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
+                                        <img src="{{asset('img/promos/promo-3-'.app()->getLocale().'-oct.jpg')}}" class="d-block w-100" alt="{{__('Promoción por tiempo limitado')}}">
                                     </picture>
                                 </div>
                             </div>
