@@ -100,7 +100,7 @@
                 <i class="fa-brands fa-instagram"></i>
               </a>
 
-              <a href="https://wa.me/52{{env('CONTACT_NUMBER')}}?text=Hola,%20vengo%20del%20sitio%20web%20de%20The%20One%20Bucerias" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Whatsapp">
+              <a href="https://wa.me/52{{config('domus.whatsapp_number')}}?text=Hola,%20vengo%20del%20sitio%20web%20de%20The%20One%20Bucerias" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer" aria-label="The One Residences Whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
               </a>
             </div>

@@ -69,7 +69,11 @@
                         <i class="fa-solid fa-envelope"></i> info@domusvallarta.com
                     </a>
 
-                    <a href="tel:+52{{env('CONTACT_NUMBER')}}" class="link-light d-block text-decoration-none mb-3"><i class="fa-solid fa-phone"></i> +52 {{env('DISPLAY_NUMBER')}}</a>
+                    @php
+                        $formatted_phone = preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1 $2 $3', config('domus.phone_number') );
+                    @endphp
+
+                    <a href="tel:+52{{config('domus.phone_number')}}" class="link-light d-block text-decoration-none mb-3"><i class="fa-solid fa-phone"></i> +52 {{$formatted_phone}}</a>
                 @endif
     
                 <a href="https://goo.gl/maps/gF2Tp3yJffcd44nZA" class="link-light text-decoration-none" target="_blank" rel="noopener noreferrer">
@@ -123,7 +127,7 @@
 
 @if ($contact != 'no')
      {{-- WhatsApp --}}
-    <a id="whatsapp" href="https://wa.me/52{{env('CONTACT_NUMBER')}}?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="{{__('Envíanos un mensaje')}}"
+    <a id="whatsapp" href="https://wa.me/52{{config('domus.whatsapp_number')}}?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer" data-bs-toggle="tooltip" data-bs-title="{{__('Envíanos un mensaje')}}"
         class="text-decoration-none position-fixed d-none d-lg-flex justify-content-center shadow-4 rounded-circle text-white z-3 shadow-3 btn btn-dark" 
         style="right:20px; bottom:30px; width:60px; height:60px; font-size:45px;">
 
@@ -141,7 +145,7 @@
             </div>
 
             <div class="col-5 align-self-center">
-                <a class="btn btn-dark w-100 rounded-0 fs-6" href="https://wa.me/52{{env('CONTACT_NUMBER')}}?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer">
+                <a class="btn btn-dark w-100 rounded-0 fs-6" href="https://wa.me/52{{config('domus.whatsapp_number')}}?text={{__("Hola, vengo del sitio web de The One Bucerías")}}" target="_blank" rel="noopener noreferrer">
                     <i class="fa-brands fa-whatsapp"></i> WhatsApp
                 </a>
             </div>

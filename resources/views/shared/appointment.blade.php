@@ -6,9 +6,13 @@
         <h2 class="mb-4">{{__('Agenda tu Cita: ¡Estamos Listos para Atenderte!')}}</h2>       
         <p class="fs-5 mb-5">{{__('Contáctanos por cualquiera de los siguientes medios o a través de nuestro formulario de contacto y con gusto lo atenderemos.')}}</p>
         
-        <a href="tel:+52{{env('CONTACT_NUMBER')}}" class="d-block link-dark fs-5 mb-3 text-decoration-none">
+        @php
+            $formatted_phone = preg_replace('/(\d{3})(\d{3})(\d{4})/', '$1 $2 $3', config('domus.phone_number') );
+        @endphp
+
+        <a href="tel:+52{{config('domus.phone_number')}}" class="d-block link-dark fs-5 mb-3 text-decoration-none">
             <i class="fa-solid fa-mobile-screen-button"></i> 
-            +52 {{env('DISPLAY_NUMBER')}}
+            +52 {{$formatted_phone}}
         </a>
 
         <a href="mailto:info@domusvallarta.com" class="d-block link-dark fs-5 text-decoration-none">

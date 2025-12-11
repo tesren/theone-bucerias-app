@@ -45,5 +45,7 @@ Route::localized(function () {
 
 Route::get('/theone-optimize', function () {
     Artisan::call('optimize');
-    return 'application optimized';
+    Artisan::call('view:cache');
+
+    return 'Optimizado';
 })->name('artisan.optimized');
