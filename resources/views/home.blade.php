@@ -161,6 +161,73 @@
 
   </div>
 
+  @if ($featured_units->count() > 0)
+    {{-- Unidades destacadas --}}
+    <div class="row justify-content-center mb-6">
+      <div class="col-12 col-lg-10 col-xxl-9 px-0">
+
+        <div class="d-flex justify-content-center justify-content-lg-between align-items-center mb-2">
+          <h3 class="fs-1 text-center text-lg-start mb-0">{{__('Unidades')}} <span class="text-orange">{{__('destacadas')}}</span></h3>
+          <span class="badge bg-danger text-uppercase fs-6 py-2 px-3 d-none d-lg-inline-block">{{__('Tiempo Limitado')}}</span>
+        </div>
+
+        <p class="text-center text-lg-start mb-5">
+          {{__('Aprovecha estas unidades con precio especial por tiempo limitado. Disponibilidad sujeta a cambios sin previo aviso.')}}
+        </p>
+
+        <div class="row px-0">
+
+          @foreach ($featured_units as $unit)
+            @php
+              $portrait = '/media/'.$unit->portrait_path;
+              $hasPromoPrice = isset($unit->promo_price) && (float) $unit->promo_price > 0;
+              $promoPrice = $hasPromoPrice ? (float) $unit->promo_price : null;
+              $listPrice = (float) $unit->price;
+            @endphp
+
+            <div class="col-12 col-lg-4 mb-4">
+              <div class="card w-100 border-0 position-relative h-100 shadow-sm">
+
+                <img src="@isset($portrait){{ asset($portrait) }}@endisset" class="card-img-top border-bottom" alt="Condominio {{$unit->name}}" style="height: 250px; object-fit:cover;" loading="lazy">
+
+                <div class="badge bg-success position-absolute top-0 start-0 fw-light fs-6 m-3">{{__('Precio Especial')}}</div>
+
+                <div class="card-body d-flex flex-column">
+                  <h4 class="card-title text-orange ff-oswald fs-6 mb-3">{{__('Condominio')}} {{$unit->name}}</h4>
+
+                  <div class="mb-2">
+                    @if ($unit->bedrooms == 0)
+                      <span>{{__('Estudio')}}</span>
+                    @else
+                      <span>{{$unit->bedrooms}} {{__('REC')}}</span>
+                    @endif
+                    <span> - {{$unit->bathrooms}} BA - {{$unit->area}}m²</span>
+                  </div>
+
+                  @if (app()->getLocale() == 'en')
+                    <div class="mb-3 text-orange">{{$unit->view->name_en}}</div>
+                  @else
+                    <div class="mb-3 text-orange">{{$unit->view->name_es}}</div>
+                  @endif
+
+                  @if($hasPromoPrice)
+                    <div class="small text-muted text-decoration-line-through mb-1">${{ number_format($listPrice, 2) }} {{$unit->currency}} {{__('Precio de Lista')}}</div>
+                    <div class="ff-oswald fs-3 fw-bold text-orange mb-2">${{ number_format($promoPrice, 2) }} {{$unit->currency}}</div>
+                  @endif
+
+                  <div class="small text-orange text-uppercase fw-bold mb-3">{{__('Promoción por tiempo limitado')}}</div>
+
+                  <a href="{{route('unit', ['id'=> $unit->id, 'contact' => $contact])}}" class="btn btn-orange mt-auto w-100">{{__('Más Info')}}</a>
+                </div>
+              </div>
+            </div>
+          @endforeach
+
+        </div>
+      </div>
+    </div>
+  @endif
+
   {{-- Tipos de departamentos --}}
   <div class="row justify-content-center mb-6">
 

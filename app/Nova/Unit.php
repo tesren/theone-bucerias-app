@@ -108,6 +108,18 @@ class Unit extends Resource
                 'MXN' => 'MXN',
             ])->rules('required')->default('MXN')->onlyOnForms(),
 
+            Number::make('Precio promoción', 'promo_price')->min(0)->step(0.01)->sortable()->nullable()
+            ->displayUsing(
+                function($value){
+                    if(isset($value)){
+                        return '$'.number_format($value,2).' '.$this->currency;
+                    }
+                    else{
+                        return '-';
+                    }
+                }
+            ),
+
             Select::make('Estatus', 'status')->options([
                 'Disponible' => 'Disponible',
                 'Apartada' => 'Apartada',

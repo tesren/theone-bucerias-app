@@ -27,8 +27,14 @@ class PublicPagesController extends Controller
         $one_bedrooms = Unit::where('bedrooms', 1)->get();
         $two_bedrooms = Unit::where('bedrooms', 2)->limit(6)->get();
         $three_bedrooms = Unit::where('bedrooms', 3)->get();
+        $featured_units = Unit::with('view')
+            ->where('status', 'Disponible')
+            ->whereNotNull('promo_price')
+            ->where('promo_price', '>', 0)
+            ->orderBy('promo_price')
+            ->get();
 
-        return view('home', compact('studios', 'one_bedrooms', 'two_bedrooms', 'three_bedrooms'));
+        return view('home', compact('studios', 'one_bedrooms', 'two_bedrooms', 'three_bedrooms', 'featured_units'));
     }
 
     public function inventory(){
@@ -138,7 +144,7 @@ class PublicPagesController extends Controller
             }
             
             //Envíamos webhook
-            $webhookUrl = 'https://cloud.punto401.com/webhook/c7277fea-e8df-41b6-bbae-a3c66cbf77d5';
+            $webhookUrl = 'https://cloud.punto401.com/webhook/7bed19ac-6acc-4233-8ca5-b6d72cdbf680';
 
             // Datos que deseas enviar en el cuerpo de la solicitud
             $data = [
@@ -162,12 +168,12 @@ class PublicPagesController extends Controller
             $response = Http::withBasicAuth($n8nUser, $n8nPass)->post($webhookUrl, $data);
 
 
-            $email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');
+            //$email = Mail::to('info@domusvallarta.com')->bcc('ventas@punto401.com');
             //$email->cc(['info@theonebucerias.mx', 'theoneresidences@outlook.com']);
         
             //$email = Mail::to('erick@punto401.com');
             
-            $email->send(new NewLead($msg));
+            //$email->send(new NewLead($msg));
 
             if( isset($pdf) ){
                 return $pdf->stream();

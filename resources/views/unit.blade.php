@@ -15,6 +15,10 @@
     @php
         $portada_url = '/media/'.$unit->portrait_path;
         $blueprint_url = '/media/'.$unit->blueprint_path;
+        $hasPromoPrice = isset($unit->promo_price) && (float) $unit->promo_price > 0;
+        $promoPrice = $hasPromoPrice ? (float) $unit->promo_price : null;
+        $listPrice = (float) $unit->price;
+        $basePrice = $hasPromoPrice ? $promoPrice : $listPrice;
 
         if($unit->isometric_path){
             $isometric_url = '/media/'.$unit->isometric_path;
@@ -102,6 +106,17 @@
                 </li>
 
             </ul>
+
+            <div class="mt-4 py-3 px-3 rounded-1 @if($hasPromoPrice) border border-success bg-success bg-opacity-10 @endif">
+                @if($hasPromoPrice)
+                    <span class="badge bg-success text-uppercase mb-2">{{__('Precio Promoción')}}</span>
+                    <div class="ff-oswald fs-1 fw-bold text-success">${{ number_format($promoPrice, 2) }} {{$unit->currency}}</div>
+                    <div class="small text-muted text-decoration-line-through">${{ number_format($listPrice, 2) }} {{$unit->currency}} {{__('Precio de Lista')}}</div>
+                @else
+                    <div class="ff-oswald fs-1 fw-bold text-orange">${{ number_format($listPrice, 2) }} {{$unit->currency}}</div>
+                    <div class="small text-muted">{{__('Precio de Lista')}}</div>
+                @endif
+            </div>
 
         </div>
 
@@ -257,11 +272,12 @@
 
             @foreach ($plans as $plan)
                 @php
-                    if(isset($plan->discount)){
-                        $discount = $unit->price * ($plan->discount/100);
-                        $price = $unit->price - $discount;
+                    if(!$hasPromoPrice && isset($plan->discount)){
+                        $discount = $listPrice * ($plan->discount/100);
+                        $price = $listPrice - $discount;
                     }else{
-                        $price = $unit->price;
+                        $discount = 0;
+                        $price = $basePrice;
                     }
 
                     $enganche = ($price) * ($plan->down_payment/100);
@@ -297,10 +313,15 @@
 
                             <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
                                 <div>{{__('Precio de Lista')}} </div>
-                                <div class="text-end @isset($plan->discount) text-decoration-line-through @endisset">${{ number_format($unit->price, 2) }} {{$unit->currency}}</div>
+                                <div class="text-end @if(isset($plan->discount) || $hasPromoPrice) text-decoration-line-through @endif">${{ number_format($listPrice, 2) }} {{$unit->currency}}</div>
                             </div>
 
-                            @isset($plan->discount)
+                            @if($hasPromoPrice)
+                                <div class="d-flex justify-content-between mb-3 px-1 px-lg-3 bg-dark text-white py-2">
+                                    <div>{{__('Precio Promocional')}}</div>
+                                    <div class="text-end">${{ number_format($price, 2) }} {{$unit->currency}}</div>
+                                </div>
+                            @elseif(isset($plan->discount))
 
                                 <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
                                     <div>{{__('Descuento del')}} {{$plan->discount}}%</div>
@@ -312,7 +333,7 @@
                                     <div class="text-end">${{ number_format($price, 2) }} {{$unit->currency}}</div>
                                 </div>
 
-                            @endisset
+                            @endif
                             
                             <div class="d-flex justify-content-between mb-3 px-1 px-lg-3">
                                 <div>{{$plan->down_payment}}% {{__('de Enganche')}} </div>
